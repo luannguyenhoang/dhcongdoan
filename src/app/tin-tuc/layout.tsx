@@ -3,6 +3,8 @@ import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
 import { GET_SEO_TIN_TUC } from "@/app/api/graphQL/posts";
 
+export const revalidate = 0;
+
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await getSeoData(GET_SEO_TIN_TUC, "pageBy");
   return {

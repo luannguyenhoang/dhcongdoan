@@ -25,7 +25,7 @@ export const PageBanner = ({
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-0"></div>
 
-      <div className="text-center z-10">
+      <div className="text-center z-10 lg:px-0 px-4">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 z-10">{title}</h1>
 
         {breadcrumbs && breadcrumbs.length > 0 && (

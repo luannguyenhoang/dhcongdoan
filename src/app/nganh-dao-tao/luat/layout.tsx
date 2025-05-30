@@ -2,6 +2,7 @@ import { GET_LUAT } from "@/app/api/graphQL/getLuat";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
+export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await getSeoData(GET_LUAT, "pageBy");
