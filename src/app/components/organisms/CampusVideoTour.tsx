@@ -1,6 +1,6 @@
 "use client";
 
-import { DEFAULT_VIDEO_TOUR } from "@/data/defaultData";
+import { DEFAULT_VIDEO_TOUR } from "@/data/DefaultData";
 import { useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import { VideoModal } from "@/app/components/molecules/VideoModal";

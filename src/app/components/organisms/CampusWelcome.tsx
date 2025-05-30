@@ -1,4 +1,4 @@
-import { DEFAULT_WELCOME_DATA } from "@/data/defaultData";
+import { DEFAULT_WELCOME_DATA } from "@/data/DefaultData";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/app/components/atoms/Button";

@@ -1,5 +1,5 @@
 "use client";
-import { slideData } from "@/data/defaultData";
+import { slideData } from "@/data/DefaultData";
 import { useCallback, useEffect, useRef, useState } from "react";
 import SlideAnimationStyles from "@/utils/styles";
 import FeatureBoxes from "@/app/components/organisms/FeatureBoxes";

@@ -1,6 +1,6 @@
 import { toSlug } from "@/utils/toSlug";
 import { CategoryCard } from "@/app/components/atoms/CategoryCard";
-import { DEFAULT_CATEGORY_DATA } from "@/data/defaultData";
+import { DEFAULT_CATEGORY_DATA } from "@/data/DefaultData";
 
 export const CategoryGrid = ({ data }: { data?: any }) => {
   const categoryData = data || DEFAULT_CATEGORY_DATA;
