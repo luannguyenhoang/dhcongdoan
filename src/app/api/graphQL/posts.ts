@@ -188,9 +188,18 @@ export const GET_SITEMAP = gql`
   }
 `;
 
-export const GET_SEO_PAGE_POSTS = gql`
+export const GET_SEO_TIN_TUC = gql`
   query MyQuery {
-    pageBy(uri: "thu-vien") {
+    pageBy(id: "cG9zdDozMjYwOQ==") {
+      seo {
+        fullHead
+      }
+    }
+  }
+`;
+export const GET_SEO_THONG_TIN_TUYEN_SINH = gql`
+  query MyQuery {
+    pageBy(id: "cG9zdDozMjYwNw==") {
       seo {
         fullHead
       }

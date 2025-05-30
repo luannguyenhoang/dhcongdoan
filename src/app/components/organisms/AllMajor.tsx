@@ -69,7 +69,7 @@ export const AllMajor = () => {
             ))
           ) : (
             <div className="text-center py-4 text-gray-500">
-              Chưa có ngành học nào
+              Dữ liệu đang được chúng tôi cập nhật
             </div>
           )}
         </div>

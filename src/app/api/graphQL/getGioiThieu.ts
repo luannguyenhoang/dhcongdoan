@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_GIOI_THIEU = gql`
-  query MyQuery {
-    pageBy(id: "cG9zdDozMjUzOQ==") {
+ query MyQuery {
+    pageBy(id: "cG9zdDozMjU4OA==") {
       id
       gioiThieu {
         introduce {
@@ -18,7 +18,7 @@ export const GET_GIOI_THIEU = gql`
             text
           }
           idVideo
-          imageVideo {
+          imagevideo {
             node {
               mediaItemUrl
             }

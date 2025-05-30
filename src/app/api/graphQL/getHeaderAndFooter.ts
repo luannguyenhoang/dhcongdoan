@@ -10,9 +10,9 @@ export const GET_HEADER_AND_FOOTER = gql`
               mediaItemUrl
             }
           }
-          titlePhone
+          titlephone
           phone
-          titleEmail
+          titleemail
           email
         }
         footer {
@@ -23,18 +23,24 @@ export const GET_HEADER_AND_FOOTER = gql`
           }
           description
           contacts {
-            titleAddress
+            titleaddress
             address
-            titleEmail
-            linkEmail
+            titleemail
+            linkemail
             email
-            titlePhone
-            linkPhone
+            titlephone
+            linkphone
             phone
           }
           linkFacebook
           linkYoutube
-          linkZalo
+          linkzalo
+          logo02 {
+            node {
+              mediaItemUrl
+            }
+          }
+          copyRight
         }
       }
     }

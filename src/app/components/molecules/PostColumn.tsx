@@ -74,7 +74,7 @@ export const PostColumn = ({
           </div>
         ))
       ) : (
-        <div className="py-8 text-center text-gray-500">Không có bài viết</div>
+        <div className="py-8 text-center text-gray-500">Dữ liệu đang được chúng tôi cập nhật</div>
       )}
     </div>
     <div className="mt-10 flex justify-start">

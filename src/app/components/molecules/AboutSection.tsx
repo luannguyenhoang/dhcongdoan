@@ -55,7 +55,7 @@ export const AboutSection = ({ data }: { data: any }) => {
             <div
               className="relative overflow-hidden h-[400px]"
               style={{
-                backgroundImage: `url(${data?.imageVideo?.node?.mediaItemUrl || "/image3.png"})`,
+                backgroundImage: `url(${data?.imagevideo?.node?.mediaItemUrl || "/image3.png"})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",

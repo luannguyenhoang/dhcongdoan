@@ -81,7 +81,7 @@ export const Footer = ({ footerData }: { footerData: any }) => {
                   </div>
                   <div>
                     <p className="text-sm text-[#f5f5f5] font-medium">
-                      {footerData?.contacts?.titleAddress || "Địa chỉ:"}
+                      {footerData?.contacts?.titleaddress || "Địa chỉ:"}
                     </p>
                     <p className="font-medium">
                       {footerData?.contacts?.address ||
@@ -95,11 +95,11 @@ export const Footer = ({ footerData }: { footerData: any }) => {
                   </div>
                   <div>
                     <p className="text-sm text-[#f5f5f5] font-medium">
-                      {footerData?.contacts?.titlePhone ||
+                      {footerData?.contacts?.titlephone ||
                         "Gọi cho chúng tôi :"}
                     </p>
                     <Link
-                      href={footerData?.contacts?.linkPhone || "tel:0438573204"}
+                      href={footerData?.contacts?.linkphone || "tel:0438573204"}
                     >
                       <p className="hover:text-[#fdc800] transition-all duration-300 font-medium">
                         {footerData?.contacts?.phone || "(84-4) 3.857.3204"}
@@ -113,12 +113,12 @@ export const Footer = ({ footerData }: { footerData: any }) => {
                   </div>
                   <div>
                     <p className="text-sm text-[#f5f5f5] font-medium">
-                      {footerData?.contacts?.titleEmail || "Email:"}
+                      {footerData?.contacts?.titleemail || "Email:"}
                     </p>
                     <Link
                       href={
-                        footerData?.contacts?.linkEmail ||
-                        "mailto:dhcongdoan@dhcd.edu.vn"
+                        footerData?.contacts?.linkemail ||
+                        "mailto:dhcongdoan@dhcd.edu.vn abc"
                       }
                     >
                       <p className="hover:text-[#fdc800] transition-all duration-300 font-medium">
@@ -152,7 +152,7 @@ export const Footer = ({ footerData }: { footerData: any }) => {
               <FaYoutube className="text-white" />
             </Link>
             <Link
-              href={footerData?.linkZalo || "#"}
+              href={footerData?.linkzalo || "#"}
               className="w-10 h-10 bg-[#002147] border border-[#273a50] rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors"
               aria-label="Zalo"
             >
@@ -164,11 +164,16 @@ export const Footer = ({ footerData }: { footerData: any }) => {
         <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-4 py-4">
           <div className="mb-4 md:mb-0">
             <Link href="/" className="inline-flex items-center">
-              <Image src="/logo.png" alt="Logo trường" width={310} height={310} />
+              <Image
+                src={footerData?.logo02?.node?.mediaItemUrl || "/logo.png"}
+                alt="Logo trường"
+                width={310}
+                height={310}
+              />
             </Link>
           </div>
           <div className="text-center md:text-right text-gray-400 text-sm">
-            © Copyright {new Date().getFullYear()} Trường đại học Công Đoàn
+            {footerData?.copyRight || "© Copyright Trường đại học Công Đoàn"}
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ export default function HeaderTop({ headerData }: { headerData: any }) {
                 />
               </svg>
               <span className="hover:text-[#fdc800] transition-all duration-300">
-                {headerData?.titlePhone || "(84-4) 3.857.3204"}
+                {headerData?.titlephone || "(84-4) 3.857.3204"}
               </span>
             </div>
           </Link>
@@ -43,7 +43,7 @@ export default function HeaderTop({ headerData }: { headerData: any }) {
                 />
               </svg>
               <span className="hover:text-[#fdc800] transition-all duration-300">
-                {headerData?.titleEmail || "dhcongdoan@dhcd.edu.vn"}
+                {headerData?.titleemail || "dhcongdoan@dhcd.edu.vn"}
               </span>
             </div>
           </Link>

@@ -103,7 +103,7 @@ export const NewPost = () => {
               ))
             ) : (
               <p className="text-gray-500 text-center py-4">
-                Không có bài viết nào
+                Dữ liệu đang được chúng tôi cập nhật
               </p>
             )}
           </div>

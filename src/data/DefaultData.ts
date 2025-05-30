@@ -207,6 +207,15 @@ export const DEFAULT_INSTRUCTORS = [
         mediaItemUrl: "/no-image.jpeg",
       },
     },
+    name: "PGS.TS. Nguyễn Văn A",
+    role: "Trưởng Khoa Quản trị nhân lực",
+  },
+  {
+    avatar: {
+      node: {
+        mediaItemUrl: "/no-image.jpeg",
+      },
+    },
     name: "TS. Trần Thị B",
     role: "Trưởng Bộ môn Luật lao động",
   },
