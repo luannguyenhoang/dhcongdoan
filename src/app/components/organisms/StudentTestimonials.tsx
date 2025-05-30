@@ -1,6 +1,6 @@
 "use client";
 
-import { DEFAULT_TESTIMONIALS } from "@/data/DefaultData";
+import { DEFAULT_TESTIMONIALS } from "@/data/defaultData";
 import { useCallback, useEffect, useState } from "react";
 import { TestimonialItem } from "@/app/components/molecules/TestimonialItem";
 import { TestimonialPagination } from "@/app/components/molecules/TestimonialPagination";

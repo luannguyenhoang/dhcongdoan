@@ -1,6 +1,6 @@
 "use client";
 
-import { whyChooseUsData } from "@/data/DefaultData";
+import { whyChooseUsData } from "@/data/defaultData";
 import { FaBook, FaGraduationCap, FaUser } from "react-icons/fa";
 
 interface Feature {

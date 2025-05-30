@@ -1,6 +1,6 @@
 "use client";
 
-import { DEFAULT_INSTRUCTORS } from "@/data/DefaultData";
+import { DEFAULT_INSTRUCTORS } from "@/data/defaultData";
 import Image from "next/image";
 import { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
