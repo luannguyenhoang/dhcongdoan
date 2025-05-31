@@ -1,10 +1,10 @@
 "use client";
 
-import { useCountdown } from "@/hooks/useCountdown";
-import { formatDate } from "@/utils/date";
-import { CountdownTimerProps } from "@/types/types";
 import { TimeSeparator } from "@/app/components/atoms/TimeSeparator";
 import { TimeUnit } from "@/app/components/atoms/TimeUnit";
+import { useCountdown } from "@/hooks/useCountdown";
+import { CountdownTimerProps } from "@/types/types";
+import { formatDate } from "@/utils/date";
 
 export const CountdownTimer = ({
   title,
@@ -25,6 +25,12 @@ export const CountdownTimer = ({
       </div>
 
       <div className="flex items-center justify-center w-full lg:w-auto">
+        <TimeUnit
+          value={timeLeft.days}
+          label="Ngày"
+          size="text-5xl md:text-6xl lg:text-8xl"
+        />
+        <TimeSeparator textSize="text-5xl md:text-6xl lg:text-8xl" />
         <TimeUnit
           value={timeLeft.hours}
           label="Giờ"

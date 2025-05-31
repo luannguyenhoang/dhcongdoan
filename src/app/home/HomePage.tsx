@@ -7,7 +7,9 @@ import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
 import { getData } from "@/lib/getData";
 
 const CategoryGrid = dynamic(() =>
-  import("@/app/components/organisms/CategoryGrid").then((mod) => mod.CategoryGrid)
+  import("@/app/components/organisms/CategoryGrid").then(
+    (mod) => mod.CategoryGrid
+  )
 );
 
 const CampusVideoTour = dynamic(() =>
@@ -47,7 +49,9 @@ const OpeningScheduleBanner = dynamic(() =>
 );
 
 const PartnerLogos = dynamic(() =>
-  import("@/app/components/organisms/PartnerLogos").then((mod) => mod.PartnerLogos)
+  import("@/app/components/organisms/PartnerLogos").then(
+    (mod) => mod.PartnerLogos
+  )
 );
 
 export default function HomePage() {

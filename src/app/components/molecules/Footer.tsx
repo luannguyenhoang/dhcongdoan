@@ -10,7 +10,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { SiZalo } from "react-icons/si";
-import { menus } from "../../../../router";
+import { menus } from "../../../router/router";
 
 export const Footer = ({ footerData }: { footerData: any }) => {
   const nganhdaotao = menus.find((item) => item.title === "Ngành đào tạo");
@@ -18,8 +18,8 @@ export const Footer = ({ footerData }: { footerData: any }) => {
     <footer className="bg-[#002147] text-white pt-16">
       <div className="w-full ">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16 lg:place-items-center">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16 lg:place-items-center">
+            <div className="space-y-6 md:col-span-3 lg:col-span-1">
               <Link href={"/"} className="flex w-full justify-center">
                 <Image
                   src={footerData?.logo?.node?.mediaItemUrl || "/logopng.png"}
@@ -121,7 +121,7 @@ export const Footer = ({ footerData }: { footerData: any }) => {
                         "mailto:dhcongdoan@dhcd.edu.vn abc"
                       }
                     >
-                      <p className="hover:text-[#fdc800] transition-all duration-300 font-medium">
+                      <p className="hover:text-[#fdc800] transition-all duration-300 font-medium break-words">
                         {footerData?.contacts?.email ||
                           "dhcongdoan@dhcd.edu.vn"}
                       </p>

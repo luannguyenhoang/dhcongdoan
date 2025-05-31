@@ -3,7 +3,7 @@ import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Header from "@/app/components/molecules/Header";
-import "@/app/globals.css";
+import "./globals.css";
 import { GET_HEADER_AND_FOOTER } from "./api/graphQL/getHeaderAndFooter";
 
 const Footer = dynamic(() =>

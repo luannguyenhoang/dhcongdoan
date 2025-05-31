@@ -1,10 +1,10 @@
 "use client";
 
+import { TimeSeparator } from "@/app/components/atoms/TimeSeparator";
+import { TimeUnit } from "@/app/components/atoms/TimeUnit";
 import { useCountdown } from "@/hooks/useCountdown";
 import { formatDate } from "@/utils/date";
 import Image from "next/image";
-import { TimeSeparator } from "@/app/components/atoms/TimeSeparator";
-import { TimeUnit } from "@/app/components/atoms/TimeUnit";
 
 export const OpeningScheduleBanner = ({ data }: { data?: any }) => {
   const timeLeft = useCountdown(data?.date || "2025-06-01");
@@ -25,41 +25,41 @@ export const OpeningScheduleBanner = ({ data }: { data?: any }) => {
           </div>
           <div className="w-full md:w-2/4 flex flex-col justify-center items-center text-center bg-[#002147] p-8">
             <h2 className="lg:text-4xl text-2xl font-medium text-white mb-4">
-              {data?.title || "Opening Schedule"}
+              {data?.title || "Lịch Khai Giảng"}
             </h2>
             <div className="flex flex-col items-center mb-4">
-              <div className="flex items-center gap-1 text-white">
+              <div className="flex items-center gap-0.5 md:gap-1 text-white">
                 <TimeUnit
                   value={timeLeft.days}
                   label="Ngày"
                   inverted
-                  size="text-5xl"
+                  size="text-3xl md:text-4xl lg:text-5xl"
                 />
                 <TimeSeparator light />
                 <TimeUnit
                   value={timeLeft.hours}
                   label="Giờ"
                   inverted
-                  size="text-5xl"
+                  size="text-3xl md:text-4xl lg:text-5xl"
                 />
                 <TimeSeparator light />
                 <TimeUnit
                   value={timeLeft.minutes}
                   label="Phút"
                   inverted
-                  size="text-5xl"
+                  size="text-3xl md:text-4xl lg:text-5xl"
                 />
                 <TimeSeparator light />
                 <TimeUnit
                   value={timeLeft.seconds}
                   label="Giây"
                   inverted
-                  size="text-5xl"
+                  size="text-3xl md:text-4xl lg:text-5xl"
                 />
               </div>
             </div>
             <p className="text-white font-medium text-md mb-4">
-              {formatDate(data?.date || "29/06/2025")}
+              {formatDate(data?.date || "21/06/2025")}
             </p>
           </div>
         </div>

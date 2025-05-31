@@ -1,15 +1,15 @@
-import "server-only";
+"use client";
 
 import { clean } from "@/lib/sanitizeHtml";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import styles from "../../../styles/Post.module.css";
+import styles from "@/styles/Post.module.css";
 
 const BanerPost = dynamic(() =>
   import("@/app/components/atoms/BanerPost").then((mod) => mod.BanerPost)
 );
 
-export const Post = ({ post }: { post: any }) => {
+export const ClientPost = ({ post }: { post: any }) => {
   return (
     <>
       <article className={styles["post"]}>
@@ -39,4 +39,4 @@ export const Post = ({ post }: { post: any }) => {
       </article>
     </>
   );
-};
+}; 

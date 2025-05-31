@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { menus } from "../../../../router";
+import { menus } from "../../../router/router";
 
 export const DesktopMenu = () => {
   const pathname = usePathname();
@@ -10,7 +10,7 @@ export const DesktopMenu = () => {
   };
 
   return (
-    <nav className="hidden md:flex z-50 h-full">
+    <nav className="hidden lg:flex z-50 h-full">
       <ul className="flex space-x-1 h-full">
         {menus.map(
           (item: {

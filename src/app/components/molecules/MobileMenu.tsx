@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { menus } from "../../../../router";
+import { menus } from "../../../router/router";
 
 export default function MobileMenu({
   mobileMenuOpen,
@@ -46,7 +46,7 @@ export default function MobileMenu({
 
   return (
     <>
-      <div className="md:hidden ml-auto flex items-center">
+      <div className="lg:hidden ml-auto flex items-center">
         <button
           className="text-gray-800 focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -87,7 +87,7 @@ export default function MobileMenu({
 
           <div
             ref={menuRef}
-            className="md:hidden bg-white shadow-lg absolute left-0 right-0 top-24 z-20"
+            className="lg:hidden bg-white shadow-lg absolute left-0 right-0 top-24 z-20"
           >
             <nav className="">
               <ul className="space-y-0">

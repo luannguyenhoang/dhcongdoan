@@ -1,11 +1,22 @@
 export const formatDate = (inputDate: string) => {
-  const date = new Date(inputDate);
+  let date;
+  
+  // Check if the input is in DD/MM/YYYY format
+  if (inputDate.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
+    const [day, month, year] = inputDate.split("/").map(Number);
+    date = new Date(year, month - 1, day);
+  } else {
+    date = new Date(inputDate);
+  }
 
-  const day = String(date.getUTCDate()).padStart(2, "0");
-  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const year = date.getUTCFullYear();
+  // Check if date is valid
+  if (isNaN(date.getTime())) {
+    return "Ngày không hợp lệ";
+  }
 
-  const dateStr = `${day}/${month}/${year}`;
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
 
-  return `${dateStr}`.trim();
+  return `${day}/${month}/${year}`;
 };
