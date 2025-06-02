@@ -1,38 +1,66 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PartnerLogos = ({ data }: { data?: any }) => {
+  const swiperRef = useRef(null);
   return (
-    <div className="w-full py-10 bg-white">
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex overflow-x-auto md:grid md:grid-cols-4 md:justify-items-center scrollbar-hide gap-4 md:gap-8 pb-4 px-[calc((100%-2*calc(50%-8px))/2)] md:px-0">
+    <div className="py-10 md:py-10 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <Swiper
+          onSwiper={(swiper) => {
+            (swiperRef as any).current = swiper;
+          }}
+          modules={[Navigation, Autoplay]}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          spaceBetween={8}
+          slidesPerView={2}
+          centeredSlides={false}
+          loop={true}
+          breakpoints={{
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+              centeredSlides: false,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+              centeredSlides: false,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+              centeredSlides: false,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              centeredSlides: false,
+            },
+          }}
+          className="instructor-swiper"
+        >
           {data?.map((partner: any, index: number) => (
-            <div
-              key={index}
-              className="w-[calc(50%-8px)] md:w-full h-32 md:h-40 flex-shrink-0 flex items-center justify-center"
-            >
-              <div className="flex items-center justify-center w-full h-full">
+            <SwiperSlide key={index}>
+              <div className="h-32 md:h-44 flex items-center justify-center bg-white rounded-lg p-2 md:p-4 mx-0.5 md:mx-1">
                 <Image
                   src={partner.image?.node?.mediaItemUrl || "/no-image.jpeg"}
                   alt={`Logo đối tác: ${partner.name || "đối tác"}`}
-                  width={270}
-                  height={150}
+                  width={220}
+                  height={220}
                   className="object-contain max-h-full max-w-full"
                 />
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </div>
   );
