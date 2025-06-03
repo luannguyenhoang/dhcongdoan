@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { SearchBar } from "../atoms/SearchBar";
 
 const VideoMajorDetail = dynamic(() =>
   import("@/app/components/molecules/VideoMajorDetail").then(
@@ -26,6 +27,7 @@ export const SliderBar = ({
   showRegister = false,
   showForm = false,
   showNewPost = false,
+  showSearchBar = false,
   onSearch,
 }: {
   showSearch?: boolean;
@@ -35,6 +37,7 @@ export const SliderBar = ({
   showRegister?: boolean;
   showForm?: boolean;
   showNewPost?: boolean;
+  showSearchBar?: boolean;
   onSearch?: (term: string) => void;
 }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -80,6 +83,11 @@ export const SliderBar = ({
             </button>
           </div>
         </div>
+      )}
+      {showSearchBar && (
+        <SearchBar
+          placeholder="Tìm kiếm ..."
+        />
       )}
       {showVideoMajorDetail && <VideoMajorDetail />}
       {showRegister && <Register />}

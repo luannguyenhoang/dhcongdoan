@@ -207,18 +207,6 @@ export const GET_SEO_THONG_TIN_TUYEN_SINH = gql`
   }
 `;
 
-export const GET_POSTS_COUNT_BY_CATEGORY = gql`
-  query GetPostsCountByCategory($slug: String!) {
-    posts(where: { categoryName: $slug }) {
-      pageInfo {
-        offsetPagination {
-          total
-        }
-      }
-    }
-  }
-`;
-
 export const GET_POSTS_BY_CATEGORY_ID = gql`
   query GetPostsByCategoryId($categoryId: ID!, $size: Int!, $offset: Int!) {
     posts(

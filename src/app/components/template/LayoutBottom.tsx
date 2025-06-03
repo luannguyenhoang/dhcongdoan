@@ -14,6 +14,7 @@ export const LayoutBottom = ({
   showForm = false,
   showNewPost = false,
   onSearch,
+  showSearchBar = false,
 }: {
   children: ReactNode;
   m?: string;
@@ -24,6 +25,7 @@ export const LayoutBottom = ({
   showRegister?: boolean;
   showForm?: boolean;
   showNewPost?: boolean;
+  showSearchBar?: boolean;
 }) => {
   return (
     <DefaultLayout>
@@ -31,6 +33,7 @@ export const LayoutBottom = ({
         <div className="lg:col-span-9 lg:px-0">{children}</div>
         <div className={`sidebar-posts lg:col-span-3 ${m}`}>
           <SliderBar
+            showSearchBar={showSearchBar}
             showCustomSearch={showCustomSearch}
             showVideoMajorDetail={showVideoMajorDetail}
             onSearch={onSearch}

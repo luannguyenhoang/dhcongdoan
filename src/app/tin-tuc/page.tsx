@@ -23,7 +23,11 @@ export default function Page() {
         breadcrumbs={[{ label: "Trang chủ", url: "/" }, { label: "Tin tức" }]}
       />
       <div className="py-24">
-        <LayoutBottom showNewPost={true} showForm={true}>
+        <LayoutBottom
+          showSearchBar={true}
+          showNewPost={true}
+          showForm={true}
+        >
           <div>
             <ListPosts
               handleRouter={handleRouter}

@@ -27,7 +27,7 @@ export default function Page() {
         ]}
       />
       <div className="py-24">
-        <LayoutBottom showForm={true} showNewPost={true}>
+        <LayoutBottom showForm={true} showNewPost={true} showSearchBar={true}>
           <div>
             <ListPosts
               handleRouter={handleRouter}
