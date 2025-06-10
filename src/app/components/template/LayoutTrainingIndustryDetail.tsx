@@ -32,7 +32,7 @@ export default function TrainingIndustryDetailLayout({
       />
       <div className="py-24">
         <LayoutBottom
-          showVideoMajorDetail={true}
+          showVideoMajorDetail={false}
           showAllMajor={false}
           showRegister={true}
           showForm={false}
