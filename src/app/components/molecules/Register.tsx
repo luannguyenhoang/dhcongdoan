@@ -67,7 +67,9 @@ export const Register = () => {
             {topItems.map((item, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between py-1.5 border-b border-gray-100"
+                className={`flex items-center justify-between py-1.5 ${
+                  index !== topItems.length - 1 ? "border-b border-gray-300" : ""
+                }`}
               >
                 <div className="flex items-center gap-1">
                   <span className="text-lg mr-1">{item.icon}</span>
@@ -92,7 +94,9 @@ export const Register = () => {
             {bottomItems.map((item, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between py-1.5 border-b border-gray-100"
+                className={`flex items-center justify-between py-1.5 ${
+                  index !== bottomItems.length - 1 ? "border-b border-gray-300" : ""
+                }`}
               >
                 <div className="flex items-center gap-1">
                   <span className="text-lg mr-1">{item.icon}</span>
