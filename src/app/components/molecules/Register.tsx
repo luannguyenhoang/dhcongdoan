@@ -3,10 +3,38 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { FormWrapper } from "@/app/components/molecules/FormWrapper";
+import { getData } from "@/lib/getData";
+import { GET_SIDE_BAR } from "@/app/api/graphQL/getSideBar";
+
+type SidebarItem = {
+  icon: string;
+  text: string;
+};
 
 export const Register = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [sidebarItems, setSidebarItems] = useState<SidebarItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSidebarData = async () => {
+      try {
+        const response = await getData(GET_SIDE_BAR);
+        if (response?.allSlideBar?.nodes?.[0]?.sliderBarContent?.sideBar) {
+          setSidebarItems(
+            response.allSlideBar.nodes[0].sliderBarContent.sideBar
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching sidebar data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSidebarData();
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -22,6 +50,10 @@ export const Register = () => {
     };
   }, [showPopup]);
 
+  // Split sidebar items: first 3 above the button, rest below
+  const topItems = sidebarItems.slice(0, 3);
+  const bottomItems = sidebarItems.slice(3);
+
   return (
     <div>
       <div className="mb-8 border border-gray-200 py-7 px-5">
@@ -29,14 +61,47 @@ export const Register = () => {
           Tư Vấn Ngành
         </h2>
         <div className="border-b-4 border-yellow-400 w-12 mb-4"></div>
-        <div className="flex flex-col gap-2">
+
+        {!loading && topItems.length > 0 && (
+          <div className="flex flex-col gap-1 mb-4">
+            {topItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between py-1.5 border-b border-gray-100"
+              >
+                <div className="flex items-center gap-1">
+                  <span className="text-lg mr-1">{item.icon}</span>
+                </div>
+                <span className="text-sm text-gray-700">{item.text}</span>{" "}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="flex flex-col gap-2 my-4">
           <button
             onClick={() => setShowPopup(true)}
-            className="w-full py-3 px-4 bg-[#002147] text-white font-semibold uppercase"
+            className="w-full py-3 px-4 bg-[#02c39a] text-white font-semibold uppercase rounded-full"
           >
-            ĐĂNG KÍ
+            Tư vấn ngành
           </button>
         </div>
+
+        {!loading && bottomItems.length > 0 && (
+          <div className="flex flex-col gap-1 mt-3">
+            {bottomItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between py-1.5 border-b border-gray-100"
+              >
+                <div className="flex items-center gap-1">
+                  <span className="text-lg mr-1">{item.icon}</span>
+                </div>
+                <span className="text-sm text-gray-700">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {mounted &&
