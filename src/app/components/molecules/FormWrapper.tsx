@@ -1,11 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-
-import { useEffect, useState } from "react";
+import { GET_FORM } from "@/app/api/graphQL/getForm";
 import { FormGetFly } from "@/app/components/molecules/FormGetFly";
 import { FormGoogle } from "@/app/components/molecules/FormGoogle";
 import { FormSam } from "@/app/components/molecules/FormSam";
 import { getData } from "@/lib/getData";
-import { GET_FORM } from "@/app/api/graphQL/getForm";
+import { useEffect, useState } from "react";
 
 interface FormData {
   type: "form-getfly" | "form-sam" | "form-google" | "unknown";
@@ -47,7 +47,18 @@ export const FormWrapper = ({
     let divId = "";
     let divClass = "";
 
-    if (htmlString.includes("sambala.net/formio")) {
+    if (htmlString.includes("google.com/forms")) {
+      // Google Form
+      formType = "form-google";
+      const iframeRegex = /<iframe[^>]+src="([^"]+)"[^>]*>/;
+      const iframeMatch = htmlString.match(iframeRegex);
+      url = iframeMatch?.[1] || "";
+      divId = "google-form-container";
+    } else if (
+      htmlString.includes("sambala.net/formio") ||
+      htmlString.includes("GetForm")
+    ) {
+      // SAM Form
       formType = "form-sam";
 
       const container = doc.querySelector(".formio_form_iframe_container");
@@ -71,6 +82,18 @@ export const FormWrapper = ({
           url = urlMatch[1];
         }
       });
+    } else {
+      // GetFly Form (default case)
+      formType = "form-getfly";
+      const idRegex = /id="([^"]+)"/;
+      const hrefRegex = /https:\/\/[^"]+/;
+      const idMatch = htmlString.match(idRegex);
+      const hrefMatch = htmlString.match(hrefRegex);
+
+      uuid = idMatch?.[1] || "";
+      url = hrefMatch?.[0] || "";
+      divId = uuid;
+      divClass = "formio_form_iframe_container";
     }
 
     return {
