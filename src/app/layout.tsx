@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Header from "@/app/components/molecules/Header";
 import "./globals.css";
 import { GET_HEADER_AND_FOOTER } from "./api/graphQL/getHeaderAndFooter";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const Footer = dynamic(() =>
   import("@/app/components/molecules/Footer").then((mod) => mod.Footer)
@@ -17,6 +18,9 @@ export default function RootLayout({
 }>) {
   const [headerData, setHeaderData] = useState<any>(null);
   const [footerData, setFooterData] = useState<any>(null);
+
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,6 +50,10 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+
+        {gaId && <GoogleAnalytics gaId={gaId} />}
+
         <Header headerData={headerData?.pageBy?.trangChu?.header || {}} />
         {children}
         <Footer footerData={footerData?.pageBy?.trangChu?.footer || {}} />
