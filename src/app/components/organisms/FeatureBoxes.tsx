@@ -8,16 +8,19 @@ interface FeatureBoxItem {
 export default function FeatureBoxes({ data }: { data?: FeatureBoxItem[] }) {
   const featureBoxesData = data || [
     {
-      title: "Cơ sở đào tạo",
-      description: "Văn bản giả mạo in ấn của ngành công nghiệp.",
+      title: "Học Online 100% Thuận Tiện",
+      description:
+        "Áp dụng hình thức học trực tuyến hoàn toàn, bạn có thể học mọi lúc, mọi nơi mà không cần đến lớp, giúp tiết kiệm thời gian và linh hoạt trong việc sắp xếp lịch học.",
     },
     {
-      title: "Giảng viên có kỹ năng",
-      description: "Văn bản giả mạo in ấn của ngành công nghiệp.",
+      title: "Văn Bằng Đại Học Chuẩn",
+      description:
+        "Chương trình đào tạo từ xa của chúng tôi cấp bằng đại học chính quy, được Bộ Giáo dục và Đào tạo công nhận, mang lại giá trị cao cho sự nghiệp của bạn",
     },
     {
-      title: "Thư viện & Cửa hàng sách",
-      description: "Văn bản giả mạo in ấn của ngành công nghiệp.",
+      title: "Chỉ Xét Tuyển, Không Thi Tuyển",
+      description:
+        "Với phương thức xét tuyển đơn giản, bạn không phải lo lắng về kỳ thi, chỉ cần đáp ứng yêu cầu đầu vào để dễ dàng nhập học và bắt đầu hành trình học tập",
     },
   ];
 

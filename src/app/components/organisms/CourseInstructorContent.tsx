@@ -32,7 +32,8 @@ export const CourseInstructorContent = ({
 
         {data.courseContent &&
           data.courseContent
-            .split("\r\n\r\n")
+            .split(/\r\n\r\n|\r\n/)
+            .filter((paragraph: string) => paragraph.trim() !== "")
             .map((paragraph: string, index: number) => (
               <p key={index}>{paragraph}</p>
             ))}

@@ -20,7 +20,7 @@ export default function Page() {
     <div>
       <PageBanner
         title="Thông tin tuyển sinh"
-        backgroundImage="/image7.png"
+        backgroundImage="/image11.webp"
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           { label: "Thông tin tuyển sinh" },

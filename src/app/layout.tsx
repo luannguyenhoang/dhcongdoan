@@ -1,11 +1,11 @@
 "use client";
+import Header from "@/app/components/molecules/Header";
 import { getData } from "@/lib/getData";
+import { GoogleTagManager } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import Header from "@/app/components/molecules/Header";
-import "./globals.css";
 import { GET_HEADER_AND_FOOTER } from "./api/graphQL/getHeaderAndFooter";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import "./globals.css";
 
 const Footer = dynamic(() =>
   import("@/app/components/molecules/Footer").then((mod) => mod.Footer)
@@ -51,8 +51,6 @@ export default function RootLayout({
       </head>
       <body>
         {gtmId && <GoogleTagManager gtmId={gtmId} />}
-
-        {gaId && <GoogleAnalytics gaId={gaId} />}
 
         <Header headerData={headerData?.pageBy?.trangChu?.header || {}} />
         {children}

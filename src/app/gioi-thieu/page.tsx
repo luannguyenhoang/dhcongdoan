@@ -1,7 +1,5 @@
 "use client";
 
-import { getData } from "@/lib/getData";
-import { useEffect, useState } from "react";
 import { GET_GIOI_THIEU } from "@/app/api/graphQL/getGioiThieu";
 import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
 import { AboutSection } from "@/app/components/molecules/AboutSection";
@@ -9,6 +7,8 @@ import { PageBanner } from "@/app/components/molecules/PageBanner";
 import { WhyChooseUs } from "@/app/components/molecules/WhyChooseUs";
 import { InstructorCarousel } from "@/app/components/organisms/InstructorCarousel";
 import { StatisticsCounter } from "@/app/components/organisms/StatisticsCounter";
+import { getData } from "@/lib/getData";
+import { useEffect, useState } from "react";
 
 export default function AboutUs() {
   const [homeData, setHomeData] = useState<any>(null);
@@ -34,6 +34,7 @@ export default function AboutUs() {
   const TeacherData = homeData?.pageBy?.trangChu?.teacher;
   const whyChooseUsData =
     gioiThieuData?.pageBy?.gioiThieu?.introduce?.whychooseourinstitution;
+  const ParameterData = homeData?.pageBy?.trangChu?.parameter;
 
   return (
     <>
@@ -43,7 +44,7 @@ export default function AboutUs() {
         }
         backgroundImage={
           gioiThieuData?.pageBy?.gioiThieu?.introduce?.banner?.node
-            ?.mediaItemUrl || "/image7.png"
+            ?.mediaItemUrl || "/image11.webp"
         }
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
@@ -56,7 +57,7 @@ export default function AboutUs() {
       />
       <AboutSection data={gioiThieuData?.pageBy?.gioiThieu?.introduce} />
       <WhyChooseUs data={whyChooseUsData} />
-      <StatisticsCounter />
+      <StatisticsCounter data={ParameterData} />
       <InstructorCarousel data={TeacherData} />
     </>
   );

@@ -19,7 +19,7 @@ export default function Page() {
     <div>
       <PageBanner
         title="Tin tức"
-        backgroundImage="/image7.png"
+        backgroundImage="/image11.webp"
         breadcrumbs={[{ label: "Trang chủ", url: "/" }, { label: "Tin tức" }]}
       />
       <div className="py-24">
