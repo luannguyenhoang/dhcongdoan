@@ -30,15 +30,15 @@ export const AboutSection = ({ data }: { data: any }) => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl font-medium mb-6 text-[#002147]">
-                {data?.title2 || "Giới thiệu về chúng tôi"}
+                {data?.title2 || "Hệ Đào tạo Từ xa Trường Đại Học Công Đoàn"}
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 {data?.description ||
-                  "Văn bản mẫu của ngành in ấn và sắp chữ. Lorem Ipsum đã là văn bản mẫu tiêu chuẩn của ngành công nghiệp từ những năm 1500, khi một máy in vô danh lấy."}
+                  "Trường Đại học Công Đoàn là một cơ sở giáo dục đại học công lập, trực thuộc Tổng Liên đoàn Lao động Việt Nam, với hơn 75 năm hình thành và phát triển. Là một trong những trường đại học đầu tiên gắn liền với phong trào công nhân và tổ chức Công đoàn Việt Nam, nhà trường luôn chú trọng đào tạo đội ngũ lao động có tri thức, bản lĩnh và đạo đức nghề nghiệp vững vàng. Với mục tiêu mở rộng cơ hội học tập cho mọi đối tượng, đặc biệt là người đang đi làm, Trường Đại học Công Đoàn triển khai chương trình Đại học từ xa theo hình thức đào tạo trực tuyến hiện đại, linh hoạt về thời gian, thuận tiện trong việc tiếp cận tri thức và nâng cao trình độ chuyên môn."}
               </p>
 
               <div className="space-y-3">
-                {data?.feature?.map((feature: any, index: any) => (
+                {data?.feature?.map ((feature: any, index: any) => (
                   <div key={index} className="flex items-start">
                     <FaCheckCircle
                       className="text-yellow-400 mt-1 mr-3 flex-shrink-0"
@@ -55,7 +55,9 @@ export const AboutSection = ({ data }: { data: any }) => {
             <div
               className="relative overflow-hidden h-[400px]"
               style={{
-                backgroundImage: `url(${data?.imagevideo?.node?.mediaItemUrl || "/image3.png"})`,
+                backgroundImage: `url(${
+                  data?.imagevideo?.node?.mediaItemUrl || "/image12.png"
+                })`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",

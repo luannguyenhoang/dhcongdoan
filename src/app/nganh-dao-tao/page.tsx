@@ -34,7 +34,7 @@ export default function Page() {
     fetchData();
   }, []);
 
-  const bannerUrl = nganhHoc?.banner?.node?.mediaItemUrl || "/image7.png";
+  const bannerUrl = nganhHoc?.banner?.node?.mediaItemUrl || "/image11.webp";
   const industryGroups: IndustryGroup[] = nganhHoc?.industrygroups || [];
 
   const normalizeText = (text: string = "") => {

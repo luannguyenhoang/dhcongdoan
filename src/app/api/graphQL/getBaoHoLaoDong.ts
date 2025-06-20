@@ -8,7 +8,7 @@ export const GET_BAO_HO_LAO_DONG = gql`
           title
           image {
             node {
-              id
+              mediaItemUrl
             }
           }
           overview {
@@ -35,7 +35,7 @@ export const GET_BAO_HO_LAO_DONG = gql`
               role
               avarta {
                 node {
-                  id
+                  mediaItemUrl
                 }
               }
             }

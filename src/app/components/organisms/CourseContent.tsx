@@ -12,8 +12,8 @@ export const CourseContent = ({
       <div className="mb-6 relative h-[400px] w-full overflow-hidden">
         <Image
           placeholder="blur"
-          blurDataURL="/image7.png"
-          src={courseData?.image?.node?.mediaItemUrl || "/image7.png"}
+          blurDataURL="/no-image.jpeg"
+          src={courseData?.image?.node?.mediaItemUrl || "/no-image.jpeg"}
           alt="Hình ảnh minh họa khóa học"
           fill
           style={{ objectFit: "cover", objectPosition: "center" }}

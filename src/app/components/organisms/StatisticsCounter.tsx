@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { StatItem } from "@/app/components/atoms/StatItem";
 
 const DEFAULT_STATS = [
-  { number: "50", text: "GIÁO VIÊN CHUYÊN NGHIỆP" },
-  { number: "87", text: "KHÓA HỌC MỖI MỖI NĂM" },
-  { number: "25", text: "BUỔI HỌP TRỰC TIẾP HÀNG THÁNG" },
-  { number: "666", text: "SINH VIÊN ĐÃ ĐĂNG KÝ" },
+  { number: "78", text: "Năm xây dựng và phát triển" },
+  { number: "17", text: "Ngành đào tạo tại trường" },
+  { number: "6", text: "Ngành đào tạo trực tuyến" },
+  { number: "2500", text: "Sinh viên các hệ đăng ký nhập học mỗi năm" },
 ];
 
 export const StatisticsCounter = ({
@@ -80,7 +80,7 @@ export const StatisticsCounter = ({
       ref={sectionRef}
       className="w-full py-20 z relative"
       style={{
-        backgroundImage: "url('/image3.png')",
+        backgroundImage: "url('/image11.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

@@ -21,32 +21,72 @@ export const statsData = [
 
 export const slideData: SlideItem[] = [
   {
-    title: "Chương trình đào tạo chất lượng cao năm 2024",
+    title: "Giới thiệu",
     description:
-      "Chúng tôi cam kết mang đến chương trình giáo dục toàn diện, kết hợp giữa lý thuyết và thực hành, giúp sinh viên sẵn sàng cho thị trường lao động hiện đại.",
-    image:
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "Trường Đại học Công Đoàn được thành lập từ năm 1946 và là cơ sở giáo dục đại học công lập trực thuộc Tổng Liên đoàn Lao động Việt Nam. Với bề dày lịch sử hơn 75 năm, trường đã đào tạo hàng nghìn cán bộ, công nhân viên chức và các chuyên gia cho xã hội.",
+    image: {
+      node: {
+        mediaItemUrl: "/image13.png",
+      },
+    },
   },
   {
-    title: "Học bổng dành cho sinh viên xuất sắc 2024",
+    title: "Sứ mệnh và Tầm nhìn",
     description:
-      "Cơ hội nhận học bổng toàn phần và bán phần cho các sinh viên có thành tích học tập xuất sắc và hoàn cảnh khó khăn.",
-    image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "Sứ mệnh: Cung cấp một môi trường học tập và nghiên cứu phát triển, nơi mỗi sinh viên đều có thể phát huy tối đa khả năng của mình. Tầm nhìn: Trở thành một trong những trường đại học có chất lượng đào tạo từ xa hàng đầu tại Việt Nam, cung cấp nguồn nhân lực chất lượng cao cho xã hội.",
+    image: {
+      node: {
+        mediaItemUrl: "/image13.png",
+      },
+    },
   },
   {
-    title: "Cơ sở vật chất hiện đại phục vụ học tập",
+    title: "Chất lượng giảng dạy",
     description:
-      "Trường đại học chúng tôi đầu tư vào cơ sở vật chất hiện đại, tạo môi trường học tập tốt nhất cho sinh viên phát triển kỹ năng chuyên môn.",
-    image: "/image2.png",
+      "Đội ngũ giảng viên là những chuyên gia, nhà nghiên cứu hàng đầu trong các lĩnh vực đào tạo",
+    image: {
+      node: {
+        mediaItemUrl: "/image13.png",
+      },
+    },
+  },
+  {
+    title: "Cơ hội nghề nghiệp",
+    description:
+      "Sinh viên sẽ có cơ hội thực tập tại các doanh nghiệp lớn và có khả năng nhận việc ngay sau khi tốt nghiệp.",
+    image: {
+      node: {
+        mediaItemUrl: "/image13.png",
+      },
+    },
+  },
+  {
+    title: "Học từ xa linh hoạt",
+    description:
+      "Học online giúp bạn học tập mọi lúc, mọi nơi, phù hợp với người đi làm học bổ sung kiến thức và bằng cấp",
+    image: {
+      node: {
+        mediaItemUrl: "/image13.png",
+      },
+    },
+  },
+  {
+    title: "Bằng cấp uy tín",
+    description:
+      "Bằng cấp tương đương chính quy, có giá trị toàn quốc, được công nhận trong thi công chức, nâng ngạch, học tiếp cao học...",
+    image: {
+      node: {
+        mediaItemUrl: "/image13.png",
+      },
+    },
   },
 ];
 
 export const DEFAULT_WELCOME_DATA = {
-  title1: "Chào mừng đến với Trường Đại học Công đoàn",
-  title2: "Nơi đào tạo nguồn nhân lực chất lượng cao cho xã hội",
+  title1: "Trường Đại Học Công Đoàn",
+  title2: "Hệ Đại Học Từ Xa - Elearning",
   description:
-    "Trường Đại học Công đoàn là cơ sở giáo dục đại học công lập trực thuộc Tổng Liên đoàn Lao động Việt Nam, được thành lập từ năm 1946. Với bề dày lịch sử phát triển, chúng tôi tự hào là một trong những trường đại học hàng đầu trong lĩnh vực đào tạo về quan hệ lao động, an toàn lao động, công tác xã hội và quản trị nhân lực.",
+    "Hệ đào tạo từ xa theo hình thức học Online của trường hiện nay được rất nhiều học viên quan tâm và lựa chọn theo học. Đây là một hình thức đã có từ lâu nhưng hiện nay đã có rất nhiều thay đổi và được tối ưu đặc biệt phù hợp với người đi làm bận rộn",
   link: "/gioi-thieu",
   image: {
     node: {
@@ -185,9 +225,10 @@ export const DEFAULT_CATEGORY_DATA = {
 };
 
 export const DEFAULT_VIDEO_TOUR = {
-  title: "Tham quan khuôn viên Trường Đại học Công đoàn",
+  title:
+    "LỄ BẾ GIẢNG VÀ TRAO BẰNG TỐT NGHIỆP ĐẠI HỌC - TRƯỜNG ĐẠI HỌC CÔNG ĐOÀN",
   description:
-    "Khám phá cơ sở vật chất hiện đại, không gian học tập sáng tạo và đời sống sinh viên sôi động tại Trường Đại học Công đoàn qua video tour này.",
+    "Lễ Bế Giảng và Trao Bằng Tốt Nghiệp Đại Học, đánh dấu cột mốc quan trọng trong hành trình học tập của sinh viên. Đây là dịp để tôn vinh thành tích và nỗ lực của các tân cử nhân, đồng thời khẳng định cam kết của nhà trường trong việc đào tạo nguồn nhân lực chất lượng cao",
   idVideo: "zZWICdCVKXo",
 };
 

@@ -1,10 +1,10 @@
 "use client";
+import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
+import { CampusWelcome } from "@/app/components/organisms/CampusWelcome";
+import Slider from "@/app/components/organisms/Slider";
+import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import Slider from "@/app/components/organisms/Slider";
-import { CampusWelcome } from "@/app/components/organisms/CampusWelcome";
-import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
-import { getData } from "@/lib/getData";
 
 const CategoryGrid = dynamic(() =>
   import("@/app/components/organisms/CategoryGrid").then(
@@ -56,6 +56,8 @@ const PartnerLogos = dynamic(() =>
 
 export default function HomePage() {
   const [homeData, setHomeData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,12 +67,21 @@ export default function HomePage() {
           throw new Error("No data returned from API");
         }
         setHomeData(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching event data:", error);
+        setError("Error fetching event data");
+        setIsLoading(false);
       }
     };
 
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 15000);
+
     fetchData();
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   const SliderData = homeData?.pageBy?.trangChu?.slider;
@@ -84,7 +95,7 @@ export default function HomePage() {
   const CooperationUnitData = homeData?.pageBy?.trangChu?.cooperationunit;
   return (
     <>
-      <Slider data={SliderData} />
+      <Slider data={SliderData} loading={isLoading} />
       <CampusWelcome data={WelcomeToData} />
       <CategoryGrid data={TrainingIndustryData} />
       <CampusVideoTour data={TourData} />

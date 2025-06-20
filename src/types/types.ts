@@ -132,4 +132,5 @@ export interface CourseContentProps {
   courseData: any;
   activeTab: string;
   setActiveTab: (tabId: string) => void;
+  loading?: boolean;
 }   

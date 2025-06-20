@@ -16,7 +16,7 @@ export default function TrainingIndustryDetailLayout({
 }) {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const bannerUrl = nganhHocData?.banner?.node?.mediaItemUrl || "/image7.png";
+  const bannerUrl = nganhHocData?.banner?.node?.mediaItemUrl || "/image11.webp";
   const industryGroups: IndustryGroup[] = nganhHocData?.industrygroups || [];
 
   return (

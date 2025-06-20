@@ -5,7 +5,11 @@ import Link from "next/link";
 export interface SlideItem {
   title: string;
   description: string;
-  image: string;
+  image: {
+    node: {
+      mediaItemUrl: string;
+    };
+  };
   link?: string;
 }
 

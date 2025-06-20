@@ -23,7 +23,7 @@ export const CampusVideoTour = ({ data }: { data?: any }) => {
         <div
           className="absolute inset-0 z-10"
           style={{
-            backgroundImage: "url('/image2.png')",
+            backgroundImage: "url('/image9.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundBlendMode: "overlay",

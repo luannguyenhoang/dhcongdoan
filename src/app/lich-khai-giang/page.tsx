@@ -40,7 +40,7 @@ export default function LichKhaiGiang() {
     <>
       <PageBanner
         title="Lịch khai giảng"
-        backgroundImage="/image7.png"
+        backgroundImage="/image11.webp"
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           { label: "Lịch khai giảng" },
