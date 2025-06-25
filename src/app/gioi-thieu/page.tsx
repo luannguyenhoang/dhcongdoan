@@ -9,10 +9,12 @@ import { InstructorCarousel } from "@/app/components/organisms/InstructorCarouse
 import { StatisticsCounter } from "@/app/components/organisms/StatisticsCounter";
 import { getData } from "@/lib/getData";
 import { useEffect, useState } from "react";
+import FormPopup from "@/app/components/molecules/FormPopup";
 
 export default function AboutUs() {
   const [homeData, setHomeData] = useState<any>(null);
   const [gioiThieuData, setGioiThieuData] = useState<any>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +32,15 @@ export default function AboutUs() {
     };
 
     fetchData();
+
+    // Set timer to show popup after 12 seconds
+    const popupTimerId = setTimeout(() => {
+      setShowPopup(true);
+    }, 12000);
+
+    return () => {
+      clearTimeout(popupTimerId);
+    };
   }, []);
   const TeacherData = homeData?.pageBy?.trangChu?.teacher;
   const whyChooseUsData =
@@ -38,6 +49,7 @@ export default function AboutUs() {
 
   return (
     <>
+      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
       <PageBanner
         title={
           gioiThieuData?.pageBy?.gioiThieu?.introduce?.title || "Giới thiệu"

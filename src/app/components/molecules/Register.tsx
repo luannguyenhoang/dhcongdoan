@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { FaPlay } from "react-icons/fa";
 import { VideoModal } from "./VideoModal";
+import FormPopup from "./FormPopup";
 
 type SidebarItem = {
   icon: string;
@@ -161,44 +162,9 @@ export const Register = () => {
         )}
       </div>
 
-      {mounted &&
-        showPopup &&
-        createPortal(
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[99999]"
-            style={{ isolation: "isolate" }}
-          >
-            <div
-              className="bg-white p-5 rounded-lg w-[400px] max-w-[90vw] relative"
-              style={{ zIndex: 100000 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="absolute top-2.5 right-2.5 bg-transparent border-none text-xl cursor-pointer"
-                onClick={() => setShowPopup(false)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-              <h3 className="text-center mb-5">Để lại thông tin</h3>
-              <FormWrapper />
-            </div>
-          </div>,
-          document.body
-        )}
+      {mounted && showPopup && (
+        <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
     </div>
   );
 };

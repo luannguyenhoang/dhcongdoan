@@ -1,6 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import FormPopup from "../components/molecules/FormPopup";
+import { useEffect, useState } from "react";
 
 const PostListWithPagination = dynamic(() =>
   import("@/app/components/organisms/PostListWithPagination").then(
@@ -17,11 +19,26 @@ export const ListPosts = ({
   type?: string;
   categoryId?: string;
 }) => {
+  const [showPopup, setShowPopup] = useState(false);
+  useEffect(() => {
+    const popupTimerId = setTimeout(() => {
+      setShowPopup(true);
+    }, 12000);
+
+    return () => {
+      clearTimeout(popupTimerId);
+    };
+  }, []);
   return (
-    <PostListWithPagination
-      type={type}
-      categoryId={categoryId}
-      handleRouter={handleRouter}
-    />
+    <>
+      {showPopup && (
+        <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
+      <PostListWithPagination
+        type={type}
+        categoryId={categoryId}
+        handleRouter={handleRouter}
+      />
+    </>
   );
 };

@@ -18,20 +18,20 @@ export const InstructorCarousel = ({ data }: { data?: any }) => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-3xl  font-medium text-[#002147]">
-            Giảng viên chính
+            Lợi ích hệ học từ xa
           </h2>
           <div className="flex gap-2">
             <button
               className="w-8 h-8 bg-yellow-400 hover:bg-yellow-500 flex items-center justify-center text-white rounded-sm"
               onClick={() => (swiperRef.current as any)?.slidePrev()}
-              aria-label="Giảng viên trước"
+              aria-label="Lợi ích hệ học từ xa trước"
             >
               <FaChevronLeft />
             </button>
             <button
               className="w-8 h-8 bg-yellow-400 hover:bg-yellow-500 flex items-center justify-center text-white rounded-sm"
               onClick={() => (swiperRef.current as any)?.slideNext()}
-              aria-label="Giảng viên tiếp theo"
+              aria-label="Lợi ích hệ học từ xa tiếp theo"
             >
               <FaChevronRight />
             </button>
@@ -67,7 +67,9 @@ export const InstructorCarousel = ({ data }: { data?: any }) => {
               <div>
                 <div className="h-64 relative overflow-hidden group">
                   <Image
-                    src={instructor?.avatar?.node?.mediaItemUrl || "/no-image.jpeg"}
+                    src={
+                      instructor?.avatar?.node?.mediaItemUrl || "/no-image.jpeg"
+                    }
                     alt={`Ảnh giảng viên: ${instructor?.name || "Instructor"}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-110"

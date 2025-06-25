@@ -4,7 +4,7 @@ export default function HeaderTop({ headerData }: { headerData: any }) {
   return (
     <div className="bg-[#002147] text-white py-3 px-4 lg:px-0">
       <div className="container mx-auto flex flex-wrap justify-center items-center max-w-6xl">
-        <div className="flex items-center space-x-6 w-full">
+        <div className="flex items-center justify-end space-x-6 w-full">
           <Link href={headerData?.phone || "tel:0438573204"}>
             <div className="flex items-center">
               <svg
