@@ -5,6 +5,7 @@ import Slider from "@/app/components/organisms/Slider";
 import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import FormPopup from "@/app/components/molecules/FormPopup";
 
 const CategoryGrid = dynamic(() =>
   import("@/app/components/organisms/CategoryGrid").then(
@@ -58,6 +59,7 @@ export default function HomePage() {
   const [homeData, setHomeData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,9 +81,17 @@ export default function HomePage() {
       setIsLoading(false);
     }, 15000);
 
+    // Set timer to show popup after 12 seconds
+    const popupTimerId = setTimeout(() => {
+      setShowPopup(true);
+    }, 12000);
+
     fetchData();
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      clearTimeout(timeoutId);
+      clearTimeout(popupTimerId);
+    };
   }, []);
 
   const SliderData = homeData?.pageBy?.trangChu?.slider;
@@ -95,6 +105,7 @@ export default function HomePage() {
   const CooperationUnitData = homeData?.pageBy?.trangChu?.cooperationunit;
   return (
     <>
+      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
       <Slider data={SliderData} loading={isLoading} />
       <CampusWelcome data={WelcomeToData} />
       <CategoryGrid data={TrainingIndustryData} />

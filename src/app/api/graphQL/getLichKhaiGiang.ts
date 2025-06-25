@@ -17,9 +17,24 @@ export const GET_LICH_KHAI_GIANG = gql`
 `;
 export const GET_SEO_LICH_KHAI_GIANG = gql`
   query MyQuery {
-    pageBy(id: "cG9zdDozMjYxNA==") {
+    pageBy(uri: "lich-khai-giang") {
       seo {
         fullHead
+      }
+    }
+  }
+`;
+export const GET_CONTENT_LICH_KHAI_GIANG = gql`
+  query MyQuery {
+    pageBy(uri: "lich-khai-giang") {
+      id
+      lichKhaiGiang {
+        content {
+          title
+          title2
+          description
+          item
+        }
       }
     }
   }

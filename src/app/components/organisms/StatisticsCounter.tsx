@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { StatItem } from "@/app/components/atoms/StatItem";
+import { useEffect, useRef, useState } from "react";
 
 const DEFAULT_STATS = [
   { number: "78", text: "Năm xây dựng và phát triển" },
@@ -78,7 +78,7 @@ export const StatisticsCounter = ({
   return (
     <section
       ref={sectionRef}
-      className="w-full py-20 z relative"
+      className="w-full py-20 h-60 z relative"
       style={{
         backgroundImage: "url('/image11.webp')",
         backgroundSize: "cover",
@@ -86,7 +86,7 @@ export const StatisticsCounter = ({
       }}
     >
       <div className="relative max-w-6xl mx-auto px-4">
-        <div className="flex flex-wrap justify-start">
+        <div className="flex flex-wrap justify-between">
           {data.map((stat, index) => (
             <StatItem key={index} count={counts[index]} title={stat.text} />
           ))}

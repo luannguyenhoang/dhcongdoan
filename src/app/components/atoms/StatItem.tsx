@@ -8,7 +8,7 @@ export const StatItem = ({ count, title }: StatItemProps) => {
       <div>
         <div className="flex items-center">
           <div className="flex flex-col">
-            <div className="text-6xl font-medium text-white">{count}</div>
+            <div className="text-5xl font-medium text-white">{count}</div>
             <div className="w-full h-[2px] bg-yellow-400 mt-4"></div>
           </div>
           <div className="text-white pl-4">

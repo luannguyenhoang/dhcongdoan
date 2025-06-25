@@ -10,11 +10,13 @@ import { LoadingListPost } from "@/app/components/atoms/LoadingListPost";
 import { PageBanner } from "@/app/components/molecules/PageBanner";
 import { SliderBar } from "@/app/components/organisms/SliderBar";
 import DefaultLayout from "@/app/components/template/LayoutDefault";
+import FormPopup from "@/app/components/molecules/FormPopup";
 
 export default function Page() {
   const [nganhHoc, setNganhHoc] = useState<any>({});
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +34,14 @@ export default function Page() {
     };
 
     fetchData();
+
+    const popupTimerId = setTimeout(() => {
+      setShowPopup(true);
+    }, 12000);
+
+    return () => {
+      clearTimeout(popupTimerId);
+    };
   }, []);
 
   const bannerUrl = nganhHoc?.banner?.node?.mediaItemUrl || "/image11.webp";
@@ -70,6 +80,7 @@ export default function Page() {
 
   return (
     <>
+      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
       <PageBanner
         title={nganhHoc?.title || "Ngành đào tạo"}
         backgroundImage={bannerUrl}

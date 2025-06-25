@@ -6,9 +6,11 @@ import { FormWrapper } from "@/app/components/molecules/FormWrapper";
 import { PageBanner } from "@/app/components/molecules/PageBanner";
 import { getData } from "@/lib/getData";
 import { GET_LIEN_HE } from "@/app/api/graphQL/getLienHe";
+import FormPopup from "@/app/components/molecules/FormPopup";
 
 export const Contac = () => {
   const [contactData, setContactData] = useState<any>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,10 +26,20 @@ export const Contac = () => {
     };
 
     fetchData();
+
+    // Set timer to show popup after 12 seconds
+    const popupTimerId = setTimeout(() => {
+      setShowPopup(true);
+    }, 12000);
+
+    return () => {
+      clearTimeout(popupTimerId);
+    };
   }, []);
 
   return (
     <>
+      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
       <PageBanner
         title={contactData?.pageBy?.lienHe?.contact?.title || "Liên hệ"}
         backgroundImage={"/image11.webp"}
@@ -81,7 +93,7 @@ export const Contac = () => {
             </h2>
             <div className="h-1 w-28 bg-yellow-400 mb-6 md:mb-8"></div>
 
-            <FormWrapper />
+            <FormWrapper type={"form-main"} />
           </div>
         </div>
       </div>
