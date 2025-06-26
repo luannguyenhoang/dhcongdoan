@@ -37,7 +37,7 @@ export const ClientPost = ({ post }: { post: any }) => {
                 <BanerPost post={post} />
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: clean(post?.content),
+                    __html: clean(post?.content)
                   }}
                 />
               </div>
@@ -56,4 +56,4 @@ export const ClientPost = ({ post }: { post: any }) => {
       </article>
     </>
   );
-}; 
+};

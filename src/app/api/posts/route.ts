@@ -4,7 +4,7 @@ import {
   GET_POSTS,
   GET_POSTS_BY_CATEGORY,
   GET_POSTS_BY_CATEGORY_ID,
-  SEARCH_POSTS,
+  SEARCH_POSTS
 } from "@/app/api/graphQL/posts";
 
 export async function GET(req: NextRequest) {
@@ -26,21 +26,21 @@ export async function GET(req: NextRequest) {
       const variables = { search, size: pageSize, offset: offsetValue };
       const response = await getClient().query({
         query: SEARCH_POSTS,
-        variables,
+        variables
       });
       data = response.data;
     } else if (categoryId) {
       const variables = { categoryId, size: pageSize, offset: offsetValue };
       const response = await getClient().query({
         query: GET_POSTS_BY_CATEGORY_ID,
-        variables,
+        variables
       });
       data = response.data;
     } else if (category) {
       const variables = { slug: category, size: pageSize, offset: offsetValue };
       const response = await getClient().query({
         query: GET_POSTS_BY_CATEGORY,
-        variables,
+        variables
       });
       data = response.data;
     } else {
@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
           node.featuredImage?.node?.mediaItemUrl || "/no-image.jpeg",
         categories:
           node.categories?.nodes.map((category: any) => category.slug) || [],
-        commentCount: node.commentCount || 0,
+        commentCount: node.commentCount || 0
       })) || [];
 
     if (additionalCategory) {
@@ -88,7 +88,7 @@ export async function GET(req: NextRequest) {
         : data.posts.pageInfo.offsetPagination.hasPrevious,
       total: additionalCategory
         ? posts.length
-        : data.posts.pageInfo.offsetPagination.total,
+        : data.posts.pageInfo.offsetPagination.total
     };
 
     return NextResponse.json({ posts, totalPosts, pageInfo }, { status: 200 });

@@ -39,7 +39,9 @@ export const Contac = () => {
 
   return (
     <>
-      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
+      {showPopup && (
+        <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
       <PageBanner
         title={contactData?.pageBy?.lienHe?.contact?.title || "Liên hệ"}
         backgroundImage={"/image11.webp"}
@@ -47,8 +49,8 @@ export const Contac = () => {
           { label: "Trang chủ", url: "/" },
           {
             label: contactData?.pageBy?.lienHe?.contact?.title || "Liên hệ",
-            url: "/lien-he",
-          },
+            url: "/lien-he"
+          }
         ]}
       />
       <div className="max-w-6xl mx-auto py-8 md:py-16 px-4">

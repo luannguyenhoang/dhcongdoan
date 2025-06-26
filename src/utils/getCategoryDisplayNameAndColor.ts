@@ -6,7 +6,7 @@ export const getCategoryDisplayName = (slug?: string): string => {
     "nhi-khoa": "Nhi khoa",
     "san-phu-khoa": "Sản phụ khoa",
     "y-hoc-the-thao": "Y học thể thao",
-    "tuyen-dung": "Tuyển dụng",
+    "tuyen-dung": "Tuyển dụng"
   };
 
   const displayName = categoryMap[slug] || "Y học";
@@ -19,7 +19,7 @@ export const getCategoryColor = (slug: string): string => {
     "y-hoc-cong-dong": "bg-red-500",
     "nhi-khoa": "bg-[#1DA1F2]",
     "san-phu-khoa": "bg-[#0077B5]",
-    "y-hoc-the-thao": "bg-orange-600",
+    "y-hoc-the-thao": "bg-orange-600"
   };
 
   return colorMap[slug] || "bg-blue-500";

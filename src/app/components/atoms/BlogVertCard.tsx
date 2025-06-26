@@ -9,7 +9,7 @@ export const CardBlogVert = ({
   desc,
   image,
   path,
-  date,
+  date
 }: {
   title: string;
   desc: string;
@@ -39,7 +39,7 @@ export const CardBlogVert = ({
               width: "100%",
               height: "auto",
               aspectRatio: "16/9",
-              objectFit: "cover",
+              objectFit: "cover"
             }}
           />
         </Link>

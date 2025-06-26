@@ -26,7 +26,7 @@ export const CampusVideoTour = ({ data }: { data?: any }) => {
             backgroundImage: "url('/image9.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundBlendMode: "overlay",
+            backgroundBlendMode: "overlay"
           }}
         />
 
@@ -55,7 +55,7 @@ export const CampusVideoTour = ({ data }: { data?: any }) => {
         </div>
       </div>
 
-      <VideoModal 
+      <VideoModal
         isOpen={showModal}
         onClose={closeModal}
         videoId={videoData?.idVideo || ""}

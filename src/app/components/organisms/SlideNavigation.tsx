@@ -10,7 +10,7 @@ interface SlideNavigationProps {
 const SlideNavigation = ({
   onPrevClick,
   onNextClick,
-  isTransitioning,
+  isTransitioning
 }: SlideNavigationProps) => {
   return (
     <>
@@ -35,4 +35,4 @@ const SlideNavigation = ({
   );
 };
 
-export default SlideNavigation; 
+export default SlideNavigation;

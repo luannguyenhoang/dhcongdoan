@@ -56,7 +56,7 @@ export const LatestPostsSection = () => {
             slug:
               category === "tin-tuc"
                 ? `/tin-tuc/${post.slug}`
-                : `/thong-tin-tuyen-sinh/${post.slug}`,
+                : `/thong-tin-tuyen-sinh/${post.slug}`
           }));
         };
 

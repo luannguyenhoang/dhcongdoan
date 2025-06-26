@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_GIOI_THIEU = gql`
- query MyQuery {
+  query MyQuery {
     pageBy(id: "cG9zdDozMjU4OA==") {
       id
       gioiThieu {

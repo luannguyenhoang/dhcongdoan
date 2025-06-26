@@ -5,7 +5,7 @@ import { menus } from "../../../router/router";
 
 export default function MobileMenu({
   mobileMenuOpen,
-  setMobileMenuOpen,
+  setMobileMenuOpen
 }: {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (mobileMenuOpen: boolean) => void;

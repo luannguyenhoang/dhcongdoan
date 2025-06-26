@@ -6,21 +6,21 @@ import { PageBanner } from "@/app/components/molecules/PageBanner";
 import { getData } from "@/lib/getData";
 import {
   GET_CONTENT_LICH_KHAI_GIANG,
-  GET_LICH_KHAI_GIANG,
+  GET_LICH_KHAI_GIANG
 } from "@/app/api/graphQL/getLichKhaiGiang";
 import { FormWrapper } from "../components/molecules/FormWrapper";
 
 export default function LichKhaiGiang() {
   const [eventData, setEventData] = useState({
     title: "",
-    date: "",
+    date: ""
   });
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState({
     title: "",
     title2: "",
     item: "",
-    description: "",
+    description: ""
   });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function LichKhaiGiang() {
           const { title, date } = data.pageBy.trangChu.openingschedule;
           setEventData({
             title,
-            date,
+            date
           });
         }
         if (contentData?.pageBy?.lichKhaiGiang?.content) {
@@ -56,7 +56,7 @@ export default function LichKhaiGiang() {
         backgroundImage="/image11.webp"
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
-          { label: "Lịch khai giảng" },
+          { label: "Lịch khai giảng" }
         ]}
       />
 

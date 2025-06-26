@@ -7,7 +7,7 @@ import {
   FaFacebookF,
   FaMapMarkerAlt,
   FaPhone,
-  FaYoutube,
+  FaYoutube
 } from "react-icons/fa";
 import { SiZalo } from "react-icons/si";
 import { menus } from "../../../router/router";

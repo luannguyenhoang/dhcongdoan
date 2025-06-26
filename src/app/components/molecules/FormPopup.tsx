@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 
 export default function FormPopup({
   showPopup,
-  setShowPopup,
+  setShowPopup
 }: {
   showPopup: boolean;
   setShowPopup: (showPopup: boolean) => void;
@@ -57,7 +57,7 @@ export default function FormPopup({
               </p>
             </div>
             <FormWrapper type="form-popup" />
-            <p className="text-xs text-gray-500 text-center mt-3">
+            <p className="text-xs text-gray-500 text-center">
               * Chúng tôi cam kết bảo mật thông tin theo quy định của LDA
             </p>
           </div>

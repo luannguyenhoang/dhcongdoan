@@ -80,13 +80,15 @@ export default function Page() {
 
   return (
     <>
-      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
+      {showPopup && (
+        <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
       <PageBanner
         title={nganhHoc?.title || "Ngành đào tạo"}
         backgroundImage={bannerUrl}
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
-          { label: nganhHoc?.title || "Ngành đào tạo" },
+          { label: nganhHoc?.title || "Ngành đào tạo" }
         ]}
       />
       <div className="py-24">

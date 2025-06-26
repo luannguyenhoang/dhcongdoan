@@ -11,7 +11,7 @@ export const BanerPost = ({ post }: { post: any }) => {
 
   const title = post?.title || "";
   const imageAlt = title ? `Featured image for: ${title}` : "";
-  
+
   return (
     <div className="relative w-full">
       <div className="relative w-full h-[300px] lg:h-[400px]">

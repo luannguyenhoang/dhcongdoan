@@ -3,11 +3,10 @@
 import { TestimonialPaginationProps } from "@/types/types";
 import { TestimonialDot } from "@/app/components/atoms/TestimonialDot";
 
-
 export const TestimonialPagination = ({
   count,
   activeIndex,
-  onDotClick,
+  onDotClick
 }: TestimonialPaginationProps) => {
   return (
     <div className="flex justify-center mt-6">
@@ -20,4 +19,4 @@ export const TestimonialPagination = ({
       ))}
     </div>
   );
-}; 
+};

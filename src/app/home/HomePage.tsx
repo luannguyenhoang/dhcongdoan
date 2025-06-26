@@ -105,7 +105,9 @@ export default function HomePage() {
   const CooperationUnitData = homeData?.pageBy?.trangChu?.cooperationunit;
   return (
     <>
-      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
+      {showPopup && (
+        <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
       <Slider data={SliderData} loading={isLoading} />
       <CampusWelcome data={WelcomeToData} />
       <CategoryGrid data={TrainingIndustryData} />

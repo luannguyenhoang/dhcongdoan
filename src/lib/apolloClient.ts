@@ -8,21 +8,21 @@ const API_TOKEN = process.env.TOKEN || "";
 
 const httpLink = new HttpLink({
   uri: API_GRAPHQL,
-  fetch,
+  fetch
 });
 
 const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      Authorization: API_TOKEN ? `Bearer ${API_TOKEN}` : "",
-    },
+      Authorization: API_TOKEN ? `Bearer ${API_TOKEN}` : ""
+    }
   };
 });
 
 export const { getClient, query } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
-    link: authLink.concat(httpLink),
+    link: authLink.concat(httpLink)
   });
 });

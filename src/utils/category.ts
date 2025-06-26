@@ -3,5 +3,5 @@ export const categories = [
   "y-hoc-cong-dong",
   "nhi-khoa",
   "san-phu-khoa",
-  "y-hoc-the-thao",
+  "y-hoc-the-thao"
 ];

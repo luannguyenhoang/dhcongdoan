@@ -78,7 +78,7 @@ export const Register = () => {
             backgroundImage: `url(${video?.image?.node?.mediaItemUrl})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundBlendMode: "overlay",
+            backgroundBlendMode: "overlay"
           }}
         />
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function DefaultLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {

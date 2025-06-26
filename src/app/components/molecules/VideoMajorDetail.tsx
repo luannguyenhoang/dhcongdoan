@@ -36,7 +36,7 @@ export const VideoMajorDetail = () => {
             backgroundImage: `url(${video?.image?.node?.mediaItemUrl})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundBlendMode: "overlay",
+            backgroundBlendMode: "overlay"
           }}
         />
 

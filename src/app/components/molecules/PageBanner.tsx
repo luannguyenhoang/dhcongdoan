@@ -12,7 +12,7 @@ interface PageBannerProps {
 export const PageBanner = ({
   title,
   breadcrumbs,
-  backgroundImage = "/images/page-banner-default.jpg",
+  backgroundImage = "/images/page-banner-default.jpg"
 }: PageBannerProps) => {
   return (
     <div
@@ -20,7 +20,7 @@ export const PageBanner = ({
       style={{
         backgroundImage: ` url('${backgroundImage}')`,
         backgroundPosition: "center",
-        backgroundSize: "cover",
+        backgroundSize: "cover"
       }}
     >
       <div className="max-w-6xl mx-auto flex flex-col items-start justify-center mt-auto h-full">

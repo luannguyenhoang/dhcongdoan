@@ -29,9 +29,9 @@ export const CampusWelcome = ({ data }: { data?: any }) => {
             </p>
             <p className="mb-6 text-gray-700">{welcomeData?.description}</p>
             <Link href={welcomeData?.link || "/gioi-thieu"}>
-              <Button 
+              <Button
                 variant="yellow"
-                aria-label={`Xem thêm về ${welcomeData?.title1 || 'Trường đại học'}`}
+                aria-label={`Xem thêm về ${welcomeData?.title1 || "Trường đại học"}`}
               >
                 XEM NGAY
               </Button>

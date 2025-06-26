@@ -16,14 +16,11 @@ export async function GET(request: NextRequest) {
   try {
     const { data, errors } = await getClient().query({
       query: GET_POST_BY_SLUG,
-      variables: { id: slug },
+      variables: { id: slug }
     });
 
     if (errors || !data?.post) {
-      return NextResponse.json(
-        { error: "Post not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
 
     const categories = data.post.categories?.nodes || [];
@@ -36,13 +33,13 @@ export async function GET(request: NextRequest) {
       content: data.post.content,
       featuredImage: data.post.featuredImage?.node?.mediaItemUrl || "",
       categories: categories.map((cat: any) => ({
-        slug: cat.slug,
+        slug: cat.slug
       })),
       seo: {
         fullHead: data.post.seo?.fullHead || "",
         title: data.post.seo?.title || "",
-        focusKeywords: data.post.seo?.focusKeywords || "",
-      },
+        focusKeywords: data.post.seo?.focusKeywords || ""
+      }
     };
 
     return NextResponse.json({ post });
@@ -53,4 +50,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-} 
+}

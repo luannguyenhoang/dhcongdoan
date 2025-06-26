@@ -10,24 +10,24 @@ export default function FeatureBoxes({ data }: { data?: FeatureBoxItem[] }) {
     {
       title: "Học Online 100% Thuận Tiện",
       description:
-        "Áp dụng hình thức học trực tuyến hoàn toàn, bạn có thể học mọi lúc, mọi nơi mà không cần đến lớp, giúp tiết kiệm thời gian và linh hoạt trong việc sắp xếp lịch học.",
+        "Áp dụng hình thức học trực tuyến hoàn toàn, bạn có thể học mọi lúc, mọi nơi mà không cần đến lớp, giúp tiết kiệm thời gian và linh hoạt trong việc sắp xếp lịch học."
     },
     {
       title: "Văn Bằng Đại Học Chuẩn",
       description:
-        "Chương trình đào tạo từ xa của chúng tôi cấp bằng đại học chính quy, được Bộ Giáo dục và Đào tạo công nhận, mang lại giá trị cao cho sự nghiệp của bạn",
+        "Chương trình đào tạo từ xa của chúng tôi cấp bằng đại học chính quy, được Bộ Giáo dục và Đào tạo công nhận, mang lại giá trị cao cho sự nghiệp của bạn"
     },
     {
       title: "Chỉ Xét Tuyển, Không Thi Tuyển",
       description:
-        "Với phương thức xét tuyển đơn giản, bạn không phải lo lắng về kỳ thi, chỉ cần đáp ứng yêu cầu đầu vào để dễ dàng nhập học và bắt đầu hành trình học tập",
-    },
+        "Với phương thức xét tuyển đơn giản, bạn không phải lo lắng về kỳ thi, chỉ cần đáp ứng yêu cầu đầu vào để dễ dàng nhập học và bắt đầu hành trình học tập"
+    }
   ];
 
   const icons = [
     <FaGraduationCap key="graduation" />,
     <FaUser key="user" />,
-    <FaBook key="book" />,
+    <FaBook key="book" />
   ];
 
   return (

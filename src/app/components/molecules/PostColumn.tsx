@@ -24,7 +24,7 @@ export const PostColumn = ({
   title,
   posts,
   link,
-  isLoading = false,
+  isLoading = false
 }: {
   title: string;
   posts: PostProps[];
@@ -74,7 +74,9 @@ export const PostColumn = ({
           </div>
         ))
       ) : (
-        <div className="py-8 text-center text-gray-500">Dữ liệu đang được chúng tôi cập nhật</div>
+        <div className="py-8 text-center text-gray-500">
+          Dữ liệu đang được chúng tôi cập nhật
+        </div>
       )}
     </div>
     <div className="mt-10 flex justify-start">

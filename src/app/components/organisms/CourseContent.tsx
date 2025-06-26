@@ -5,7 +5,7 @@ import { CourseTabs } from "@/app/components/organisms/CourseTabs";
 export const CourseContent = ({
   courseData,
   activeTab,
-  setActiveTab,
+  setActiveTab
 }: CourseContentProps) => {
   return (
     <div className="max-w-5xl mx-auto p-8 bg-white">

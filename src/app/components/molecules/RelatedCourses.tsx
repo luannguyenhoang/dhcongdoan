@@ -47,17 +47,17 @@ export const RelatedCourses = ({ data }: { data: IndustryGroup[] }) => {
           loop={true}
           breakpoints={{
             480: {
-              slidesPerView: 2,
+              slidesPerView: 2
             },
             640: {
-              slidesPerView: 2,
+              slidesPerView: 2
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 3
             },
             1024: {
-              slidesPerView: 3,
-            },
+              slidesPerView: 3
+            }
           }}
           className="instructor-swiper"
         >

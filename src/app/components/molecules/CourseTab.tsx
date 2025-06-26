@@ -7,12 +7,7 @@ interface CourseTabProps {
   onClick: (id: string) => void;
 }
 
-export const CourseTab = ({
-  id,
-  label,
-  isActive,
-  onClick,
-}: CourseTabProps) => {
+export const CourseTab = ({ id, label, isActive, onClick }: CourseTabProps) => {
   return (
     <button
       className={`py-3 px-8 border-r font-medium ${
@@ -26,4 +21,4 @@ export const CourseTab = ({
       {label}
     </button>
   );
-}; 
+};

@@ -6,7 +6,9 @@ interface UseSliderNavigationProps {
   totalSlides: number;
 }
 
-export const useSliderNavigation = ({ totalSlides }: UseSliderNavigationProps) => {
+export const useSliderNavigation = ({
+  totalSlides
+}: UseSliderNavigationProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef(0);
@@ -51,10 +53,13 @@ export const useSliderNavigation = ({ totalSlides }: UseSliderNavigationProps) =
     if (sliderRef.current) sliderRef.current.style.cursor = "grabbing";
   }, []);
 
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!isDragging) return;
-    touchEndX.current = e.clientX;
-  }, [isDragging]);
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!isDragging) return;
+      touchEndX.current = e.clientX;
+    },
+    [isDragging]
+  );
 
   const handleMouseUp = useCallback(() => {
     if (!isDragging) return;
@@ -85,11 +90,11 @@ export const useSliderNavigation = ({ totalSlides }: UseSliderNavigationProps) =
     nextSlide,
     prevSlide,
     handleTouchStart,
-    handleTouchMove, 
+    handleTouchMove,
     handleTouchEnd,
     handleMouseDown,
     handleMouseMove,
     handleMouseUp,
     handleMouseLeave
   };
-}; 
+};

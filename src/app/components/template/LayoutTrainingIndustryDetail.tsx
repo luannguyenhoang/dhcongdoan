@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function TrainingIndustryDetailLayout({
   courseData,
-  nganhHocData,
+  nganhHocData
 }: {
   courseData?: any;
   nganhHocData?: any;
@@ -43,7 +43,7 @@ export default function TrainingIndustryDetailLayout({
         breadcrumbs={[
           { label: "Trang Chủ", url: "/" },
           { label: "Ngành Đào Tạo", url: "/nganh-dao-tao" },
-          { label: courseData?.title || "Đang cập nhật..." },
+          { label: courseData?.title || "Đang cập nhật..." }
         ]}
       />
       <div className="py-24">

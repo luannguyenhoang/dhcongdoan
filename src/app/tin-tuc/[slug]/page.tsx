@@ -7,7 +7,7 @@ import { getClient } from "@/lib/apolloClient";
 import { replaceSeoRM } from "@/utils/seoRankMath";
 import {
   extractMetaContent,
-  generateMetadataFromFullHead,
+  generateMetadataFromFullHead
 } from "@/utils/seoUtils";
 import { Metadata } from "next";
 import { Suspense } from "react";
@@ -18,7 +18,7 @@ async function getPost(slug: string) {
   try {
     const { data, errors } = await getClient().query({
       query: GET_POST_BY_SLUG,
-      variables: { id: slug },
+      variables: { id: slug }
     });
 
     if (errors || !data?.post) {
@@ -35,14 +35,14 @@ async function getPost(slug: string) {
       content: data.post.content,
       featuredImage: data.post.featuredImage?.node?.mediaItemUrl || "",
       categories: categories.map((cat: any) => ({
-        slug: cat.slug,
+        slug: cat.slug
       })),
 
       seo: {
         fullHead: data.post.seo?.fullHead || "",
         title: data.post.seo?.title || "",
-        focusKeywords: data.post.seo?.focusKeywords || "",
-      },
+        focusKeywords: data.post.seo?.focusKeywords || ""
+      }
     };
   } catch (error) {
     console.error("Error fetching post:", error);
@@ -61,7 +61,7 @@ export async function generateMetadata(props: {
     ...generateMetadataFromFullHead(
       post.seo?.fullHead || "",
       post.seo?.focusKeywords || ""
-    ),
+    )
   };
 }
 
@@ -88,8 +88,8 @@ export default async function Page(props: {
           { label: "Trang chủ", url: "/" },
           { label: "Tin tức", url: "/tin-tuc" },
           {
-            label: post?.title || "Bài viết",
-          },
+            label: post?.title || "Bài viết"
+          }
         ]}
       />
       <DefaultLayout>
@@ -97,7 +97,7 @@ export default async function Page(props: {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: jsonLdContent,
+              __html: jsonLdContent
             }}
           />
           <Suspense>

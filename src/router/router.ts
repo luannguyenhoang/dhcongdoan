@@ -10,7 +10,7 @@ export type TMenus = {
 export const menus: TMenus = [
   {
     path: "/gioi-thieu",
-    title: "Giới thiệu",
+    title: "Giới thiệu"
   },
   {
     path: "/nganh-dao-tao",
@@ -18,29 +18,29 @@ export const menus: TMenus = [
     childs: [
       {
         path: "/nganh-dao-tao/bao-ho-lao-dong",
-        title: "Bảo hộ lao động",
+        title: "Bảo hộ lao động"
       },
       {
         path: "/nganh-dao-tao/quan-tri-nhan-luc",
-        title: "Quản trị nhân lực",
+        title: "Quản trị nhân lực"
       },
       {
         path: "/nganh-dao-tao/luat",
-        title: "Luật",
+        title: "Luật"
       },
       {
         path: "/nganh-dao-tao/ngon-ngu-anh",
-        title: "Ngôn ngữ Anh",
+        title: "Ngôn ngữ Anh"
       },
       {
         path: "/nganh-dao-tao/cong-tac-xa-hoi",
-        title: "Công tác xã hội",
+        title: "Công tác xã hội"
       },
       {
         path: "/nganh-dao-tao/viet-nam-hoc",
-        title: "Việt Nam học",
-      },
-    ],
+        title: "Việt Nam học"
+      }
+    ]
   },
   {
     path: "/tin-tuc",
@@ -48,20 +48,20 @@ export const menus: TMenus = [
     childs: [
       {
         path: "/thong-tin-tuyen-sinh",
-        title: "Thông tin tuyển sinh",
+        title: "Thông tin tuyển sinh"
       },
       {
         path: "/tin-tuc",
-        title: "Tin tức cập nhật",
-      },
-    ],
+        title: "Tin tức cập nhật"
+      }
+    ]
   },
   {
     path: "/lich-khai-giang",
-    title: "Lịch khai giảng",
+    title: "Lịch khai giảng"
   },
   {
     path: "/lien-he",
-    title: "Liên hệ",
-  },
+    title: "Liên hệ"
+  }
 ];

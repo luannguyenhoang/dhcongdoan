@@ -7,7 +7,7 @@ export const TestimonialItem = ({
   name,
   role,
   image,
-  content,
+  content
 }: TestimonialItemProps) => {
   return (
     <div className="flex flex-col items-center md:flex-row md:items-center justify-between gap-8 mx-auto bg-[#f8f8f8] p-4">

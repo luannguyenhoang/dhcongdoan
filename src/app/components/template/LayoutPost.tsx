@@ -11,7 +11,7 @@ export const LayoutPost = ({
   children,
   m,
   showAllMajor = false,
-  showForm = false,
+  showForm = false
 }: {
   children: ReactNode;
   m?: string;

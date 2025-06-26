@@ -7,12 +7,12 @@ const DEFAULT_STATS = [
   { number: "78", text: "Năm xây dựng và phát triển" },
   { number: "17", text: "Ngành đào tạo tại trường" },
   { number: "6", text: "Ngành đào tạo trực tuyến" },
-  { number: "2500", text: "Sinh viên các hệ đăng ký nhập học mỗi năm" },
+  { number: "2500", text: "Sinh viên các hệ đăng ký nhập học mỗi năm" }
 ];
 
 export const StatisticsCounter = ({
   duration = 2000,
-  data = DEFAULT_STATS,
+  data = DEFAULT_STATS
 }: {
   duration?: any;
   data?: { number: string; text: string }[];
@@ -82,7 +82,7 @@ export const StatisticsCounter = ({
       style={{
         backgroundImage: "url('/image11.webp')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center"
       }}
     >
       <div className="relative max-w-6xl mx-auto px-4">

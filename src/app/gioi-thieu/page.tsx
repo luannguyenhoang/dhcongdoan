@@ -49,7 +49,9 @@ export default function AboutUs() {
 
   return (
     <>
-      {showPopup && <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
+      {showPopup && (
+        <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
       <PageBanner
         title={
           gioiThieuData?.pageBy?.gioiThieu?.introduce?.title || "Giới thiệu"
@@ -62,9 +64,8 @@ export default function AboutUs() {
           { label: "Trang chủ", url: "/" },
           {
             label:
-              gioiThieuData?.pageBy?.gioiThieu?.introduce?.title ||
-              "Giới thiệu",
-          },
+              gioiThieuData?.pageBy?.gioiThieu?.introduce?.title || "Giới thiệu"
+          }
         ]}
       />
       <AboutSection data={gioiThieuData?.pageBy?.gioiThieu?.introduce} />

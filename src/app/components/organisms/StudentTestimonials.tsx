@@ -42,7 +42,7 @@ export const StudentTestimonials = ({ data }: { data?: any }) => {
             className="transition-transform duration-500 ease-in-out"
             style={{
               transform: `translateX(-${activeIndex * 100}%)`,
-              display: "flex",
+              display: "flex"
             }}
           >
             {testimonialData.comment.map((testimonial: any, index: number) => (

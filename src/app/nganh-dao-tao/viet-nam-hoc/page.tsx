@@ -16,12 +16,12 @@ export default function VietNamHoc() {
         if (!GET_VIET_NAM_HOC || !GET_ALL_NGANH_HOC) {
           throw new Error("GraphQL queries are not defined");
         }
-        
+
         const courseResponse = await getData(GET_VIET_NAM_HOC);
         if (!courseResponse) {
           throw new Error("Failed to fetch Vietnam Studies course data");
         }
-        
+
         const nganhHocResponse = await getData(GET_ALL_NGANH_HOC);
         if (!nganhHocResponse) {
           throw new Error("Failed to fetch training industry data");

@@ -1,6 +1,6 @@
 export const formatDate = (inputDate: string) => {
   let date;
-  
+
   // Check if the input is in DD/MM/YYYY format
   if (inputDate.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
     const [day, month, year] = inputDate.split("/").map(Number);

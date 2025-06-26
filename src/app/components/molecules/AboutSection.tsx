@@ -38,7 +38,7 @@ export const AboutSection = ({ data }: { data: any }) => {
               </p>
 
               <div className="space-y-3">
-                {data?.feature?.map ((feature: any, index: any) => (
+                {data?.feature?.map((feature: any, index: any) => (
                   <div key={index} className="flex items-start">
                     <FaCheckCircle
                       className="text-yellow-400 mt-1 mr-3 flex-shrink-0"
@@ -60,7 +60,7 @@ export const AboutSection = ({ data }: { data: any }) => {
                 })`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
+                backgroundRepeat: "no-repeat"
               }}
               role="img"
               aria-label="About Image"

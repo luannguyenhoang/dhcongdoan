@@ -14,7 +14,7 @@ export const LayoutBottom = ({
   showForm = false,
   showNewPost = false,
   onSearch,
-  showSearchBar = false,
+  showSearchBar = false
 }: {
   children: ReactNode;
   m?: string;

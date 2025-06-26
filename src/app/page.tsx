@@ -6,7 +6,6 @@ import { Metadata } from "next";
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
-  
   const { seo } = await getSeoData(GET_TRANG_CHU, "pageBy");
 
   return {
@@ -14,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
       seo.fullHead || "",
       seo.focusKeywords || ""
     ),
-    robots: "index, follow",
+    robots: "index, follow"
   };
 }
 export default function Home() {

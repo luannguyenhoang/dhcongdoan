@@ -8,7 +8,7 @@ export const CourseCard = ({
   title,
   desc,
   image,
-  path,
+  path
 }: {
   title: string;
   desc: string;
@@ -32,7 +32,7 @@ export const CourseCard = ({
               width: "100%",
               height: "auto",
               aspectRatio: "16/10",
-              objectFit: "cover",
+              objectFit: "cover"
             }}
           />
 

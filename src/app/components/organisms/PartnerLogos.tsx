@@ -17,7 +17,7 @@ export const PartnerLogos = ({ data }: { data?: any }) => {
           modules={[Navigation, Autoplay]}
           autoplay={{
             delay: 2500,
-            disableOnInteraction: false,
+            disableOnInteraction: false
           }}
           spaceBetween={8}
           slidesPerView={2}
@@ -27,23 +27,23 @@ export const PartnerLogos = ({ data }: { data?: any }) => {
             480: {
               slidesPerView: 2,
               spaceBetween: 10,
-              centeredSlides: false,
+              centeredSlides: false
             },
             640: {
               slidesPerView: 3,
               spaceBetween: 10,
-              centeredSlides: false,
+              centeredSlides: false
             },
             768: {
               slidesPerView: 3,
               spaceBetween: 20,
-              centeredSlides: false,
+              centeredSlides: false
             },
             1024: {
               slidesPerView: 4,
               spaceBetween: 20,
-              centeredSlides: false,
-            },
+              centeredSlides: false
+            }
           }}
           className="instructor-swiper"
         >

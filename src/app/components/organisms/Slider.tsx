@@ -64,7 +64,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export const Slider = ({
   data,
-  loading = false,
+  loading = false
 }: {
   data?: any;
   loading?: boolean;
@@ -100,8 +100,6 @@ export const Slider = ({
     intervalRef.current = setInterval(() => {
       if (!isTransitioning) {
         handleNextSlide();
-      } else {
-        console.log("Skipping auto slide, still transitioning");
       }
     }, 5000);
   }, [isTransitioning, handleNextSlide]);
@@ -174,7 +172,7 @@ export const Slider = ({
                 title: slide.title,
                 description: slide.description,
                 image: slide.image?.node?.mediaItemUrl,
-                link: slide.link,
+                link: slide.link
               }}
               index={index}
               currentSlide={currentSlide}

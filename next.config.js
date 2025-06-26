@@ -6,10 +6,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "ldaadmin.devlab.info.vn",
-        pathname: "/**",
-      },
-    ],
-  },
+        pathname: "/**"
+      }
+    ]
+  }
 };
 
 module.exports = nextConfig;

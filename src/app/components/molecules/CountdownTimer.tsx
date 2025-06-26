@@ -9,7 +9,7 @@ import { formatDate } from "@/utils/date";
 export const CountdownTimer = ({
   title,
   date,
-  includeTime = false,
+  includeTime = false
 }: CountdownTimerProps) => {
   const timeLeft = useCountdown(date, includeTime);
 

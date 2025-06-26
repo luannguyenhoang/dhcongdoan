@@ -1,7 +1,6 @@
 import { ApolloClient, DocumentNode, InMemoryCache } from "@apollo/client";
 import { SeoData } from "@/types/types";
 
-
 /**
  * @param query
  * @param nodeKey
@@ -16,7 +15,8 @@ export async function getSeoData(
   variables?: Record<string, any>
 ): Promise<SeoData> {
   const client = new ApolloClient({
-    uri: process.env.NEXT_PUBLIC_API_GRAPHQL || "http://10.10.51.16:8090/graphql",
+    uri:
+      process.env.NEXT_PUBLIC_API_GRAPHQL || "http://10.10.51.16:8090/graphql",
     ssrMode: true,
     cache: new InMemoryCache()
   });

@@ -13,7 +13,7 @@ async function getPost(slug: string) {
   try {
     const { data, errors } = await getClient().query({
       query: GET_POST_BY_SLUG,
-      variables: { id: slug },
+      variables: { id: slug }
     });
 
     if (errors || !data?.post) {
@@ -30,13 +30,13 @@ async function getPost(slug: string) {
       content: data.post.content,
       featuredImage: data.post.featuredImage?.node?.mediaItemUrl || "",
       categories: categories.map((cat: any) => ({
-        slug: cat.slug,
+        slug: cat.slug
       })),
       seo: {
         fullHead: data.post.seo?.fullHead || "",
         title: data.post.seo?.title || "",
-        focusKeywords: data.post.seo?.focusKeywords || "",
-      },
+        focusKeywords: data.post.seo?.focusKeywords || ""
+      }
     };
   } catch (error) {
     console.error("Error fetching post:", error);
@@ -44,8 +44,8 @@ async function getPost(slug: string) {
   }
 }
 
-export async function generateMetadata(props: { 
-  params: Promise<{ slug: string }> 
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await props.params;
   const post = await getPost(slug);
@@ -55,18 +55,18 @@ export async function generateMetadata(props: {
     ...generateMetadataFromFullHead(
       post.seo?.fullHead || "",
       post.seo?.focusKeywords || ""
-    ),
+    )
   };
 }
 
 export const revalidate = 0;
 
 export default async function Page(props: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await props.params;
   const post = await getPost(slug);
-  
+
   return (
     <>
       <PageBanner
@@ -75,7 +75,7 @@ export default async function Page(props: {
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           { label: "Thông tin tuyển sinh", url: "/thong-tin-tuyen-sinh" },
-          { label: post?.title || "Chi tiết" },
+          { label: post?.title || "Chi tiết" }
         ]}
       />
       <DefaultLayout>
@@ -85,4 +85,4 @@ export default async function Page(props: {
       </DefaultLayout>
     </>
   );
-} 
+}

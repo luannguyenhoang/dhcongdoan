@@ -18,7 +18,6 @@ export interface StatItem {
   subtitle?: string;
 }
 
-
 export interface StatItemProps {
   count: number;
   title: string;
@@ -104,7 +103,6 @@ export interface CourseDetailsProps {
   details: Detail[];
 }
 
-
 export interface CurriculumContent {
   courseDetails?: any[];
   coursecontent?: string;
@@ -133,4 +131,4 @@ export interface CourseContentProps {
   activeTab: string;
   setActiveTab: (tabId: string) => void;
   loading?: boolean;
-}   
+}

@@ -4,7 +4,7 @@ import { CourseDetails } from "@/app/components/organisms/CourseDetails";
 import { CourseInstructorContentProps } from "@/types/types";
 
 export const CourseInstructorContent = ({
-  data,
+  data
 }: CourseInstructorContentProps) => {
   if (!data) return null;
 

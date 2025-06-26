@@ -28,7 +28,7 @@ const SlideContent = ({
   currentSlide,
   prevSlide,
   isTransitioning,
-  isAnimating,
+  isAnimating
 }: SlideContentProps) => {
   return (
     <div
@@ -39,12 +39,12 @@ const SlideContent = ({
         index === currentSlide
           ? "opacity-100"
           : index === prevSlide && isTransitioning
-          ? "opacity-0"
-          : "opacity-0"
+            ? "opacity-0"
+            : "opacity-0"
       }`}
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("${slide.image}")`,
-        backgroundColor: "#1e3a8a",
+        backgroundColor: "#1e3a8a"
       }}
     >
       <div className="relative max-w-6xl mx-auto h-full flex flex-col items-center lg:items-start justify-center text-white px-4">

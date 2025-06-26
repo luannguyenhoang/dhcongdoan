@@ -72,4 +72,4 @@ const SlideAnimationStyles = () => {
   );
 };
 
-export default SlideAnimationStyles; 
+export default SlideAnimationStyles;

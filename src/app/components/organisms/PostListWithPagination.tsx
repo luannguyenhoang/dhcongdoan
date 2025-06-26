@@ -11,7 +11,7 @@ import { StyledPaginate } from "@/app/components/atoms/StyledPaginate";
 export const PostListWithPagination = ({
   type,
   categoryId,
-  handleRouter,
+  handleRouter
 }: {
   type?: string;
   categoryId?: string;
@@ -43,7 +43,7 @@ export const PostListWithPagination = ({
         }
 
         const res = await fetch(url, {
-          next: { revalidate: 1 },
+          next: { revalidate: 1 }
         });
 
         if (!res.ok) {
@@ -107,8 +107,8 @@ export const PostListWithPagination = ({
                     categoryId === "dGVybTox"
                       ? `/tin-tuc/${post?.slug}`
                       : categoryId === "dGVybToyODU="
-                      ? `/thong-tin-tuyen-sinh/${post?.slug}`
-                      : `/bai-viet/${post?.slug}`
+                        ? `/thong-tin-tuyen-sinh/${post?.slug}`
+                        : `/bai-viet/${post?.slug}`
                   }
                 />
               );

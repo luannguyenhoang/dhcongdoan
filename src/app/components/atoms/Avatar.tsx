@@ -9,9 +9,9 @@ interface AvatarProps {
   isDecorative?: boolean;
 }
 
-export const Avatar = ({ 
-  src, 
-  alt = "", 
+export const Avatar = ({
+  src,
+  alt = "",
   size = 64,
   isDecorative = false
 }: AvatarProps) => {
@@ -26,4 +26,4 @@ export const Avatar = ({
       />
     </div>
   );
-}; 
+};

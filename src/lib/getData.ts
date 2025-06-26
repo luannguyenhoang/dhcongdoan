@@ -7,9 +7,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
-      fetchPolicy: "cache-first",
-    },
-  },
+      fetchPolicy: "cache-first"
+    }
+  }
 });
 
 export const getData = async (query: DocumentNode, variables?: any) => {
@@ -17,7 +17,7 @@ export const getData = async (query: DocumentNode, variables?: any) => {
     const response = await client.query({
       query,
       variables,
-      fetchPolicy: "cache-first",
+      fetchPolicy: "cache-first"
     });
 
     if (!response?.data) {

@@ -28,7 +28,7 @@ export const SliderBar = ({
   showForm = false,
   showNewPost = false,
   showSearchBar = false,
-  onSearch,
+  onSearch
 }: {
   showSearch?: boolean;
   showCustomSearch?: boolean;
@@ -84,11 +84,7 @@ export const SliderBar = ({
           </div>
         </div>
       )}
-      {showSearchBar && (
-        <SearchBar
-          placeholder="Tìm kiếm ..."
-        />
-      )}
+      {showSearchBar && <SearchBar placeholder="Tìm kiếm ..." />}
       {showVideoMajorDetail && <VideoMajorDetail />}
       {showRegister && <Register />}
       {showAllMajor && <AllMajor />}

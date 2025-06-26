@@ -12,10 +12,10 @@ interface CourseTabNavigationProps {
   setActiveTab: (tabId: string) => void;
 }
 
-export const CourseTabNavigation= ({
+export const CourseTabNavigation = ({
   tabs,
   activeTab,
-  setActiveTab,
+  setActiveTab
 }: CourseTabNavigationProps) => {
   return (
     <div className="flex mb-6 w-full bg-[#f5f5f5]">
@@ -30,4 +30,4 @@ export const CourseTabNavigation= ({
       ))}
     </div>
   );
-}; 
+};

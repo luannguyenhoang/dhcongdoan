@@ -14,10 +14,7 @@ export const replaceSeoRM = (input?: string) => {
       `"@id":"http://10.10.51.16:8002/#organization"`,
       `"@id":"http://10.10.51.16:3002/#organization"`
     )
-    .replace(
-      `http://10.10.51.16:8002/#logo`,
-      `http://10.10.51.16:3002/#logo`
-    )
+    .replace(`http://10.10.51.16:8002/#logo`, `http://10.10.51.16:3002/#logo`)
     .replace(
       `http://10.10.51.16:8002/#website`,
       `http://10.10.51.16:3002/#website`

@@ -4,7 +4,7 @@ import { DEFAULT_CATEGORY_DATA } from "@/data/DefaultData";
 
 export const CategoryGrid = ({ data }: { data?: any }) => {
   const categoryData = data || DEFAULT_CATEGORY_DATA;
-  
+
   if (!categoryData || !categoryData.industrygroups) {
     return null;
   }

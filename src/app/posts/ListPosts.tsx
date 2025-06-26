@@ -13,7 +13,7 @@ const PostListWithPagination = dynamic(() =>
 export const ListPosts = ({
   handleRouter,
   type,
-  categoryId,
+  categoryId
 }: {
   handleRouter?: ({ selected }: { selected: number }) => void;
   type?: string;

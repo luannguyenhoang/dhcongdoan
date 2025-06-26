@@ -1,4 +1,3 @@
-
 interface CourseDetailItemProps {
   content: string;
 }

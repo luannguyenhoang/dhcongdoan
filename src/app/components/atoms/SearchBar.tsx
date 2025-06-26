@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export const SearchBar = ({
   placeholder = "Search...",
   onSearch,
-  defaultValue = "",
+  defaultValue = ""
 }: {
   placeholder?: string;
   onSearch?: (query: string) => void;

@@ -18,7 +18,7 @@ export default function BaoHoLaoDong() {
 
         if (!courseResponse || !nganhHocResponse) {
           throw new Error("No data returned from API");
-        } 
+        }
 
         setCourseData(courseResponse?.pageBy?.baoHoLaoDong?.content);
         setNganhHocData(

@@ -9,7 +9,12 @@ interface VideoModalProps {
   title?: string;
 }
 
-export const VideoModal = ({ isOpen, onClose, videoId, title }: VideoModalProps) => {
+export const VideoModal = ({
+  isOpen,
+  onClose,
+  videoId,
+  title
+}: VideoModalProps) => {
   if (!isOpen) return null;
 
   return (
@@ -35,4 +40,4 @@ export const VideoModal = ({ isOpen, onClose, videoId, title }: VideoModalProps)
       </div>
     </div>
   );
-}; 
+};

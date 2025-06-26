@@ -48,17 +48,17 @@ export const InstructorCarousel = ({ data }: { data?: any }) => {
           loop={true}
           breakpoints={{
             480: {
-              slidesPerView: 2,
+              slidesPerView: 2
             },
             640: {
-              slidesPerView: 2,
+              slidesPerView: 2
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 3
             },
             1024: {
-              slidesPerView: 4,
-            },
+              slidesPerView: 4
+            }
           }}
           className="instructor-swiper"
         >
