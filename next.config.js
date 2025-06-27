@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "ldaadmin.devlab.info.vn",
+        hostname: "noidung.dhcongdoan.vn",
         pathname: "/**"
       }
     ]

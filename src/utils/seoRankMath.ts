@@ -3,48 +3,48 @@ export const replaceSeoRM = (input?: string) => {
 
   return input
     .replace(
-      `link rel="canonical" href="http://10.10.51.16:8002`,
-      `link rel="canonical" href="http://10.10.51.16:3002`
+      `link rel="canonical" href="https://noidung.dhcongdoan.vn`,
+      `link rel="canonical" href="https://dhcongdoan.vn`
     )
     .replace(
-      `meta property="og:url" content="http://10.10.51.16:8002`,
-      `meta property="og:url" content="http://10.10.51.16:3002`
+      `meta property="og:url" content="https://noidung.dhcongdoan.vn`,
+      `meta property="og:url" content="https://dhcongdoan.vn`
     )
     .replace(
-      `"@id":"http://10.10.51.16:8002/#organization"`,
-      `"@id":"http://10.10.51.16:3002/#organization"`
+      `"@id":"https://noidung.dhcongdoan.vn/#organization"`,
+      `"@id":"https://dhcongdoan.vn/#organization"`
     )
-    .replace(`http://10.10.51.16:8002/#logo`, `http://10.10.51.16:3002/#logo`)
+    .replace(`https://noidung.dhcongdoan.vn/#logo`, `https://dhcongdoan.vn/#logo`)
     .replace(
-      `http://10.10.51.16:8002/#website`,
-      `http://10.10.51.16:3002/#website`
-    )
-    .replace(
-      `http://10.10.51.16:8002/#webpage`,
-      `http://10.10.51.16:3002/#webpage`
+      `https://noidung.dhcongdoan.vn/#website`,
+      `https://dhcongdoan.vn/#website`
     )
     .replace(
-      `"url":"http://10.10.51.16:8002"`,
-      `"url":"http://10.10.51.16:3002"`
+      `https://noidung.dhcongdoan.vn/#webpage`,
+      `https://dhcongdoan.vn/#webpage`
     )
     .replace(
-      `"@type":"WebPage","@id":"http://10.10.51.16:8002`,
-      `"@type":"WebPage","@id":"http://10.10.51.16:3002`
+      `"url":"https://noidung.dhcongdoan.vn"`,
+      `"url":"https://dhcongdoan.vn"`
     )
     .replace(
-      `#webpage","url":"http://10.10.51.16:8002`,
-      `#webpage","url":"http://10.10.51.16:3002`
+      `"@type":"WebPage","@id":"https://noidung.dhcongdoan.vn`,
+      `"@type":"WebPage","@id":"https://dhcongdoan.vn`
     )
     .replace(
-      `"mainEntityOfPage":{"@id":"http://10.10.51.16:8002`,
-      `"mainEntityOfPage":{"@id":"http://10.10.51.16:3002/`
+      `#webpage","url":"https://noidung.dhcongdoan.vn`,
+      `#webpage","url":"https://dhcongdoan.vn`
     )
     .replace(
-      `"worksFor":{"@id":"http://10.10.51.16:8002/#organization`,
-      `"worksFor":{"@id":"http://10.10.51.16:3002/#organization`
+      `"mainEntityOfPage":{"@id":"https://noidung.dhcongdoan.vn`,
+      `"mainEntityOfPage":{"@id":"https://dhcongdoan.vn/`
     )
     .replace(
-      `"sameAs":["http://10.10.51.16:8002"]`,
-      `"sameAs":["http://10.10.51.16:3002"]`
+      `"worksFor":{"@id":"https://noidung.dhcongdoan.vn/#organization`,
+      `"worksFor":{"@id":"https://dhcongdoan.vn/#organization`
+    )
+    .replace(
+      `"sameAs":["https://noidung.dhcongdoan.vn"]`,
+      `"sameAs":["https://dhcongdoan.vn"]`
     );
 };

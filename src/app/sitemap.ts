@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { menus, TMenus } from "../router/router";
 import { GET_SITEMAP } from "@/app/api/graphQL/posts";
 
-const API_URL = process.env.NEXT_PUBLIC_DOMAIN || "http://localhost:3000";
+const API_URL = process.env.NEXT_PUBLIC_DOMAIN || "https://dhcongdoan.vn";
 
 const getAllPaths = (menus: TMenus): MetadataRoute.Sitemap => {
   const paths: MetadataRoute.Sitemap = [];

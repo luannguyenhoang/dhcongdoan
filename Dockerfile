@@ -20,7 +20,8 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
-ENV NEXT_PUBLIC_API_GRAPHQL http://10.10.51.16:8090/graphql
+ENV NEXT_PUBLIC_API_GRAPHQL https://noidung.dhcongdoan.vn/graphql
+ENV NEXT_PUBLIC_DOMAIN https://dhcongdoan.vn
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
