@@ -14,7 +14,10 @@ export const replaceSeoRM = (input?: string) => {
       `"@id":"https://noidung.dhcongdoan.vn/#organization"`,
       `"@id":"https://dhcongdoan.vn/#organization"`
     )
-    .replace(`https://noidung.dhcongdoan.vn/#logo`, `https://dhcongdoan.vn/#logo`)
+    .replace(
+      `https://noidung.dhcongdoan.vn/#logo`,
+      `https://dhcongdoan.vn/#logo`
+    )
     .replace(
       `https://noidung.dhcongdoan.vn/#website`,
       `https://dhcongdoan.vn/#website`

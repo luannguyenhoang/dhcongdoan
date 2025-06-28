@@ -33,7 +33,6 @@ async function getPostPaths(): Promise<MetadataRoute.Sitemap> {
       url: `${API_URL}/${post.slug}`
     }));
   } catch (error) {
-    console.error("Failed to fetch posts for sitemap", error);
     return [];
   }
 }
