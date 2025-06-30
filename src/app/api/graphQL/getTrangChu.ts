@@ -5,6 +5,11 @@ export const GET_TRANG_CHU = gql`
     pageBy(id: "cG9zdDozMjE4OQ==") {
       trangChu {
         openingschedule {
+          banner {
+            node {
+              mediaItemUrl
+            }
+          }
           title
           date
         }

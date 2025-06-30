@@ -15,7 +15,7 @@ export const OpeningScheduleBanner = ({ data }: { data?: any }) => {
         <div className="flex flex-col md:flex-row items-stretch">
           <div className="w-full md:w-3/4">
             <Image
-              src="/image10.webp"
+              src={data?.banner?.node?.mediaItemUrl || "/image10.webp"}
               alt="Hình ảnh sinh viên trong khuôn viên trường"
               width={1200}
               height={500}
@@ -59,7 +59,7 @@ export const OpeningScheduleBanner = ({ data }: { data?: any }) => {
               </div>
             </div>
             <p className="text-white font-medium text-md mb-4">
-              {formatDate(data?.date || "21/06/2025")}
+              {data?.date ? formatDate(data.date) : "Đang cập nhật"}
             </p>
           </div>
         </div>
