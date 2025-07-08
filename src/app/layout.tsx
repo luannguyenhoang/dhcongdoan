@@ -54,11 +54,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        <div className="max-w-[1920px] mx-auto">
+          {gtmId && <GoogleTagManager gtmId={gtmId} />}
 
-        <Header headerData={headerData?.pageBy?.trangChu?.header || {}} />
-        {children}
-        <Footer footerData={footerData?.pageBy?.trangChu?.footer || {}} />
+          <Header headerData={headerData?.pageBy?.trangChu?.header || {}} />
+          {children}
+          <Footer footerData={footerData?.pageBy?.trangChu?.footer || {}} />
+        </div>
       </body>
     </html>
   );
