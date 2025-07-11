@@ -1,7 +1,10 @@
 "use client";
 
+import { GET_HEADER_AND_FOOTER } from "@/app/api/graphQL/getHeaderAndFooter";
+import { getData } from "@/lib/getData";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   FaEnvelope,
   FaFacebookF,
@@ -12,7 +15,28 @@ import {
 import { SiZalo } from "react-icons/si";
 import { menus } from "../../../router/router";
 
-export const Footer = ({ footerData }: { footerData: any }) => {
+export const Footer = () => {
+  const [footerData, setFooterData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (!GET_HEADER_AND_FOOTER) {
+          throw new Error("GraphQL query is undefined");
+        }
+        const data = await getData(GET_HEADER_AND_FOOTER);
+        if (!data) {
+          throw new Error("No data returned from API");
+        }
+
+        setFooterData(data);
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const nganhdaotao = menus.find((item) => item.title === "Ngành đào tạo");
   return (
     <footer className="bg-[#002147] text-white pt-16">

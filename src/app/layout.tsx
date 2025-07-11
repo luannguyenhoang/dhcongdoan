@@ -1,46 +1,35 @@
-"use client";
 import Header from "@/app/components/molecules/Header";
-import { getData } from "@/lib/getData";
+import { getSeoData } from "@/utils/getSeoData";
+import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-import { GET_HEADER_AND_FOOTER } from "./api/graphQL/getHeaderAndFooter";
+import { GET_TRANG_CHU } from "./api/graphQL/getTrangChu";
 import "./globals.css";
+export const revalidate = 0;
 
 const Footer = dynamic(() =>
   import("@/app/components/molecules/Footer").then((mod) => mod.Footer)
 );
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo } = await getSeoData(GET_TRANG_CHU, "pageBy");
 
+  return {
+    ...generateMetadataFromFullHead(
+      seo.fullHead || "",
+      seo.focusKeywords || ""
+    ),
+    robots: "index, follow"
+  };
+}
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [headerData, setHeaderData] = useState<any>(null);
-  const [footerData, setFooterData] = useState<any>(null);
-
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (!GET_HEADER_AND_FOOTER) {
-          throw new Error("GraphQL query is undefined");
-        }
-        const data = await getData(GET_HEADER_AND_FOOTER);
-        if (!data) {
-          throw new Error("No data returned from API");
-        }
 
-        setHeaderData(data);
-        setFooterData(data);
-      } catch (error) {
-        console.error("Error fetching event data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
   return (
     <html lang="en">
       <head>
@@ -56,10 +45,9 @@ export default function RootLayout({
       <body>
         <div className="max-w-[1920px] mx-auto">
           {gtmId && <GoogleTagManager gtmId={gtmId} />}
-
-          <Header headerData={headerData?.pageBy?.trangChu?.header || {}} />
+          <Header />
           {children}
-          <Footer footerData={footerData?.pageBy?.trangChu?.footer || {}} />
+          <Footer />
         </div>
       </body>
     </html>
