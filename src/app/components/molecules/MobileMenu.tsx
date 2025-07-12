@@ -112,7 +112,7 @@ export default function MobileMenu({
                             >
                               <Link
                                 href="/nganh-dao-tao"
-                                className="block py-3 px-4 text-gray-800 hover:text-[#fdc800] font-medium flex-grow relative"
+                                className="block py-3 px-4 text-gray-800 w-full hover:text-[#fdc800] font-medium flex-grow relative"
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   setMobileMenuOpen(false);
@@ -123,7 +123,7 @@ export default function MobileMenu({
                                   <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#fdc800]"></span>
                                 )}
                               </Link>
-                              <div className="p-3 text-gray-800">
+                              <div className="p-3 text-gray-800 w-full flex justify-end">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   className={`h-4 w-4 transition-transform duration-200 ${
