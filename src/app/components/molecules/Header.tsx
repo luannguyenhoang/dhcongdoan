@@ -7,6 +7,7 @@ import { getData } from "@/lib/getData";
 import { useEffect, useState } from "react";
 export default function Header() {
   const [headerData, setHeaderData] = useState<any>(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,8 +29,8 @@ export default function Header() {
   }, []);
   return (
     <>
-      <HeaderTop headerData={headerData} />
-      <HeaderMenu headerData={headerData} />
+      <HeaderTop headerData={headerData?.pageBy?.trangChu?.header} />
+      <HeaderMenu headerData={headerData?.pageBy?.trangChu?.header} />
     </>
   );
 }
