@@ -139,8 +139,7 @@ export const Footer = () => {
                     </p>
                     <Link
                       href={
-                        footer?.contacts?.linkemail ||
-                        "mailto:dttx@dhcd.edu.vn"
+                        footer?.contacts?.linkemail || "mailto:dttx@dhcd.edu.vn"
                       }
                     >
                       <p className="hover:text-[#fdc800] transition-all duration-300 font-medium break-words">

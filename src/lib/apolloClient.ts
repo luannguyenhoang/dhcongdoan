@@ -1,28 +1,35 @@
-import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache, from } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 import { registerApolloClient } from "@apollo/experimental-nextjs-app-support";
-import { setContext } from "@apollo/client/link/context";
 
 const API_GRAPHQL =
-  process.env.NEXT_PUBLIC_API_GRAPHQL || "http://10.10.51.16:8090/graphql";
-const API_TOKEN = process.env.TOKEN || "";
+  process.env.NEXT_PUBLIC_API_GRAPHQL ||
+  "https://noidung.dhcongdoan.vn/graphql";
 
 const httpLink = new HttpLink({
   uri: API_GRAPHQL,
   fetch
 });
 
-const authLink = setContext((_, { headers }) => {
-  return {
-    headers: {
-      ...headers,
-      Authorization: API_TOKEN ? `Bearer ${API_TOKEN}` : ""
-    }
-  };
+const errorLink = onError(({ graphQLErrors }) => {
+  if (graphQLErrors) {
+    graphQLErrors.forEach(({ message, locations, path }) => {
+      console.error(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      );
+    });
+  }
 });
 
 export const { getClient, query } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
-    link: authLink.concat(httpLink)
+    link: from([errorLink, httpLink]),
+    defaultOptions: {
+      query: {
+        errorPolicy: "all",
+        fetchPolicy: "cache-first"
+      }
+    }
   });
 });

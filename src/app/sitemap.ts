@@ -23,11 +23,16 @@ const getAllPaths = (menus: TMenus): MetadataRoute.Sitemap => {
 async function getPostPaths(): Promise<MetadataRoute.Sitemap> {
   try {
     const { data } = await getClient().query({
-      query: GET_SITEMAP
+      query: GET_SITEMAP,
+      fetchPolicy: "no-cache",
+      errorPolicy: "all"
     });
 
     const posts = data?.posts?.nodes;
-    if (!posts || !Array.isArray(posts)) return [];
+    if (!posts || !Array.isArray(posts)) {
+      console.warn("No posts found for sitemap or invalid data structure");
+      return [];
+    }
 
     return posts.map((post: { slug: string }) => ({
       url: `${API_URL}/${post.slug}`
@@ -40,6 +45,10 @@ export const revalidate = 60;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths = getAllPaths(menus);
-  const postPaths = await getPostPaths();
-  return [...staticPaths, ...postPaths];
+  try {
+    const postPaths = await getPostPaths();
+    return [...staticPaths, ...postPaths];
+  } catch (error) {
+    return staticPaths;
+  }
 }

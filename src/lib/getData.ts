@@ -1,13 +1,36 @@
-import { ApolloClient, DocumentNode } from "@apollo/client";
+import { ApolloClient, DocumentNode, HttpLink, from } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 import { InMemoryCache } from "@apollo/experimental-nextjs-app-support";
 
+const errorLink = onError(({ networkError, graphQLErrors }) => {
+  if (graphQLErrors) {
+    graphQLErrors.forEach(({ message, locations, path }) => {
+      console.error(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      );
+    });
+  }
+
+  if (networkError) {
+    console.error(`[Network error]: ${networkError}`);
+  }
+});
+
+const httpLink = new HttpLink({
+  uri:
+    process.env.NEXT_PUBLIC_API_GRAPHQL ||
+    "https://noidung.dhcongdoan.vn/graphql",
+  fetch
+});
+
 const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_API_GRAPHQL || "http://10.10.51.16:8090/graphql",
   ssrMode: typeof window === "undefined",
   cache: new InMemoryCache(),
+  link: from([errorLink, httpLink]),
   defaultOptions: {
     query: {
-      fetchPolicy: "cache-first"
+      fetchPolicy: "cache-first",
+      errorPolicy: "all"
     }
   }
 });
@@ -17,18 +40,16 @@ export const getData = async (query: DocumentNode, variables?: any) => {
     const response = await client.query({
       query,
       variables,
-      fetchPolicy: "cache-first"
+      fetchPolicy: "cache-first",
+      errorPolicy: "all"
     });
 
     if (!response?.data) {
-      throw new Error(
-        `GraphQL query failed with status: ${response?.networkStatus}`
-      );
+      return null;
     }
 
     return response.data;
-  } catch (error) {
-    console.error("GraphQL Error:", error);
+  } catch (error: any) {
     return null;
   }
 };

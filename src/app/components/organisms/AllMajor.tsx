@@ -1,11 +1,11 @@
 "use client";
+import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
 import { getData } from "@/lib/getData";
+import { IndustryGroup } from "@/types/types";
 import { toSlug } from "@/utils/toSlug";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { IndustryGroup } from "@/types/types";
-import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
 
 export const AllMajor = () => {
   const [nganhHoc, setNganhHoc] = useState<any>({});
@@ -43,7 +43,7 @@ export const AllMajor = () => {
             industryGroups.map((industry, index) => (
               <Link
                 key={index}
-                href={`/nganh-dao-tao/${toSlug(industry.industryname || "")}`}
+                href={`/nganh-dao-tao/${toSlug(industry.industryname || "/")}`}
                 className="relative block h-24 w-full  overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-[#00214755] to-[#002147] z-10"></div>

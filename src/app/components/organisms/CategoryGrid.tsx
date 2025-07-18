@@ -19,9 +19,9 @@ export const CategoryGrid = ({ data }: { data?: any }) => {
           {categoryData.industrygroups.map((category: any, index: any) => (
             <CategoryCard
               key={index}
-              title={category.industryname}
-              image={category.image.node.mediaItemUrl}
-              href={`/nganh-dao-tao/${toSlug(category.industryname)}`}
+              title={category.industryname || "image"}
+              image={category.image.node.mediaItemUrl || "/no-image.jpeg"}
+              href={`/nganh-dao-tao/${toSlug(category.industryname)}` || "/"}
             />
           ))}
         </div>
