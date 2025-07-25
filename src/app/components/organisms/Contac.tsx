@@ -1,12 +1,22 @@
 "use client";
 
+import { GET_LIEN_HE } from "@/app/api/graphQL/getLienHe";
+import { getData } from "@/lib/getData";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
-import { FormWrapper } from "@/app/components/molecules/FormWrapper";
-import { PageBanner } from "@/app/components/molecules/PageBanner";
-import { getData } from "@/lib/getData";
-import { GET_LIEN_HE } from "@/app/api/graphQL/getLienHe";
-import FormPopup from "@/app/components/molecules/FormPopup";
+
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+);
+const FormWrapper = dynamic(() =>
+  import("@/app/components/molecules/FormWrapper").then(
+    (mod) => mod.FormWrapper
+  )
+);
+const PageBanner = dynamic(() =>
+  import("@/app/components/molecules/PageBanner").then((mod) => mod.PageBanner)
+);
 
 export const Contac = () => {
   const [contactData, setContactData] = useState<any>(null);

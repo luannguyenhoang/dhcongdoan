@@ -1,16 +1,27 @@
 "use client";
+
+import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
+import { LoadingListPost } from "@/app/components/atoms/LoadingListPost";
+import DefaultLayout from "@/app/components/template/LayoutDefault";
 import { getData } from "@/lib/getData";
+import { IndustryGroup } from "@/types/types";
 import { toSlug } from "@/utils/toSlug";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import { IndustryGroup } from "@/types/types";
-import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
-import { CourseCard } from "@/app/components/atoms/CourseCard";
-import { LoadingListPost } from "@/app/components/atoms/LoadingListPost";
-import { PageBanner } from "@/app/components/molecules/PageBanner";
-import { SliderBar } from "@/app/components/organisms/SliderBar";
-import DefaultLayout from "@/app/components/template/LayoutDefault";
-import FormPopup from "@/app/components/molecules/FormPopup";
+
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+);
+const CourseCard = dynamic(() =>
+  import("@/app/components/atoms/CourseCard").then((mod) => mod.CourseCard)
+);
+const PageBanner = dynamic(() =>
+  import("@/app/components/molecules/PageBanner").then((mod) => mod.PageBanner)
+);
+const SliderBar = dynamic(() =>
+  import("@/app/components/organisms/SliderBar").then((mod) => mod.SliderBar)
+);
 
 export default function Page() {
   const [nganhHoc, setNganhHoc] = useState<any>({});

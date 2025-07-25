@@ -2,13 +2,17 @@
 
 import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
 import { GET_SIDE_BAR } from "@/app/api/graphQL/getSideBar";
-import { FormWrapper } from "@/app/components/molecules/FormWrapper";
 import { getData } from "@/lib/getData";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { FaPlay } from "react-icons/fa";
-import { VideoModal } from "./VideoModal";
-import FormPopup from "./FormPopup";
+
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+);
+const VideoModal = dynamic(() =>
+  import("@/app/components/molecules/VideoModal").then((mod) => mod.VideoModal)
+);
 
 type SidebarItem = {
   icon: string;

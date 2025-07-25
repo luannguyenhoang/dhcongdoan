@@ -1,14 +1,18 @@
 "use client";
 
+import { IndustryGroup } from "@/types/types";
 import { toSlug } from "@/utils/toSlug";
+import dynamic from "next/dynamic";
 import { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { IndustryGroup } from "@/types/types";
-import { CourseCard } from "@/app/components/atoms/CourseCard";
+
+const CourseCard = dynamic(() =>
+  import("@/app/components/atoms/CourseCard").then((mod) => mod.CourseCard)
+);
 
 export const RelatedCourses = ({ data }: { data: IndustryGroup[] }) => {
   const swiperRef = useRef(null);

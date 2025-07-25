@@ -1,4 +1,5 @@
 "use client";
+
 import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
 import { getData } from "@/lib/getData";
 import { IndustryGroup } from "@/types/types";

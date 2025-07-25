@@ -1,4 +1,3 @@
-import React from "react";
 import { CourseDetailItem } from "@/app/components/atoms/CourseDetailItem";
 import { CourseDetailsProps } from "@/types/types";
 

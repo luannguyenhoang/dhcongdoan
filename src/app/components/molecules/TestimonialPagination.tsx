@@ -1,7 +1,7 @@
 "use client";
 
-import { TestimonialPaginationProps } from "@/types/types";
 import { TestimonialDot } from "@/app/components/atoms/TestimonialDot";
+import { TestimonialPaginationProps } from "@/types/types";
 
 export const TestimonialPagination = ({
   count,

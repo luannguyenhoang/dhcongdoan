@@ -2,13 +2,18 @@
 
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { PageBanner } from "@/app/components/molecules/PageBanner";
-import { LayoutBottom } from "@/app/components/template/LayoutBottom";
-import FormPopup from "@/app/components/molecules/FormPopup";
 import { useEffect, useState } from "react";
 
 const ListPosts = dynamic(() =>
   import("@/app/posts/ListPosts").then((mod) => mod.ListPosts)
+);
+const LayoutBottom = dynamic(() =>
+  import("@/app/components/template/LayoutBottom").then(
+    (mod) => mod.LayoutBottom
+  )
+);
+const PageBanner = dynamic(() =>
+  import("@/app/components/molecules/PageBanner").then((mod) => mod.PageBanner)
 );
 
 export default function Page() {

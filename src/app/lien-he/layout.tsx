@@ -1,7 +1,7 @@
+import { GET_LIEN_HE } from "@/app/api/graphQL/getLienHe";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
-import { GET_LIEN_HE } from "@/app/api/graphQL/getLienHe";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await getSeoData(GET_LIEN_HE, "pageBy");

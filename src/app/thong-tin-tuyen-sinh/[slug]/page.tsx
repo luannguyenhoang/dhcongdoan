@@ -1,13 +1,19 @@
 import { GET_POST_BY_SLUG } from "@/app/api/graphQL/posts";
-import { PageBanner } from "@/app/components/molecules/PageBanner";
 import DefaultLayout from "@/app/components/template/LayoutDefault";
-import { LayoutPost } from "@/app/components/template/LayoutPost";
-import { ClientPost } from "@/app/post/ClientPost";
 import { getClient } from "@/lib/apolloClient";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
-export const dynamic = "force-dynamic";
+const PageBanner = dynamic(() =>
+  import("@/app/components/molecules/PageBanner").then((mod) => mod.PageBanner)
+);
+const LayoutPost = dynamic(() =>
+  import("@/app/components/template/LayoutPost").then((mod) => mod.LayoutPost)
+);
+const ClientPost = dynamic(() =>
+  import("@/app/post/ClientPost").then((mod) => mod.ClientPost)
+);
 
 async function getPost(slug: string) {
   try {

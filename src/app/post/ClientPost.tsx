@@ -1,14 +1,16 @@
 "use client";
 
 import { clean } from "@/lib/sanitizeHtml";
+import styles from "@/styles/Post.module.css";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import styles from "@/styles/Post.module.css";
-import FormPopup from "@/app/components/molecules/FormPopup";
 import { useEffect, useState } from "react";
 
 const BanerPost = dynamic(() =>
   import("@/app/components/atoms/BanerPost").then((mod) => mod.BanerPost)
+);
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
 );
 
 export const ClientPost = ({ post }: { post: any }) => {

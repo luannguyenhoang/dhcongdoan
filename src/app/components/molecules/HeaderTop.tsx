@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function HeaderTop({ headerData }: { headerData: any }) {
+export const HeaderTop = ({ headerData }: { headerData: any }) => {
   return (
     <div className="bg-[#002147] text-white py-3 px-4 lg:px-0">
       <div className="container mx-auto flex flex-wrap justify-center items-center max-w-6xl">
@@ -51,4 +51,4 @@ export default function HeaderTop({ headerData }: { headerData: any }) {
       </div>
     </div>
   );
-}
+};

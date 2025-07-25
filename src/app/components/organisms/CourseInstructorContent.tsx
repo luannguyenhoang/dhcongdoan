@@ -1,7 +1,6 @@
-import React from "react";
-import Image from "next/image";
 import { CourseDetails } from "@/app/components/organisms/CourseDetails";
 import { CourseInstructorContentProps } from "@/types/types";
+import Image from "next/image";
 
 export const CourseInstructorContent = ({
   data

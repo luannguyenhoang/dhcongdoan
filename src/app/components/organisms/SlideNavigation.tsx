@@ -1,4 +1,5 @@
 "use client";
+
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 interface SlideNavigationProps {

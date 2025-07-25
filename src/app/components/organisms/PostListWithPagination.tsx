@@ -1,12 +1,25 @@
 "use client";
+
+import NextIcon from "@/icons/NextIcon";
+import PreviousIcon from "@/icons/PreviousIcon";
+import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import xss from "xss";
-import NextIcon from "@/icons/NextIcon";
-import PreviousIcon from "@/icons/PreviousIcon";
-import { CardBlogVert } from "@/app/components/atoms/BlogVertCard";
-import { LoadingListPost } from "@/app/components/atoms/LoadingListPost";
-import { StyledPaginate } from "@/app/components/atoms/StyledPaginate";
+
+const CardBlogVert = dynamic(() =>
+  import("@/app/components/atoms/BlogVertCard").then((mod) => mod.CardBlogVert)
+);
+const LoadingListPost = dynamic(() =>
+  import("@/app/components/atoms/LoadingListPost").then(
+    (mod) => mod.LoadingListPost
+  )
+);
+const StyledPaginate = dynamic(() =>
+  import("@/app/components/atoms/StyledPaginate").then(
+    (mod) => mod.StyledPaginate
+  )
+);
 
 export const PostListWithPagination = ({
   type,

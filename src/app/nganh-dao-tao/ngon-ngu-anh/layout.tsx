@@ -2,6 +2,7 @@ import { GET_NGON_NGU_ANH } from "@/app/api/graphQL/getNgonNguAnh";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
+
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {

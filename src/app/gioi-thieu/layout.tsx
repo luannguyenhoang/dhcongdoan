@@ -1,7 +1,7 @@
+import { GET_GIOI_THIEU } from "@/app/api/graphQL/getGioiThieu";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
-import { GET_GIOI_THIEU } from "@/app/api/graphQL/getGioiThieu";
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {

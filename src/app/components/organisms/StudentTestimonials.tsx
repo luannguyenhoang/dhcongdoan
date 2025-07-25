@@ -1,9 +1,9 @@
 "use client";
 
-import { DEFAULT_TESTIMONIALS } from "@/data/DefaultData";
-import { useCallback, useEffect, useState } from "react";
 import { TestimonialItem } from "@/app/components/molecules/TestimonialItem";
 import { TestimonialPagination } from "@/app/components/molecules/TestimonialPagination";
+import { DEFAULT_TESTIMONIALS } from "@/data/DefaultData";
+import { useCallback, useEffect, useState } from "react";
 
 export const StudentTestimonials = ({ data }: { data?: any }) => {
   const testimonialData = data || DEFAULT_TESTIMONIALS;

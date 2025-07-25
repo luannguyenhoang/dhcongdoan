@@ -1,4 +1,5 @@
 "use client";
+
 import FeatureBoxes from "@/app/components/organisms/FeatureBoxes";
 import SlideContent from "@/app/components/organisms/SlideContent";
 import SlideNavigation from "@/app/components/organisms/SlideNavigation";
@@ -189,5 +190,3 @@ export const Slider = ({
     </div>
   );
 };
-
-export default Slider;

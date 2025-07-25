@@ -1,14 +1,19 @@
-import { FormWrapper } from "@/app/components/molecules/FormWrapper";
-import React from "react";
+import dynamic from "next/dynamic";
 import { createPortal } from "react-dom";
 
-export default function FormPopup({
+const FormWrapper = dynamic(() =>
+  import("@/app/components/molecules/FormWrapper").then(
+    (mod) => mod.FormWrapper
+  )
+);
+
+export const FormPopup = ({
   showPopup,
   setShowPopup
 }: {
   showPopup: boolean;
   setShowPopup: (showPopup: boolean) => void;
-}) {
+}) => {
   return (
     <div>
       {createPortal(
@@ -67,4 +72,4 @@ export default function FormPopup({
       )}
     </div>
   );
-}
+};

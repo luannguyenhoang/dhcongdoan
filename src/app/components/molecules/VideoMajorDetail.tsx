@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { FaPlay } from "react-icons/fa";
+import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
 import { VideoModal } from "@/app/components/molecules/VideoModal";
 import { getData } from "@/lib/getData";
-import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
+import { useEffect, useState } from "react";
+import { FaPlay } from "react-icons/fa";
 
 export const VideoMajorDetail = () => {
   const [showModal, setShowModal] = useState(false);

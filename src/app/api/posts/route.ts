@@ -1,11 +1,11 @@
-import { getClient } from "@/lib/apolloClient";
-import { NextRequest, NextResponse } from "next/server";
 import {
   GET_POSTS,
   GET_POSTS_BY_CATEGORY,
   GET_POSTS_BY_CATEGORY_ID,
   SEARCH_POSTS
 } from "@/app/api/graphQL/posts";
+import { getClient } from "@/lib/apolloClient";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);

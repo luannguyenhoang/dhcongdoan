@@ -1,8 +1,12 @@
 "use client";
 
-import { ReactNode } from "react";
-import { SliderBar } from "@/app/components/organisms/SliderBar";
 import DefaultLayout from "@/app/components/template/LayoutDefault";
+import dynamic from "next/dynamic";
+import { ReactNode } from "react";
+
+const SliderBar = dynamic(() =>
+  import("@/app/components/organisms/SliderBar").then((mod) => mod.SliderBar)
+);
 
 export const LayoutBottom = ({
   children,

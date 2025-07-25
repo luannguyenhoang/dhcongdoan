@@ -1,4 +1,3 @@
-import Header from "@/app/components/molecules/Header";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -6,11 +5,16 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { GET_TRANG_CHU } from "./api/graphQL/getTrangChu";
 import "./globals.css";
-export const revalidate = 0;
 
+const Header = dynamic(() =>
+  import("@/app/components/molecules/Header").then((mod) => mod.Header)
+);
 const Footer = dynamic(() =>
   import("@/app/components/molecules/Footer").then((mod) => mod.Footer)
 );
+
+export const revalidate = 0;
+
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await getSeoData(GET_TRANG_CHU, "pageBy");
 

@@ -1,11 +1,18 @@
 "use client";
 
 import { GET_HEADER_AND_FOOTER } from "@/app/api/graphQL/getHeaderAndFooter";
-import HeaderMenu from "@/app/components/molecules/HeaderMenu";
-import HeaderTop from "@/app/components/molecules/HeaderTop";
 import { getData } from "@/lib/getData";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-export default function Header() {
+
+const HeaderMenu = dynamic(() =>
+  import("@/app/components/molecules/HeaderMenu").then((mod) => mod.HeaderMenu)
+);
+const HeaderTop = dynamic(() =>
+  import("@/app/components/molecules/HeaderTop").then((mod) => mod.HeaderTop)
+);
+
+export const Header = () => {
   const [headerData, setHeaderData] = useState<any>(null);
 
   useEffect(() => {
@@ -33,4 +40,4 @@ export default function Header() {
       <HeaderMenu headerData={headerData?.pageBy?.trangChu?.header} />
     </>
   );
-}
+};

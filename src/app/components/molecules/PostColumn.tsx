@@ -1,8 +1,8 @@
+import { PostProps } from "@/types/types";
 import { formatDate } from "@/utils/date";
 import Image from "next/image";
 import Link from "next/link";
 import xss from "xss";
-import { PostProps } from "@/types/types";
 
 // Skeleton component for loading state
 const PostSkeleton = () => (

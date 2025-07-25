@@ -1,13 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import FormPopup from "../components/molecules/FormPopup";
 import { useEffect, useState } from "react";
 
 const PostListWithPagination = dynamic(() =>
   import("@/app/components/organisms/PostListWithPagination").then(
     (mod) => mod.PostListWithPagination
   )
+);
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
 );
 
 export const ListPosts = ({

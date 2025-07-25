@@ -2,14 +2,36 @@
 
 import { GET_GIOI_THIEU } from "@/app/api/graphQL/getGioiThieu";
 import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
-import { AboutSection } from "@/app/components/molecules/AboutSection";
-import { PageBanner } from "@/app/components/molecules/PageBanner";
-import { WhyChooseUs } from "@/app/components/molecules/WhyChooseUs";
-import { InstructorCarousel } from "@/app/components/organisms/InstructorCarousel";
-import { StatisticsCounter } from "@/app/components/organisms/StatisticsCounter";
 import { getData } from "@/lib/getData";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import FormPopup from "@/app/components/molecules/FormPopup";
+
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+);
+const AboutSection = dynamic(() =>
+  import("@/app/components/molecules/AboutSection").then(
+    (mod) => mod.AboutSection
+  )
+);
+const PageBanner = dynamic(() =>
+  import("@/app/components/molecules/PageBanner").then((mod) => mod.PageBanner)
+);
+const WhyChooseUs = dynamic(() =>
+  import("@/app/components/molecules/WhyChooseUs").then(
+    (mod) => mod.WhyChooseUs
+  )
+);
+const InstructorCarousel = dynamic(() =>
+  import("@/app/components/organisms/InstructorCarousel").then(
+    (mod) => mod.InstructorCarousel
+  )
+);
+const StatisticsCounter = dynamic(() =>
+  import("@/app/components/organisms/StatisticsCounter").then(
+    (mod) => mod.StatisticsCounter
+  )
+);
 
 export default function AboutUs() {
   const [homeData, setHomeData] = useState<any>(null);

@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
+import { GET_FORM } from "@/app/api/graphQL/getForm";
+import { getData } from "@/lib/getData";
 import { useEffect, useState } from "react";
 import { FormGetFly } from "./FormGetFly";
 import { FormGoogle } from "./FormGoogle";
 import { FormSam } from "./FormSam";
-import { GET_FORM } from "@/app/api/graphQL/getForm";
-import { getData } from "@/lib/getData";
 
 interface FormData {
   type: "form-getfly" | "form-sam" | "form-google" | "unknown";

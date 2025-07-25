@@ -1,8 +1,7 @@
-import React from "react";
 import { CourseTabNavigation } from "@/app/components/molecules/CourseTabNavigation";
-import { CourseOverviewContent } from "@/app/components/organisms/CourseOverviewContent";
 import { CourseCurriculumContent } from "@/app/components/organisms/CourseCurriculumContent";
 import { CourseInstructorContent } from "@/app/components/organisms/CourseInstructorContent";
+import { CourseOverviewContent } from "@/app/components/organisms/CourseOverviewContent";
 import { CourseTabsProps } from "@/types/types";
 
 export const CourseTabs = ({

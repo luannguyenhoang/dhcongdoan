@@ -1,8 +1,8 @@
 "use client";
 
+import ChevronIcon from "@/icons/ChevronIcon";
 import { getCategoryDisplayName } from "@/utils/getCategoryDisplayNameAndColor";
 import Link from "next/link";
-import ChevronIcon from "@/icons/ChevronIcon";
 
 export const Breadcrumb = ({ post }: { post: any }) => {
   return (

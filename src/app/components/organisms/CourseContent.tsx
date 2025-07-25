@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { CourseContentProps } from "@/types/types";
 import { CourseTabs } from "@/app/components/organisms/CourseTabs";
+import { CourseContentProps } from "@/types/types";
+import Image from "next/image";
 
 export const CourseContent = ({
   courseData,

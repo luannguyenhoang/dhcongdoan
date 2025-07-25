@@ -1,14 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { CountdownTimer } from "@/app/components/molecules/CountdownTimer";
-import { PageBanner } from "@/app/components/molecules/PageBanner";
-import { getData } from "@/lib/getData";
 import {
   GET_CONTENT_LICH_KHAI_GIANG,
   GET_LICH_KHAI_GIANG
 } from "@/app/api/graphQL/getLichKhaiGiang";
-import { FormWrapper } from "../components/molecules/FormWrapper";
+import { CountdownTimer } from "@/app/components/molecules/CountdownTimer";
+import { PageBanner } from "@/app/components/molecules/PageBanner";
+import { getData } from "@/lib/getData";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+
+const FormWrapper = dynamic(() =>
+  import("@/app/components/molecules/FormWrapper").then(
+    (mod) => mod.FormWrapper
+  )
+);
 
 export default function LichKhaiGiang() {
   const [eventData, setEventData] = useState({

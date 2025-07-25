@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import ChevronIcon from "@/icons/ChevronIcon";
+import Link from "next/link";
 
 interface PageBannerProps {
   title: string;

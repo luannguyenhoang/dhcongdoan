@@ -1,4 +1,10 @@
-import { FormWrapper } from "@/app/components/molecules/FormWrapper";
+import dynamic from "next/dynamic";
+
+const FormWrapper = dynamic(() =>
+  import("@/app/components/molecules/FormWrapper").then(
+    (mod) => mod.FormWrapper
+  )
+);
 
 export const Form = () => {
   return (

@@ -3,12 +3,8 @@
 import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
 import { GET_NGON_NGU_ANH } from "@/app/api/graphQL/getNgonNguAnh";
 import TrainingIndustryDetailLayout from "@/app/components/template/LayoutTrainingIndustryDetail";
-
 import { getData } from "@/lib/getData";
-
-import { useEffect } from "react";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function NgonNguAnh() {
   const [courseData, setCourseData] = useState(null);

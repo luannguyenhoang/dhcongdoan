@@ -1,6 +1,6 @@
+import { GET_SAME_POSTS } from "@/app/api/graphQL/posts";
 import { getClient } from "@/lib/apolloClient";
 import { NextRequest, NextResponse } from "next/server";
-import { GET_SAME_POSTS } from "@/app/api/graphQL/posts";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);

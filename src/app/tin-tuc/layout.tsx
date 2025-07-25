@@ -1,7 +1,7 @@
+import { GET_SEO_TIN_TUC } from "@/app/api/graphQL/posts";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
-import { GET_SEO_TIN_TUC } from "@/app/api/graphQL/posts";
 
 export const revalidate = 0;
 

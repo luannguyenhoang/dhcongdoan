@@ -1,8 +1,8 @@
 "use client";
 
 import { PostColumn } from "@/app/components/molecules/PostColumn";
-import { useEffect, useState } from "react";
 import { PostProps } from "@/types/types";
+import { useEffect, useState } from "react";
 
 export const LatestPostsSection = () => {
   const [tinTucPosts, setTinTucPosts] = useState<PostProps[]>([]);

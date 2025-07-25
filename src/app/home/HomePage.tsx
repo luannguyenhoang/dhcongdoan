@@ -1,18 +1,26 @@
 "use client";
+
 import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
-import { CampusWelcome } from "@/app/components/organisms/CampusWelcome";
-import Slider from "@/app/components/organisms/Slider";
 import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import FormPopup from "@/app/components/molecules/FormPopup";
 
 const CategoryGrid = dynamic(() =>
   import("@/app/components/organisms/CategoryGrid").then(
     (mod) => mod.CategoryGrid
   )
 );
-
+const CampusWelcome = dynamic(() =>
+  import("@/app/components/organisms/CampusWelcome").then(
+    (mod) => mod.CampusWelcome
+  )
+);
+const Slider = dynamic(() =>
+  import("@/app/components/organisms/Slider").then((mod) => mod.Slider)
+);
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+);
 const CampusVideoTour = dynamic(() =>
   import("@/app/components/organisms/CampusVideoTour").then(
     (mod) => mod.CampusVideoTour

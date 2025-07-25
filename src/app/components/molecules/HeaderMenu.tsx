@@ -1,10 +1,18 @@
-import { DesktopMenu } from "@/app/components/molecules/DesktopMenu";
-import MobileMenu from "@/app/components/molecules/MobileMenu";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function HeaderMenu({ headerData }: { headerData: any }) {
+const DesktopMenu = dynamic(() =>
+  import("@/app/components/molecules/DesktopMenu").then(
+    (mod) => mod.DesktopMenu
+  )
+);
+const MobileMenu = dynamic(() =>
+  import("@/app/components/molecules/MobileMenu").then((mod) => mod.MobileMenu)
+);
+
+export const HeaderMenu = ({ headerData }: { headerData: any }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="bg-white shadow-md sticky top-0 z-50 lg:px-0 px-4">
@@ -31,4 +39,4 @@ export default function HeaderMenu({ headerData }: { headerData: any }) {
       </div>
     </div>
   );
-}
+};

@@ -1,7 +1,7 @@
 "use client";
 
-import { TestimonialItemProps } from "@/types/types";
 import { Avatar } from "@/app/components/atoms/Avatar";
+import { TestimonialItemProps } from "@/types/types";
 
 export const TestimonialItem = ({
   name,

@@ -1,7 +1,8 @@
+import { GET_SEO_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
-import { GET_SEO_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
+
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {

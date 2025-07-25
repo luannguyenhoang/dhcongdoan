@@ -3,13 +3,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { menus } from "../../../router/router";
 
-export default function MobileMenu({
+export const MobileMenu = ({
   mobileMenuOpen,
   setMobileMenuOpen
 }: {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (mobileMenuOpen: boolean) => void;
-}) {
+}) => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuBottom, setMenuBottom] = useState<number>(0);
@@ -234,4 +234,4 @@ export default function MobileMenu({
       )}
     </>
   );
-}
+};

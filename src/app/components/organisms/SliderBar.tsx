@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { SearchBar } from "../atoms/SearchBar";
 
 const VideoMajorDetail = dynamic(() =>
   import("@/app/components/molecules/VideoMajorDetail").then(
@@ -18,6 +17,9 @@ const Form = dynamic(() =>
 );
 const NewPost = dynamic(() =>
   import("@/app/components/organisms/NewPost").then((mod) => mod.NewPost)
+);
+const SearchBar = dynamic(() =>
+  import("@/app/components/atoms/SearchBar").then((mod) => mod.SearchBar)
 );
 
 export const SliderBar = ({

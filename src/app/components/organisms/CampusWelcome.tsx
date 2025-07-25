@@ -1,7 +1,7 @@
+import Button from "@/app/components/atoms/Button";
 import { DEFAULT_WELCOME_DATA } from "@/data/DefaultData";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/app/components/atoms/Button";
 
 export const CampusWelcome = ({ data }: { data?: any }) => {
   const welcomeData = data || DEFAULT_WELCOME_DATA;

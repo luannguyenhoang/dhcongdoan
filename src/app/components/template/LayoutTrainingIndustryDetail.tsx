@@ -1,12 +1,30 @@
 "use client";
 
-import FormPopup from "@/app/components/molecules/FormPopup";
-import { PageBanner } from "@/app/components/molecules/PageBanner";
-import { RelatedCourses } from "@/app/components/molecules/RelatedCourses";
-import { CourseContent } from "@/app/components/organisms/CourseContent";
-import { LayoutBottom } from "@/app/components/template/LayoutBottom";
 import { IndustryGroup } from "@/types/types";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+);
+const PageBanner = dynamic(() =>
+  import("@/app/components/molecules/PageBanner").then((mod) => mod.PageBanner)
+);
+const RelatedCourses = dynamic(() =>
+  import("@/app/components/molecules/RelatedCourses").then(
+    (mod) => mod.RelatedCourses
+  )
+);
+const CourseContent = dynamic(() =>
+  import("@/app/components/organisms/CourseContent").then(
+    (mod) => mod.CourseContent
+  )
+);
+const LayoutBottom = dynamic(() =>
+  import("@/app/components/template/LayoutBottom").then(
+    (mod) => mod.LayoutBottom
+  )
+);
 
 export default function TrainingIndustryDetailLayout({
   courseData,

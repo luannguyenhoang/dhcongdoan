@@ -1,4 +1,3 @@
-import React from "react";
 import { CourseTab } from "@/app/components/molecules/CourseTab";
 
 interface TabItem {

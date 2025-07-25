@@ -1,9 +1,9 @@
 "use client";
 
+import { VideoModal } from "@/app/components/molecules/VideoModal";
 import { DEFAULT_VIDEO_TOUR } from "@/data/DefaultData";
 import { useState } from "react";
 import { FaPlay } from "react-icons/fa";
-import { VideoModal } from "@/app/components/molecules/VideoModal";
 
 export const CampusVideoTour = ({ data }: { data?: any }) => {
   const videoData = data || DEFAULT_VIDEO_TOUR;

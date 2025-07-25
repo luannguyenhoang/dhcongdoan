@@ -4,14 +4,6 @@ import { useState } from "react";
 import { FaCheckCircle, FaPlay } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-interface AboutSectionProps {
-  title?: string;
-  description?: string;
-  features?: string[];
-  backgroundImage?: string;
-  videoId?: string;
-}
-
 export const AboutSection = ({ data }: { data: any }) => {
   const [showModal, setShowModal] = useState(false);
 

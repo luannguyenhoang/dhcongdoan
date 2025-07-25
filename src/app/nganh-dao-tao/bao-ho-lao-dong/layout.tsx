@@ -2,6 +2,7 @@ import { GET_BAO_HO_LAO_DONG } from "@/app/api/graphQL/getBaoHoLaoDong";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
+
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {

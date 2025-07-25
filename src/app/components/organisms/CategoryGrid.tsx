@@ -1,6 +1,10 @@
-import { toSlug } from "@/utils/toSlug";
-import { CategoryCard } from "@/app/components/atoms/CategoryCard";
 import { DEFAULT_CATEGORY_DATA } from "@/data/DefaultData";
+import { toSlug } from "@/utils/toSlug";
+import dynamic from "next/dynamic";
+
+const CategoryCard = dynamic(() =>
+  import("@/app/components/atoms/CategoryCard").then((mod) => mod.CategoryCard)
+);
 
 export const CategoryGrid = ({ data }: { data?: any }) => {
   const categoryData = data || DEFAULT_CATEGORY_DATA;

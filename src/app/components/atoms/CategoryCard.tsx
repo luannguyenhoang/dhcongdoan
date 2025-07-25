@@ -1,6 +1,6 @@
+import { CategoryCardProps } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import { CategoryCardProps } from "@/types/types";
 
 export const CategoryCard = ({ title, image, href }: CategoryCardProps) => {
   return (

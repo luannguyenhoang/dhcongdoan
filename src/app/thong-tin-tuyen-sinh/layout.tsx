@@ -2,6 +2,7 @@ import { GET_SEO_THONG_TIN_TUYEN_SINH } from "@/app/api/graphQL/posts";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
+
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
