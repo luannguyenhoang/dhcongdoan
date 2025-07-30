@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { menus } from "../../../router/router";
+import { menus } from "@/router/router";
 
 export const DesktopMenu = () => {
   const pathname = usePathname();

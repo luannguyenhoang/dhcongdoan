@@ -1,6 +1,6 @@
 "use client";
 
-import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
+import { GET_VIDEO } from "@/app/api/graphQL/getAllNganhHoc";
 import { GET_SIDE_BAR } from "@/app/api/graphQL/getSideBar";
 import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
@@ -36,7 +36,7 @@ export const Register = () => {
             response.allSlideBar.nodes[0].sliderBarContent.sideBar
           );
         }
-        const data = await getData(GET_ALL_NGANH_HOC);
+        const data = await getData(GET_VIDEO);
         setVideo(data?.pageBy?.trangChu?.trainingIndustry?.video);
       } catch (error) {
         console.error("Error fetching sidebar data:", error);
@@ -79,7 +79,7 @@ export const Register = () => {
         <div
           className="absolute inset-0 z-10"
           style={{
-            backgroundImage: `url(${video?.image?.node?.mediaItemUrl})`,
+            backgroundImage: `url(${video?.image?.node?.mediaItemUrl || "/no-image.jpeg"})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundBlendMode: "overlay"

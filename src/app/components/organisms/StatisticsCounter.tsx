@@ -87,8 +87,8 @@ export const StatisticsCounter = ({
     >
       <div className="relative max-w-6xl mx-auto px-4">
         <div className="flex flex-wrap justify-between">
-          {data.map((stat, index) => (
-            <StatItem key={index} count={counts[index]} title={stat.text} />
+          {data?.map((stat, index) => (
+            <StatItem key={index} count={counts[index]} title={stat?.text} />
           ))}
         </div>
       </div>

@@ -1,10 +1,11 @@
+import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
+import { TrackingSession } from "@/app/components/atoms/TrackingSession";
+import "@/app/globals.css";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { GET_TRANG_CHU } from "./api/graphQL/getTrangChu";
-import "./globals.css";
 
 const Header = dynamic(() =>
   import("@/app/components/molecules/Header").then((mod) => mod.Header)
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body>
         <div className="max-w-[1920px] mx-auto">
           {gtmId && <GoogleTagManager gtmId={gtmId} />}
+          <TrackingSession />
           <Header />
           {children}
           <Footer />

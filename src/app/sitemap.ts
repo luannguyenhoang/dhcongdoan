@@ -1,6 +1,6 @@
 import { getClient } from "@/lib/apolloClient";
 import type { MetadataRoute } from "next";
-import { menus, TMenus } from "../router/router";
+import { menus, TMenus } from "@/router/router";
 import { GET_SITEMAP } from "@/app/api/graphQL/posts";
 
 const API_URL = process.env.NEXT_PUBLIC_DOMAIN || "https://dhcongdoan.vn";

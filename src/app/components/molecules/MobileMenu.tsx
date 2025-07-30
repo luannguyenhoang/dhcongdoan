@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { menus } from "../../../router/router";
+import { menus } from "@/router/router";
 
 export const MobileMenu = ({
   mobileMenuOpen,
