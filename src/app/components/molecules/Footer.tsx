@@ -109,7 +109,13 @@ export const Footer = () => {
                     <p className="text-sm text-[#f5f5f5] font-medium">
                       {footer?.contacts?.titleaddress || "Địa chỉ:"}
                     </p>
-                    <p className="font-medium">{footer?.contacts?.address}</p>
+                    {footer?.contacts?.address?.map(
+                      (addr: { text: string }, index: number) => (
+                        <p key={index} className="font-medium">
+                          {addr.text}
+                        </p>
+                      )
+                    )}
                   </div>
                 </li>
                 <li className="flex items-start">

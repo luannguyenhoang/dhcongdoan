@@ -19,13 +19,56 @@ export const ClientPost = ({ post }: { post: any }) => {
   useEffect(() => {
     const popupTimerId = setTimeout(() => {
       setShowPopup(true);
-    }, 12000);
+    }, 13000);
 
     return () => {
       clearTimeout(popupTimerId);
     };
   }, []);
 
+  useEffect(() => {
+    const tocContainers = document.querySelectorAll("#ez-toc-container");
+
+    tocContainers.forEach((container) => {
+      container.classList.add("ez-toc-open");
+      const contentList = container.querySelector(".ez-toc-list");
+      if (contentList instanceof HTMLElement) {
+        contentList.style.display = "block";
+      }
+    });
+
+    const toggleButtons = document.querySelectorAll(".ez-toc-toggle");
+
+    const handleClick = (event: Event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const button = event.currentTarget as HTMLElement;
+      const container = button.closest("#ez-toc-container");
+      if (container) {
+        container.classList.toggle("ez-toc-open");
+
+        const contentList = container.querySelector(".ez-toc-list");
+        if (contentList instanceof HTMLElement) {
+          if (contentList.style.display === "none") {
+            contentList.style.display = "block";
+          } else {
+            contentList.style.display = "none";
+          }
+        }
+      }
+    };
+
+    toggleButtons.forEach((button) => {
+      button.addEventListener("click", handleClick);
+    });
+
+    return () => {
+      toggleButtons.forEach((button) => {
+        button.removeEventListener("click", handleClick);
+      });
+    };
+  }, [post]);
   return (
     <>
       {showPopup && (

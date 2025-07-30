@@ -25,3 +25,81 @@ body {
     text-wrap: balance;
   }
 }
+#ez-toc-container {
+  font-weight: 500;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  width: 100%;
+}
+
+#ez-toc-container .ez-toc-title-container {
+  background-color: #ffc800;
+  color: rgb(0, 0, 0);
+  padding: 0.2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#ez-toc-container .ez-toc-title {
+  color: rgb(0, 0, 0);
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  margin: 0;
+  font-size: 1rem;
+}
+
+#ez-toc-container .ez-toc-toggle {
+  color: white;
+}
+
+#ez-toc-container .ez-toc-list {
+  padding: 1rem;
+  margin: 0;
+  list-style-type: none;
+}
+
+#ez-toc-container .ez-toc-list-level-1 > li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+#ez-toc-container .ez-toc-list-level-3 {
+  padding-left: 1.5rem;
+  list-style-type: none;
+}
+
+#ez-toc-container .ez-toc-list-level-3 > li {
+  margin-top: 0.5rem;
+}
+
+#ez-toc-container a {
+  color: #17224d;
+  text-decoration: none;
+}
+
+#ez-toc-container a:hover {
+  text-decoration: underline;
+}
+
+/* Hide the toggle button text but keep the icon */
+#ez-toc-container .eztoc-hide {
+  display: none;
+}
+
+/* Add arrow icon for dropdown */
+#ez-toc-container .ez-toc-icon-toggle-span:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12" height="12" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 298.04"><path fill="black" fill-rule="nonzero" d="M70.94 285.81c-16.17 16.24-42.46 16.32-58.71.15-16.24-16.16-16.32-42.46-.15-58.7L226.57 12.23c16.16-16.24 42.46-16.32 58.7-.15l214.65 215.18c16.17 16.24 16.09 42.54-.15 58.7-16.25 16.17-42.54 16.09-58.71-.15L256 100.29 70.94 285.81z"/></svg>');
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+/* Style for expanded state */
+#ez-toc-container.ez-toc-open .ez-toc-icon-toggle-span:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12" height="12" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 298.04"><path fill="black" fill-rule="nonzero" d="M12.08 70.78c-16.17-16.24-16.09-42.54.15-58.7 16.25-16.17 42.54-16.09 58.71.15L256 197.76 441.06 12.23c16.17-16.24 42.46-16.32 58.71-.15 16.24 16.16 16.32 42.46.15 58.7L285.27 285.96c-16.24 16.17-42.54 16.09-58.7-.15L12.08 70.78z"/></svg>');
+  font-size: 0.8rem;
+  display: inline-block;
+}

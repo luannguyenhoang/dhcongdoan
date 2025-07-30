@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_HEADER_AND_FOOTER = gql`
   query MyQuery {
-    pageBy(id: "cG9zdDozMjE4OQ==") {
+    pageBy(uri: "trang-chu") {
       trangChu {
         header {
           logo {
@@ -24,7 +24,9 @@ export const GET_HEADER_AND_FOOTER = gql`
           description
           contacts {
             titleaddress
-            address
+            address {
+              text
+            }
             titleemail
             linkemail
             email

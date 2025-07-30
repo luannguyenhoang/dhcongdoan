@@ -99,7 +99,7 @@ export default async function Page(props: {
         ]}
       />
       <DefaultLayout>
-        <LayoutPost showForm={true} m="lg:mt-20">
+        <LayoutPost showForm={true} m="lg:my-20">
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
