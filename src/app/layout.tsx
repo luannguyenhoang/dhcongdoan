@@ -1,11 +1,8 @@
-import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
 import { TrackingSession } from "@/app/components/atoms/TrackingSession";
 import "@/app/globals.css";
-import { getSeoData } from "@/utils/getSeoData";
-import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { FixHead } from "@/app/components/atoms/FixHead";
 
 const Header = dynamic(() =>
   import("@/app/components/molecules/Header").then((mod) => mod.Header)
@@ -14,19 +11,6 @@ const Footer = dynamic(() =>
   import("@/app/components/molecules/Footer").then((mod) => mod.Footer)
 );
 
-export const revalidate = 0;
-
-export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getSeoData(GET_TRANG_CHU, "pageBy");
-
-  return {
-    ...generateMetadataFromFullHead(
-      seo.fullHead || "",
-      seo.focusKeywords || ""
-    ),
-    robots: "index, follow"
-  };
-}
 export default function RootLayout({
   children
 }: Readonly<{
@@ -48,6 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <FixHead />
         <div className="max-w-[1920px] mx-auto">
           {gtmId && <GoogleTagManager gtmId={gtmId} />}
           <TrackingSession />
