@@ -54,7 +54,6 @@ export const Contac = () => {
       )}
       <PageBanner
         title={contactData?.pageBy?.lienHe?.contact?.title || "Liên hệ"}
-        backgroundImage={"/image11.webp"}
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           {

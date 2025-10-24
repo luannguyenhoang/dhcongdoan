@@ -18,7 +18,8 @@ export const LayoutBottom = ({
   showForm = false,
   showNewPost = false,
   onSearch,
-  showSearchBar = false
+  showSearchBar = false,
+  isSticky = true
 }: {
   children: ReactNode;
   m?: string;
@@ -30,13 +31,15 @@ export const LayoutBottom = ({
   showForm?: boolean;
   showNewPost?: boolean;
   showSearchBar?: boolean;
+  isSticky?: boolean;
 }) => {
   return (
     <DefaultLayout>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-9 lg:px-0">{children}</div>
-        <div className={`sidebar-posts lg:col-span-3 ${m}`}>
+        <div className="lg:col-span-8 lg:px-0">{children}</div>
+        <div className={`sidebar-posts lg:col-span-4 ${m}`}>
           <SliderBar
+            isSticky={isSticky}
             showSearchBar={showSearchBar}
             showCustomSearch={showCustomSearch}
             showVideoMajorDetail={showVideoMajorDetail}

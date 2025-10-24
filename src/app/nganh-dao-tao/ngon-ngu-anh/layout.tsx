@@ -1,4 +1,4 @@
-import { GET_NGON_NGU_ANH } from "@/app/api/graphQL/getNgonNguAnh";
+import { GET_SEO_NGON_NGU_ANH } from "@/app/api/graphQL/getNganhHocChiTiet";
 import { getSeoData } from "@/utils/getSeoData";
 import { generateMetadataFromFullHead } from "@/utils/seoUtils";
 import { Metadata } from "next";
@@ -6,7 +6,7 @@ import { Metadata } from "next";
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getSeoData(GET_NGON_NGU_ANH, "pageBy");
+  const { seo } = await getSeoData(GET_SEO_NGON_NGU_ANH, "pageBy");
   return {
     ...generateMetadataFromFullHead(
       seo.fullHead || "",

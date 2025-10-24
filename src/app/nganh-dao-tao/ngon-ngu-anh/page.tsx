@@ -1,7 +1,7 @@
 "use client";
 
 import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
-import { GET_NGON_NGU_ANH } from "@/app/api/graphQL/getNgonNguAnh";
+import { GET_NGANH_HOC_CHI_TIET } from "@/app/api/graphQL/getNganhHocChiTiet";
 import TrainingIndustryDetailLayout from "@/app/components/template/LayoutTrainingIndustryDetail";
 import { getData } from "@/lib/getData";
 import { useEffect, useState } from "react";
@@ -13,14 +13,16 @@ export default function NgonNguAnh() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const courseResponse = await getData(GET_NGON_NGU_ANH);
+        const courseResponse = await getData(GET_NGANH_HOC_CHI_TIET, {
+          uri: "nganh-dao-tao/ngon-ngu-anh"
+        });
         const nganhHocResponse = await getData(GET_ALL_NGANH_HOC);
 
         if (!courseResponse || !nganhHocResponse) {
           throw new Error("No data returned from API");
         }
 
-        setCourseData(courseResponse?.pageBy?.ngonNguAnh?.content);
+        setCourseData(courseResponse?.pageBy);
         setNganhHocData(
           nganhHocResponse?.pageBy?.trangChu?.trainingIndustry || {}
         );

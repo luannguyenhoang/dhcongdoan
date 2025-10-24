@@ -1,7 +1,7 @@
 "use client";
 
 import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
-import { GET_VIET_NAM_HOC } from "@/app/api/graphQL/getVietNamHoc";
+import { GET_NGANH_HOC_CHI_TIET } from "@/app/api/graphQL/getNganhHocChiTiet";
 import TrainingIndustryDetailLayout from "@/app/components/template/LayoutTrainingIndustryDetail";
 import { getData } from "@/lib/getData";
 import { useEffect, useState } from "react";
@@ -13,21 +13,16 @@ export default function VietNamHoc() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!GET_VIET_NAM_HOC || !GET_ALL_NGANH_HOC) {
-          throw new Error("GraphQL queries are not defined");
-        }
-
-        const courseResponse = await getData(GET_VIET_NAM_HOC);
-        if (!courseResponse) {
-          throw new Error("Failed to fetch Vietnam Studies course data");
-        }
-
+        const courseResponse = await getData(GET_NGANH_HOC_CHI_TIET, {
+          uri: "nganh-dao-tao/viet-nam-hoc"
+        });
         const nganhHocResponse = await getData(GET_ALL_NGANH_HOC);
-        if (!nganhHocResponse) {
-          throw new Error("Failed to fetch training industry data");
+
+        if (!courseResponse || !nganhHocResponse) {
+          throw new Error("No data returned from API");
         }
 
-        setCourseData(courseResponse?.pageBy?.vietNamHoc?.content);
+        setCourseData(courseResponse?.pageBy);
         setNganhHocData(
           nganhHocResponse?.pageBy?.trangChu?.trainingIndustry || {}
         );

@@ -1,9 +1,11 @@
 "use client";
 
+import { clean } from "@/lib/sanitizeHtml";
+import styles from "@/styles/Post.module.css";
 import { IndustryGroup } from "@/types/types";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-
+import { FormWrapper } from "../molecules/FormWrapper";
 const FormPopup = dynamic(() =>
   import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
 );
@@ -33,11 +35,8 @@ export default function TrainingIndustryDetailLayout({
   courseData?: any;
   nganhHocData?: any;
 }) {
-  const [activeTab, setActiveTab] = useState("overview");
   const [showPopup, setShowPopup] = useState(false);
-
   useEffect(() => {
-    // Set timer to show popup after 12 seconds
     const popupTimerId = setTimeout(() => {
       setShowPopup(true);
     }, 12000);
@@ -47,7 +46,6 @@ export default function TrainingIndustryDetailLayout({
     };
   }, []);
 
-  const bannerUrl = nganhHocData?.banner?.node?.mediaItemUrl || "/image11.webp";
   const industryGroups: IndustryGroup[] = nganhHocData?.industrygroups || [];
 
   return (
@@ -57,29 +55,40 @@ export default function TrainingIndustryDetailLayout({
       )}
       <PageBanner
         title={courseData?.title || "Đang cập nhật..."}
-        backgroundImage={bannerUrl}
         breadcrumbs={[
           { label: "Trang Chủ", url: "/" },
           { label: "Ngành Đào Tạo", url: "/nganh-dao-tao" },
-          { label: courseData?.title || "Đang cập nhật..." }
+          { label: courseData?.nganh?.nameBranch || "Đang cập nhật..." }
         ]}
       />
-      <div className="py-24">
+      <div className="py-10">
         <LayoutBottom
+          isSticky={false}
           showVideoMajorDetail={false}
           showAllMajor={false}
           showRegister={true}
           showForm={false}
         >
           <>
-            <CourseContent
-              courseData={courseData}
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-            />
-            <RelatedCourses data={industryGroups} />
+            <article className={styles["post"]}>
+              <main>
+                {courseData && (
+                  <>
+                    <div className={styles["post__main"] + " lg:px-0"}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: clean(courseData?.nganh?.content)
+                        }}
+                      />
+                    </div>
+                  </>
+                )}
+              </main>
+            </article>
           </>
+          <FormWrapper type="form-main" />
         </LayoutBottom>
+        <RelatedCourses data={industryGroups} />
       </div>
     </div>
   );

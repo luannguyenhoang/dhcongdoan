@@ -2,11 +2,10 @@ import { gql } from "@apollo/client";
 
 export const GET_LICH_KHAI_GIANG = gql`
   query MyQuery {
-    pageBy(id: "cG9zdDozMjE4OQ==") {
+    pageBy(uri: "trang-chu") {
       trangChu {
         openingschedule {
-          title
-          date
+          dateOpen
         }
       }
       seo {
@@ -15,6 +14,7 @@ export const GET_LICH_KHAI_GIANG = gql`
     }
   }
 `;
+
 export const GET_SEO_LICH_KHAI_GIANG = gql`
   query MyQuery {
     pageBy(uri: "lich-khai-giang") {
@@ -24,6 +24,7 @@ export const GET_SEO_LICH_KHAI_GIANG = gql`
     }
   }
 `;
+
 export const GET_CONTENT_LICH_KHAI_GIANG = gql`
   query MyQuery {
     pageBy(uri: "lich-khai-giang") {

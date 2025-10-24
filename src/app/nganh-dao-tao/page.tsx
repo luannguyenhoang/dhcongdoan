@@ -96,7 +96,6 @@ export default function Page() {
       )}
       <PageBanner
         title={nganhHoc?.title || "Ngành đào tạo"}
-        backgroundImage={bannerUrl}
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           { label: nganhHoc?.title || "Ngành đào tạo" }

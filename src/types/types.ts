@@ -71,7 +71,7 @@ export interface NganhHocData {
 }
 
 export interface CountdownTimerProps {
-  title: string;
+  title?: string;
   date: string;
   includeTime?: boolean;
 }

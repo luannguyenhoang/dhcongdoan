@@ -1,7 +1,7 @@
 "use client";
 
 import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
-import { GET_QUAN_TRI_NHAN_LUC } from "@/app/api/graphQL/getQuanTriNhanLuc";
+import { GET_NGANH_HOC_CHI_TIET } from "@/app/api/graphQL/getNganhHocChiTiet";
 import TrainingIndustryDetailLayout from "@/app/components/template/LayoutTrainingIndustryDetail";
 import { getData } from "@/lib/getData";
 import { useEffect, useState } from "react";
@@ -13,14 +13,16 @@ export default function QuanTriNhanLuc() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const courseResponse = await getData(GET_QUAN_TRI_NHAN_LUC);
+        const courseResponse = await getData(GET_NGANH_HOC_CHI_TIET, {
+          uri: "nganh-dao-tao/quan-tri-nhan-luc"
+        });
         const nganhHocResponse = await getData(GET_ALL_NGANH_HOC);
 
         if (!courseResponse || !nganhHocResponse) {
           throw new Error("No data returned from API");
         }
 
-        setCourseData(courseResponse?.pageBy?.quanTriNhanLuc?.content);
+        setCourseData(courseResponse?.pageBy);
         setNganhHocData(
           nganhHocResponse?.pageBy?.trangChu?.trainingIndustry || {}
         );

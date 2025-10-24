@@ -1,7 +1,7 @@
-import { getClient } from "@/lib/apolloClient";
-import type { MetadataRoute } from "next";
-import { menus, TMenus } from "@/router/router";
 import { GET_SITEMAP } from "@/app/api/graphQL/posts";
+import { getClient } from "@/lib/apolloClient";
+import { menus, TMenus } from "@/router/router";
+import type { MetadataRoute } from "next";
 
 const API_URL = process.env.NEXT_PUBLIC_DOMAIN || "https://dhcongdoan.vn";
 
@@ -22,19 +22,32 @@ const getAllPaths = (menus: TMenus): MetadataRoute.Sitemap => {
 
 async function getPostPaths(): Promise<MetadataRoute.Sitemap> {
   try {
-    const { data } = await getClient().query({
-      query: GET_SITEMAP,
-      fetchPolicy: "no-cache",
-      errorPolicy: "all"
-    });
+    const allPosts: { slug: string }[] = [];
+    let hasNextPage = true;
+    let endCursor: string | null = null;
+    const batchSize = 100;
 
-    const posts = data?.posts?.nodes;
-    if (!posts || !Array.isArray(posts)) {
-      console.warn("No posts found for sitemap or invalid data structure");
-      return [];
+    while (hasNextPage) {
+      const { data }: any = await getClient().query({
+        query: GET_SITEMAP,
+        variables: {
+          first: batchSize,
+          after: endCursor
+        },
+        fetchPolicy: "no-cache",
+        errorPolicy: "all"
+      });
+
+      const posts = data?.posts?.nodes;
+      const pageInfo: any = data?.posts?.pageInfo;
+
+      allPosts.push(...posts);
+
+      hasNextPage = pageInfo?.hasNextPage || false;
+      endCursor = pageInfo?.endCursor || null;
     }
 
-    return posts.map((post: { slug: string }) => ({
+    return allPosts.map((post: { slug: string }) => ({
       url: `${API_URL}/${post.slug}`
     }));
   } catch (error) {

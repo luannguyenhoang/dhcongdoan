@@ -1,4 +1,5 @@
 import { TrackingSession } from "@/app/components/atoms/TrackingSession";
+import { PhoneCTA } from "@/app/components/atoms/PhoneCTA";
 import "@/app/globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <PhoneCTA />
         </div>
       </body>
     </html>

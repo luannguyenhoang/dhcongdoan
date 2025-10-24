@@ -4,20 +4,22 @@ import Link from "next/link";
 
 export const CategoryCard = ({ title, image, href }: CategoryCardProps) => {
   return (
-    <Link
-      href={href || "#"}
-      className="relative block overflow-hidden group h-[160px]"
-    >
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
-      <Image
-        src={image}
-        alt={`Danh mục ${title}`}
-        fill
-        className="object-cover transition-transform duration-500 group-hover:scale-110"
-        sizes="(max-width: 768px) 100vw, 33vw"
-      />
-      <div className="absolute bottom-5 left-5 z-20 text-white">
-        <h3 className="font-bold text-xl">{title}</h3>
+    <Link href={href || "#"} className="block rounded-xl  duration-300">
+      <div className="relative w-full h-[230px] rounded-xl overflow-hidden border-[5px] border-[#3B82F6]">
+        <div className="relative w-full h-full rounded-lg overflow-hidden">
+          <Image
+            src={image}
+            alt={`Danh mục ${title}`}
+            fill
+            className="object-cover rounded-lg"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </div>
+      </div>
+      <div className="py-3">
+        <h3 className="text-center font-bold text-2xl text-[#E53935]">
+          {title}
+        </h3>
       </div>
     </Link>
   );

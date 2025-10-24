@@ -30,6 +30,7 @@ export const SliderBar = ({
   showForm = false,
   showNewPost = false,
   showSearchBar = false,
+  isSticky = true,
   onSearch
 }: {
   showSearch?: boolean;
@@ -40,6 +41,7 @@ export const SliderBar = ({
   showForm?: boolean;
   showNewPost?: boolean;
   showSearchBar?: boolean;
+  isSticky?: boolean;
   onSearch?: (term: string) => void;
 }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -61,7 +63,9 @@ export const SliderBar = ({
   };
 
   return (
-    <div className="w-full mx-auto lg:px-0 sticky top-28">
+    <div
+      className={`w-full mx-auto lg:px-0 ${isSticky ? "sticky top-28" : ""}`}
+    >
       {showCustomSearch && (
         <div className="mb-8 border border-gray-200 py-7 px-5">
           <h2 className="text-[#002147] text-2xl font-medium mb-2">Tìm Kiếm</h2>

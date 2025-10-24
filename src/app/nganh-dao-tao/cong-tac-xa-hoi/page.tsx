@@ -1,7 +1,7 @@
 "use client";
 
 import { GET_ALL_NGANH_HOC } from "@/app/api/graphQL/getAllNganhHoc";
-import { GET_CONG_TAC_XA_HOI } from "@/app/api/graphQL/getCongTacXaHoi";
+import { GET_NGANH_HOC_CHI_TIET } from "@/app/api/graphQL/getNganhHocChiTiet";
 import TrainingIndustryDetailLayout from "@/app/components/template/LayoutTrainingIndustryDetail";
 import { getData } from "@/lib/getData";
 import { useEffect, useState } from "react";
@@ -13,12 +13,14 @@ export default function CongTacXaHoi() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const courseResponse = await getData(GET_CONG_TAC_XA_HOI);
+        const courseResponse = await getData(GET_NGANH_HOC_CHI_TIET, {
+          uri: "nganh-dao-tao/cong-tac-xa-hoi"
+        });
         const nganhHocResponse = await getData(GET_ALL_NGANH_HOC);
         if (!courseResponse || !nganhHocResponse) {
           throw new Error("No data returned from API");
         }
-        setCourseData(courseResponse?.pageBy?.congTacXaHoi?.content);
+        setCourseData(courseResponse?.pageBy);
         setNganhHocData(
           nganhHocResponse?.pageBy?.trangChu?.trainingIndustry || {}
         );

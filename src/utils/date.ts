@@ -1,4 +1,9 @@
 export const formatDate = (inputDate: string) => {
+  // Check if inputDate is valid
+  if (!inputDate || typeof inputDate !== "string") {
+    return "Ngày không hợp lệ";
+  }
+
   let date;
 
   // Check if the input is in DD/MM/YYYY format

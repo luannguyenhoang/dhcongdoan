@@ -47,10 +47,6 @@ export const menus: TMenus = [
     title: "Tin tức",
     childs: [
       {
-        path: "/thong-tin-tuyen-sinh",
-        title: "Thông tin tuyển sinh"
-      },
-      {
         path: "/tin-tuc",
         title: "Tin tức cập nhật"
       }
@@ -63,5 +59,9 @@ export const menus: TMenus = [
   {
     path: "/lien-he",
     title: "Liên hệ"
+  },
+  {
+    path: "/thong-tin-tuyen-sinh",
+    title: "Thông tin tuyển sinh"
   }
 ];

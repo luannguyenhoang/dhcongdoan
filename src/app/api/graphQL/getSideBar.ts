@@ -5,9 +5,15 @@ export const GET_SIDE_BAR = gql`
     allSlideBar {
       nodes {
         sliderBarContent {
+          image {
+            node {
+              mediaItemUrl
+            }
+          }
           sideBar {
             icon
-            text
+            textLeft
+            textRight
           }
         }
       }

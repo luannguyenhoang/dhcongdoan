@@ -1,4 +1,3 @@
-import { Button } from "@/app/components/atoms/Button";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,9 +33,9 @@ export const HeaderMenu = ({ headerData }: { headerData: any }) => {
 
   return (
     <>
-      <div className="bg-white shadow-md sticky top-0 z-50 lg:px-0 px-4">
+      <div className="bg-white shadow-md sticky top-0 z-50 lg:px-0 px-2">
         <div className="mx-auto max-w-7xl h-full">
-          <div className="flex justify-between items-center gap-4 md:gap-10 h-24">
+          <div className="flex justify-between items-center lg:gap-4 gap-1 h-24">
             <MobileMenu
               mobileMenuOpen={mobileMenuOpen}
               setMobileMenuOpen={setMobileMenuOpen}
@@ -56,7 +55,7 @@ export const HeaderMenu = ({ headerData }: { headerData: any }) => {
             <div className="flex items-center">
               <button
                 onClick={() => setShowPopup(true)}
-                className="bg-[#002147] px-2 py-1 text-xs md:px-10 md:py-2  font-bold text-white md:text-base hover:bg-[#fdc800] hover:text-[#002147] transition-all duration-300"
+                className="bg-[#002147] px-2 py-1 text-xs md:px-10 md:py-2  font-bold text-white md:text-base hover:bg-[#fdc800] hover:text-[#002147] transition-all duration-300 whitespace-nowrap"
               >
                 Đăng ký tư vấn
               </button>

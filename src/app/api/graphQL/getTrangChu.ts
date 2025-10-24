@@ -2,44 +2,100 @@ import { gql } from "@apollo/client";
 
 export const GET_TRANG_CHU = gql`
   query MyQuery {
-    pageBy(id: "cG9zdDozMjE4OQ==") {
+    pageBy(uri: "trang-chu") {
       trangChu {
-        openingschedule {
-          banner {
+        banner {
+          imageDaoTao {
+            node {
+              mediaItemUrl
+            }
+          }
+          descriptionFeature
+          items {
+            title
+            text
+          }
+          imageWomen {
+            node {
+              mediaItemUrl
+            }
+          }
+          imageFeature {
+            node {
+              mediaItemUrl
+            }
+          }
+          imageLoiThe {
+            node {
+              mediaItemUrl
+            }
+          }
+          itemsLoiThe {
+            title
+            text
+          }
+          text
+          title
+          titleFeature
+          titleLoiThe
+        }
+        information {
+          title
+          text
+          images {
+            node {
+              mediaItemUrl
+            }
+          }
+          items {
+            title
+            text
+            item
+          }
+        }
+        degree {
+          images {
             node {
               mediaItemUrl
             }
           }
           title
-          date
-        }
-        slider {
-          content {
-            image {
-              node {
-                mediaItemUrl
-              }
-            }
-            title
-            description
-            link
-          }
-          introduce {
-            title
-            description
-          }
-        }
-        welcometo {
-          title1
-          title2
+          text
           description
-          link
+        }
+        certificateSection {
           image {
             node {
               mediaItemUrl
             }
           }
+          imageHocTap {
+            node {
+              mediaItemUrl
+            }
+          }
+          items {
+            text
+          }
         }
+        registrationBanner
+        openingScheduleSection {
+          studentImage {
+            node {
+              mediaItemUrl
+            }
+          }
+          imageText {
+            node {
+              mediaItemUrl
+            }
+          }
+          openingSchedule {
+            location
+            date
+          }
+        }
+
         trainingIndustry {
           title
           banner {
@@ -57,11 +113,7 @@ export const GET_TRANG_CHU = gql`
             }
           }
         }
-        videoTour {
-          title
-          description
-          idVideo
-        }
+        title
         teacher {
           avatar {
             node {
@@ -74,26 +126,6 @@ export const GET_TRANG_CHU = gql`
         parameter {
           number
           text
-        }
-        evaluate {
-          title
-          comment {
-            avarta {
-              node {
-                mediaItemUrl
-              }
-            }
-            name
-            role
-            content
-          }
-        }
-        cooperationunit {
-          image {
-            node {
-              mediaItemUrl
-            }
-          }
         }
       }
       seo {

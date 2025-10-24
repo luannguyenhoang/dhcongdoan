@@ -3,51 +3,51 @@ export const replaceSeoRM = (input?: string) => {
 
   return input
     .replace(
-      `link rel="canonical" href="https://noidung.dhcongdoan.vn`,
-      `link rel="canonical" href="https://dhcongdoan.vn`
+      `link rel="canonical" href="https://admindhcd.devlab.info.vn`,
+      `link rel="canonical" href="http://10.10.92.6:3055`
     )
     .replace(
-      `meta property="og:url" content="https://noidung.dhcongdoan.vn`,
-      `meta property="og:url" content="https://dhcongdoan.vn`
+      `meta property="og:url" content="https://admindhcd.devlab.info.vn`,
+      `meta property="og:url" content="http://10.10.92.6:3055`
     )
     .replace(
-      `"@id":"https://noidung.dhcongdoan.vn/#organization"`,
-      `"@id":"https://dhcongdoan.vn/#organization"`
+      `"@id":"https://admindhcd.devlab.info.vn/#organization"`,
+      `"@id":"http://10.10.92.6:3055/#organization"`
     )
     .replace(
-      `https://noidung.dhcongdoan.vn/#logo`,
-      `https://dhcongdoan.vn/#logo`
+      `https://admindhcd.devlab.info.vn/#logo`,
+      `http://10.10.92.6:3055/#logo`
     )
     .replace(
-      `https://noidung.dhcongdoan.vn/#website`,
-      `https://dhcongdoan.vn/#website`
+      `https://admindhcd.devlab.info.vn/#website`,
+      `http://10.10.92.6:3055/#website`
     )
     .replace(
-      `https://noidung.dhcongdoan.vn/#webpage`,
-      `https://dhcongdoan.vn/#webpage`
+      `https://admindhcd.devlab.info.vn/#webpage`,
+      `http://10.10.92.6:3055/#webpage`
     )
     .replace(
-      `"url":"https://noidung.dhcongdoan.vn"`,
-      `"url":"https://dhcongdoan.vn"`
+      `"url":"https://admindhcd.devlab.info.vn"`,
+      `"url":"http://10.10.92.6:3055"`
     )
     .replace(
-      `"@type":"WebPage","@id":"https://noidung.dhcongdoan.vn`,
-      `"@type":"WebPage","@id":"https://dhcongdoan.vn`
+      `"@type":"WebPage","@id":"https://admindhcd.devlab.info.vn`,
+      `"@type":"WebPage","@id":"http://10.10.92.6:3055`
     )
     .replace(
-      `#webpage","url":"https://noidung.dhcongdoan.vn`,
-      `#webpage","url":"https://dhcongdoan.vn`
+      `#webpage","url":"https://admindhcd.devlab.info.vn`,
+      `#webpage","url":"http://10.10.92.6:3055`
     )
     .replace(
-      `"mainEntityOfPage":{"@id":"https://noidung.dhcongdoan.vn`,
-      `"mainEntityOfPage":{"@id":"https://dhcongdoan.vn/`
+      `"mainEntityOfPage":{"@id":"https://admindhcd.devlab.info.vn`,
+      `"mainEntityOfPage":{"@id":"http://10.10.92.6:3055/`
     )
     .replace(
-      `"worksFor":{"@id":"https://noidung.dhcongdoan.vn/#organization`,
-      `"worksFor":{"@id":"https://dhcongdoan.vn/#organization`
+      `"worksFor":{"@id":"https://admindhcd.devlab.info.vn/#organization`,
+      `"worksFor":{"@id":"http://10.10.92.6:3055/#organization`
     )
     .replace(
-      `"sameAs":["https://noidung.dhcongdoan.vn"]`,
-      `"sameAs":["https://dhcongdoan.vn"]`
+      `"sameAs":["https://admindhcd.devlab.info.vn"]`,
+      `"sameAs":["http://10.10.92.6:3055"]`
     );
 };

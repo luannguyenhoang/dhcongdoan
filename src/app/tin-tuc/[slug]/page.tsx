@@ -89,7 +89,6 @@ export default async function Page(props: {
     <>
       <PageBanner
         title={post?.title || "Bài viết"}
-        backgroundImage={post?.featuredImage || "/image7.png"}
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           { label: "Tin tức", url: "/tin-tuc" },

@@ -17,8 +17,8 @@ const CourseCard = dynamic(() =>
 export const RelatedCourses = ({ data }: { data: IndustryGroup[] }) => {
   const swiperRef = useRef(null);
   return (
-    <div className="relative">
-      <div className="max-w-6xl mx-auto">
+    <div className="relative ">
+      <div className="max-w-6xl mx-auto px-2">
         <div className="flex justify-between items-center bg-white p-4 my-5">
           <h2 className="text-2xl  font-medium text-[#002147]">
             Các ngành đào tạo
@@ -60,7 +60,7 @@ export const RelatedCourses = ({ data }: { data: IndustryGroup[] }) => {
               slidesPerView: 3
             },
             1024: {
-              slidesPerView: 3
+              slidesPerView: 4
             }
           }}
           className="instructor-swiper"

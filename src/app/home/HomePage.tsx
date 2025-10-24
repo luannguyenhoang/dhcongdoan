@@ -5,25 +5,52 @@ import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
+// Popup component (rendered conditionally)
+const FormPopup = dynamic(() =>
+  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+);
+
+// Try Now Button component
+const TryNowButton = dynamic(() =>
+  import("@/app/components/atoms/TryNowButton").then((mod) => mod.TryNowButton)
+);
+
+// Main page components in display order
+const Slider = dynamic(() =>
+  import("@/app/components/organisms/Slider").then((mod) => mod.Slider)
+);
+
 const CategoryGrid = dynamic(() =>
   import("@/app/components/organisms/CategoryGrid").then(
     (mod) => mod.CategoryGrid
   )
 );
-const CampusWelcome = dynamic(() =>
-  import("@/app/components/organisms/CampusWelcome").then(
-    (mod) => mod.CampusWelcome
+
+const TabContent = dynamic(() =>
+  import("@/app/components/organisms/TabContent").then((mod) => mod.TabContent)
+);
+
+const CertificateSection = dynamic(() =>
+  import("@/app/components/organisms/CertificateSection").then(
+    (mod) => mod.CertificateSection
   )
 );
-const Slider = dynamic(() =>
-  import("@/app/components/organisms/Slider").then((mod) => mod.Slider)
+
+const LearningMethodSection = dynamic(() =>
+  import("@/app/components/organisms/LearningMethodSection").then(
+    (mod) => mod.LearningMethodSection
+  )
 );
-const FormPopup = dynamic(() =>
-  import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
+
+const RegistrationBanner = dynamic(() =>
+  import("@/app/components/organisms/RegistrationBanner").then(
+    (mod) => mod.RegistrationBanner
+  )
 );
-const CampusVideoTour = dynamic(() =>
-  import("@/app/components/organisms/CampusVideoTour").then(
-    (mod) => mod.CampusVideoTour
+
+const OpeningScheduleSection = dynamic(() =>
+  import("@/app/components/organisms/OpeningScheduleSection").then(
+    (mod) => mod.OpeningScheduleSection
   )
 );
 
@@ -33,41 +60,12 @@ const InstructorCarousel = dynamic(() =>
   )
 );
 
-const LatestPostsSection = dynamic(() =>
-  import("@/app/components/organisms/LatestPostsSection").then(
-    (mod) => mod.LatestPostsSection
-  )
-);
-
-const StatisticsCounter = dynamic(() =>
-  import("@/app/components/organisms/StatisticsCounter").then(
-    (mod) => mod.StatisticsCounter
-  )
-);
-
-const StudentTestimonials = dynamic(() =>
-  import("@/app/components/organisms/StudentTestimonials").then(
-    (mod) => mod.StudentTestimonials
-  )
-);
-
-const OpeningScheduleBanner = dynamic(() =>
-  import("@/app/components/organisms/OpeningScheduleBanner").then(
-    (mod) => mod.OpeningScheduleBanner
-  )
-);
-
-const PartnerLogos = dynamic(() =>
-  import("@/app/components/organisms/PartnerLogos").then(
-    (mod) => mod.PartnerLogos
-  )
-);
-
 export default function HomePage() {
   const [homeData, setHomeData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [showTryNowPopup, setShowTryNowPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +77,6 @@ export default function HomePage() {
         setHomeData(data);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching event data:", error);
         setError("Error fetching event data");
         setIsLoading(false);
       }
@@ -89,7 +86,6 @@ export default function HomePage() {
       setIsLoading(false);
     }, 15000);
 
-    // Set timer to show popup after 12 seconds
     const popupTimerId = setTimeout(() => {
       setShowPopup(true);
     }, 12000);
@@ -102,30 +98,38 @@ export default function HomePage() {
     };
   }, []);
 
-  const SliderData = homeData?.pageBy?.trangChu?.slider;
-  const OpeningScheduleData = homeData?.pageBy?.trangChu?.openingschedule;
-  const WelcomeToData = homeData?.pageBy?.trangChu?.welcometo;
+  const SliderData = homeData?.pageBy?.trangChu;
   const TrainingIndustryData = homeData?.pageBy?.trangChu?.trainingIndustry;
-  const TourData = homeData?.pageBy?.trangChu?.videoTour;
   const TeacherData = homeData?.pageBy?.trangChu?.teacher;
-  const ParameterData = homeData?.pageBy?.trangChu?.parameter;
-  const EvaluateData = homeData?.pageBy?.trangChu?.evaluate;
-  const CooperationUnitData = homeData?.pageBy?.trangChu?.cooperationunit;
+  const TabContentData = homeData?.pageBy?.trangChu;
+  const CertificateSectionData = homeData?.pageBy?.trangChu;
+  const LearningMethodSectionData =
+    homeData?.pageBy?.trangChu?.certificateSection;
+  const OpeningScheduleSectionData = homeData?.pageBy?.trangChu;
+  const RegistrationBannerData = homeData?.pageBy?.trangChu;
   return (
     <>
       {showPopup && (
         <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
       )}
+      {showTryNowPopup && (
+        <FormPopup
+          showPopup={showTryNowPopup}
+          setShowPopup={setShowTryNowPopup}
+        />
+      )}
       <Slider data={SliderData} loading={isLoading} />
-      <CampusWelcome data={WelcomeToData} />
       <CategoryGrid data={TrainingIndustryData} />
-      <CampusVideoTour data={TourData} />
-      <InstructorCarousel data={TeacherData} />
-      <LatestPostsSection />
-      <StatisticsCounter data={ParameterData} />
-      <StudentTestimonials data={EvaluateData} />
-      <OpeningScheduleBanner data={OpeningScheduleData} />
-      <PartnerLogos data={CooperationUnitData} />
+      <TabContent data={TabContentData} />
+      <CertificateSection data={CertificateSectionData} />
+      <LearningMethodSection data={LearningMethodSectionData} />
+      <RegistrationBanner data={RegistrationBannerData} />
+      <OpeningScheduleSection data={OpeningScheduleSectionData} />
+      <InstructorCarousel
+        data={TeacherData}
+        title={homeData?.pageBy?.trangChu?.title}
+      />
+      <TryNowButton onClick={() => setShowTryNowPopup(true)} />
     </>
   );
 }

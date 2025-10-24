@@ -19,7 +19,7 @@ const FormWrapper = dynamic(() =>
 export default function LichKhaiGiang() {
   const [eventData, setEventData] = useState({
     title: "",
-    date: ""
+    dateOpen: ""
   });
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState({
@@ -36,10 +36,10 @@ export default function LichKhaiGiang() {
         const data = await getData(GET_LICH_KHAI_GIANG);
         const contentData = await getData(GET_CONTENT_LICH_KHAI_GIANG);
         if (data?.pageBy?.trangChu?.openingschedule) {
-          const { title, date } = data.pageBy.trangChu.openingschedule;
+          const { title, dateOpen } = data.pageBy.trangChu.openingschedule;
           setEventData({
             title,
-            date
+            dateOpen
           });
         }
         if (contentData?.pageBy?.lichKhaiGiang?.content) {
@@ -59,7 +59,6 @@ export default function LichKhaiGiang() {
     <>
       <PageBanner
         title="Lịch khai giảng"
-        backgroundImage="/image11.webp"
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           { label: "Lịch khai giảng" }
@@ -72,11 +71,11 @@ export default function LichKhaiGiang() {
         </div>
       ) : (
         <>
-          <CountdownTimer title={eventData.title} date={eventData.date} />
+          <CountdownTimer date={eventData?.dateOpen} />
           <div className="h-fit bg-white px-6 py-10 md:px-20 md:py-16">
             <div className="pb-10">
               <h1 className="text-[#002147] lg:text-3xl md:text-2xl text-xl font-bold uppercase mb-4 text-center">
-                {content.title2}
+                {content.title2 || "Lịch khai giảng"}
               </h1>
               <h2 className="text-xl md:text-2xl text-[#002147] font-semibold mb-6 text-center">
                 {content.description}

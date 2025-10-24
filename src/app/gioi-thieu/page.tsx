@@ -78,10 +78,6 @@ export default function AboutUs() {
         title={
           gioiThieuData?.pageBy?.gioiThieu?.introduce?.title || "Giới thiệu"
         }
-        backgroundImage={
-          gioiThieuData?.pageBy?.gioiThieu?.introduce?.banner?.node
-            ?.mediaItemUrl || "/image11.webp"
-        }
         breadcrumbs={[
           { label: "Trang chủ", url: "/" },
           {

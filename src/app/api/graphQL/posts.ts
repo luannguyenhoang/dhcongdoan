@@ -179,8 +179,12 @@ export const GET_POST_BY_SLUG = gql`
 `;
 
 export const GET_SITEMAP = gql`
-  query NewQuery {
-    posts {
+  query GetSitemap($first: Int!, $after: String) {
+    posts(first: $first, after: $after) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
       nodes {
         slug
       }
