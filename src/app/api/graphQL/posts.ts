@@ -170,7 +170,7 @@ export const GET_POST_BY_SLUG = gql`
           slug
         }
       }
-
+  
       seo {
         fullHead
       }
@@ -187,6 +187,12 @@ export const GET_SITEMAP = gql`
       }
       nodes {
         slug
+        categories {
+          nodes {
+            id
+            slug
+          }
+        }
       }
     }
   }

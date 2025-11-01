@@ -22,7 +22,10 @@ const getAllPaths = (menus: TMenus): MetadataRoute.Sitemap => {
 
 async function getPostPaths(): Promise<MetadataRoute.Sitemap> {
   try {
-    const allPosts: { slug: string }[] = [];
+    const allPosts: {
+      slug: string;
+      categories: { nodes: { id: string; slug: string }[] };
+    }[] = [];
     let hasNextPage = true;
     let endCursor: string | null = null;
     const batchSize = 100;
@@ -47,9 +50,24 @@ async function getPostPaths(): Promise<MetadataRoute.Sitemap> {
       endCursor = pageInfo?.endCursor || null;
     }
 
-    return allPosts.map((post: { slug: string }) => ({
-      url: `${API_URL}/${post.slug}`
-    }));
+    return allPosts.map(
+      (post: {
+        slug: string;
+        categories: { nodes: { id: string; slug: string }[] };
+      }) => {
+        const categoryIds = post.categories?.nodes?.map((cat) => cat.id) || [];
+        let path = "/tin-tuc";
+        if (categoryIds.includes("dGVybToyODU=")) {
+          path = "/thong-tin-tuyen-sinh";
+        } else if (categoryIds.includes("dGVybTox")) {
+          path = "/tin-tuc";
+        }
+
+        return {
+          url: `${API_URL}${path}/${post.slug}`
+        };
+      }
+    );
   } catch (error) {
     return [];
   }

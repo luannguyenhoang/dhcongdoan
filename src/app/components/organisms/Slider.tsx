@@ -94,7 +94,7 @@ export const Slider = ({
                   priority
                 />
               </div>
-              <p className="text-white text-base lg:text-xl font-medium flex justify-start ml-5 ">
+              <p className="text-white text-sm lg:text-xl font-medium flex justify-start ml-5 ">
                 {bannerData?.text ||
                   "Đại học trực tuyến - Chủ động thời gian - Tiết kiệm chi phí"}
               </p>
