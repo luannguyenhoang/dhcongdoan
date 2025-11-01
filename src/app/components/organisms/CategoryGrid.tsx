@@ -24,9 +24,9 @@ export const CategoryGrid = ({ data }: { data?: any }) => {
         priority
       />
       <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <div className="relative  p-8 mb-10">
+        <div className="relative mb-10">
           <div className="text-center">
-            <h1 className="text-4xl font-extrabold text-[#044ea2] mb-2">
+            <h1 className="lg:text-4xl text-3xl font-extrabold text-[#044ea2] mb-2">
               CÁC NGÀNH ĐÀO TẠO
             </h1>
             <p className="text-2xl text-gray-700 font-medium">
