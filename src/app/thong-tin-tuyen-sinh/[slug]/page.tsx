@@ -1,7 +1,10 @@
 import { GET_POST_BY_SLUG } from "@/app/api/graphQL/posts";
 import DefaultLayout from "@/app/components/template/LayoutDefault";
 import { getClient } from "@/lib/apolloClient";
-import { generateMetadataFromFullHead } from "@/utils/seoUtils";
+import {
+  generateMetadataFromFullHead,
+  generateMetadataFromFullHeadThongTinTuyenSinh
+} from "@/utils/seoUtils";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -58,7 +61,7 @@ export async function generateMetadata(props: {
   if (!post) return { title: "Bài viết không tồn tại" };
 
   return {
-    ...generateMetadataFromFullHead(
+    ...generateMetadataFromFullHeadThongTinTuyenSinh(
       post.seo?.fullHead || "",
       post.seo?.focusKeywords || ""
     )

@@ -4,7 +4,8 @@ import { getClient } from "@/lib/apolloClient";
 import { replaceSeoRM } from "@/utils/seoRankMath";
 import {
   extractMetaContent,
-  generateMetadataFromFullHead
+  generateMetadataFromFullHead,
+  generateMetadataFromFullHeadTinTuc
 } from "@/utils/seoUtils";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -64,7 +65,7 @@ export async function generateMetadata(props: {
   if (!post) return { title: "Bài viết không tồn tại" };
 
   return {
-    ...generateMetadataFromFullHead(
+    ...generateMetadataFromFullHeadTinTuc(
       post.seo?.fullHead || "",
       post.seo?.focusKeywords || ""
     )
