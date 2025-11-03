@@ -170,7 +170,7 @@ export const GET_POST_BY_SLUG = gql`
           slug
         }
       }
-  
+
       seo {
         fullHead
       }
