@@ -16,7 +16,7 @@ export async function getSeoData(
 ): Promise<SeoData> {
   const client = new ApolloClient({
     uri:
-      process.env.NEXT_PUBLIC_API_GRAPHQL ||
+      process.env.NEXT_PUBLIC_API_GRAPHQL_DHCONGDOAN ||
       "https://noidung.dhcongdoan.vn/graphql",
     ssrMode: true,
     cache: new InMemoryCache()

@@ -3,7 +3,7 @@ import { onError } from "@apollo/client/link/error";
 import { registerApolloClient } from "@apollo/experimental-nextjs-app-support";
 
 const API_GRAPHQL =
-  process.env.NEXT_PUBLIC_API_GRAPHQL ||
+  process.env.NEXT_PUBLIC_API_GRAPHQL_DHCONGDOAN ||
   "https://noidung.dhcongdoan.vn/graphql";
 
 const httpLink = new HttpLink({

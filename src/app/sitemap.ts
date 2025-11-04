@@ -3,7 +3,8 @@ import { getClient } from "@/lib/apolloClient";
 import { menus, TMenus } from "@/router/router";
 import type { MetadataRoute } from "next";
 
-const API_URL = process.env.NEXT_PUBLIC_DOMAIN || "https://dhcongdoan.vn";
+const API_URL =
+  process.env.NEXT_PUBLIC_DOMAIN_DHCONGDOAN || "https://dhcongdoan.vn";
 
 const getAllPaths = (menus: TMenus): MetadataRoute.Sitemap => {
   const paths: MetadataRoute.Sitemap = [];

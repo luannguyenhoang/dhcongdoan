@@ -18,7 +18,7 @@ const errorLink = onError(({ networkError, graphQLErrors }) => {
 
 const httpLink = new HttpLink({
   uri:
-    process.env.NEXT_PUBLIC_API_GRAPHQL ||
+    process.env.NEXT_PUBLIC_API_GRAPHQL_DHCONGDOAN ||
     "https://noidung.dhcongdoan.vn/graphql",
   fetch
 });
