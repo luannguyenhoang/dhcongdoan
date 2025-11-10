@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 const STORAGE_KEY = "popupEventClosed";
+const RESET_TIME = 10 * 60 * 1000; // 10 phút (600000ms)
 
 export const PopupEvent = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -28,20 +29,42 @@ export const PopupEvent = () => {
       }
     };
 
-    fetchPopupData();
-
+    // Kiểm tra localStorage trước khi quyết định hiển thị popup
     if (typeof window !== "undefined") {
-      const isClosed = localStorage.getItem(STORAGE_KEY);
-      if (!isClosed) {
+      const closedTime = localStorage.getItem(STORAGE_KEY);
+
+      if (!closedTime) {
+        // Chưa đóng bao giờ, hiển thị popup
         setShowPopup(true);
+      } else {
+        // Kiểm tra xem đã qua 10 phút chưa
+        const closedTimestamp = parseInt(closedTime, 10);
+
+        if (isNaN(closedTimestamp)) {
+          // Nếu không parse được, xóa và hiển thị popup
+          localStorage.removeItem(STORAGE_KEY);
+          setShowPopup(true);
+        } else {
+          const timeDiff = Date.now() - closedTimestamp;
+
+          if (timeDiff >= RESET_TIME) {
+            // Đã qua 10 phút, xóa localStorage và hiển thị popup lại
+            localStorage.removeItem(STORAGE_KEY);
+            setShowPopup(true);
+          }
+          // Nếu chưa qua 10 phút thì không hiển thị popup (showPopup vẫn là false)
+        }
       }
     }
+
+    fetchPopupData();
   }, []);
 
   const handleClose = () => {
     setShowPopup(false);
     if (typeof window !== "undefined") {
-      localStorage.setItem(STORAGE_KEY, "true");
+      // Lưu timestamp hiện tại vào localStorage
+      localStorage.setItem(STORAGE_KEY, Date.now().toString());
     }
   };
 

@@ -9,6 +9,7 @@ import { PageBanner } from "@/app/components/molecules/PageBanner";
 import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { FormPopup } from "../components/molecules/FormPopup";
 
 const FormWrapper = dynamic(() =>
   import("@/app/components/molecules/FormWrapper").then(
@@ -22,6 +23,8 @@ export default function LichKhaiGiang() {
     dateOpen: ""
   });
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+
   const [content, setContent] = useState({
     title: "",
     title2: "",
@@ -53,6 +56,13 @@ export default function LichKhaiGiang() {
     };
 
     fetchData();
+    const popupTimerId = setTimeout(() => {
+      setShowPopup(true);
+    }, 12000);
+
+    return () => {
+      clearTimeout(popupTimerId);
+    };
   }, []);
 
   return (
@@ -64,7 +74,9 @@ export default function LichKhaiGiang() {
           { label: "Lịch khai giảng" }
         ]}
       />
-
+      {showPopup && (
+        <FormPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
       {loading ? (
         <div className="flex justify-center items-center py-28">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#002147]"></div>

@@ -129,7 +129,7 @@ export default function HomePage() {
         data={TeacherData}
         title={homeData?.pageBy?.trangChu?.title}
       />
-      <TryNowButton onClick={() => setShowTryNowPopup(true)} />
+      <TryNowButton />
     </>
   );
 }
