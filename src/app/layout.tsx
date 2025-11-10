@@ -11,6 +11,9 @@ const Header = dynamic(() =>
 const Footer = dynamic(() =>
   import("@/app/components/molecules/Footer").then((mod) => mod.Footer)
 );
+const PopupEvent = dynamic(() =>
+  import("@/app/components/molecules/PopupEvent").then((mod) => mod.PopupEvent)
+);
 
 export default function RootLayout({
   children
@@ -37,6 +40,7 @@ export default function RootLayout({
         <div className="max-w-[1920px] mx-auto">
           {gtmId && <GoogleTagManager gtmId={gtmId} />}
           <TrackingSession />
+          <PopupEvent />
           <Header />
           {children}
           <Footer />

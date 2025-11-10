@@ -26,8 +26,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
-.env
+# (cho phép đẩy tất cả các file env lên git, không ignore)
+# .env*.local
+# .env
 # vercel
 .vercel
 

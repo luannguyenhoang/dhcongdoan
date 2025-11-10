@@ -8,8 +8,7 @@ const nextConfig = {
         hostname: "noidung.dhcongdoan.vn",
         pathname: "/**"
       }
-    ],
-    unoptimized: true
+    ]
   }
 };
 
