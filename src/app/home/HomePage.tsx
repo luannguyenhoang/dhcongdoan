@@ -15,49 +15,66 @@ const TryNowButton = dynamic(() =>
   import("@/app/components/atoms/TryNowButton").then((mod) => mod.TryNowButton)
 );
 
-// Main page components in display order
-const Slider = dynamic(() =>
-  import("@/app/components/organisms/Slider").then((mod) => mod.Slider)
+// Main page components in display order - optimized with SSR settings
+const Slider = dynamic(
+  () => import("@/app/components/organisms/Slider").then((mod) => mod.Slider),
+  { ssr: true } // Critical above-the-fold content
 );
 
-const CategoryGrid = dynamic(() =>
-  import("@/app/components/organisms/CategoryGrid").then(
-    (mod) => mod.CategoryGrid
-  )
+const CategoryGrid = dynamic(
+  () =>
+    import("@/app/components/organisms/CategoryGrid").then(
+      (mod) => mod.CategoryGrid
+    ),
+  { ssr: false } // Can be client-only
 );
 
-const TabContent = dynamic(() =>
-  import("@/app/components/organisms/TabContent").then((mod) => mod.TabContent)
+const TabContent = dynamic(
+  () =>
+    import("@/app/components/organisms/TabContent").then(
+      (mod) => mod.TabContent
+    ),
+  { ssr: false } // Interactive content
 );
 
-const CertificateSection = dynamic(() =>
-  import("@/app/components/organisms/CertificateSection").then(
-    (mod) => mod.CertificateSection
-  )
+const CertificateSection = dynamic(
+  () =>
+    import("@/app/components/organisms/CertificateSection").then(
+      (mod) => mod.CertificateSection
+    ),
+  { ssr: false }
 );
 
-const LearningMethodSection = dynamic(() =>
-  import("@/app/components/organisms/LearningMethodSection").then(
-    (mod) => mod.LearningMethodSection
-  )
+const LearningMethodSection = dynamic(
+  () =>
+    import("@/app/components/organisms/LearningMethodSection").then(
+      (mod) => mod.LearningMethodSection
+    ),
+  { ssr: false }
 );
 
-const RegistrationBanner = dynamic(() =>
-  import("@/app/components/organisms/RegistrationBanner").then(
-    (mod) => mod.RegistrationBanner
-  )
+const RegistrationBanner = dynamic(
+  () =>
+    import("@/app/components/organisms/RegistrationBanner").then(
+      (mod) => mod.RegistrationBanner
+    ),
+  { ssr: false }
 );
 
-const OpeningScheduleSection = dynamic(() =>
-  import("@/app/components/organisms/OpeningScheduleSection").then(
-    (mod) => mod.OpeningScheduleSection
-  )
+const OpeningScheduleSection = dynamic(
+  () =>
+    import("@/app/components/organisms/OpeningScheduleSection").then(
+      (mod) => mod.OpeningScheduleSection
+    ),
+  { ssr: false }
 );
 
-const InstructorCarousel = dynamic(() =>
-  import("@/app/components/organisms/InstructorCarousel").then(
-    (mod) => mod.InstructorCarousel
-  )
+const InstructorCarousel = dynamic(
+  () =>
+    import("@/app/components/organisms/InstructorCarousel").then(
+      (mod) => mod.InstructorCarousel
+    ),
+  { ssr: false } // Swiper is heavy, load client-only
 );
 
 export default function HomePage() {
@@ -129,7 +146,7 @@ export default function HomePage() {
         data={TeacherData}
         title={homeData?.pageBy?.trangChu?.title}
       />
-      <TryNowButton />
+      <TryNowButton onClick={() => setShowTryNowPopup(true)} />
     </>
   );
 }

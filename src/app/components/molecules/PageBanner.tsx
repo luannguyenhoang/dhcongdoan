@@ -28,12 +28,12 @@ export const PageBanner = ({ title, breadcrumbs }: PageBannerProps) => {
                   {item.url ? (
                     <Link
                       href={item.url}
-                      className="text-white hover:text-yellow-200"
+                      className="text-gray-900 hover:text-gray-800 font-semibold"
                     >
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="text-white hover:text-yellow-200">
+                    <span className="text-gray-900 font-semibold">
                       {item.label}
                     </span>
                   )}

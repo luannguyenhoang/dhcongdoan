@@ -50,9 +50,14 @@ export const InstructorCarousel = ({
               (swiperRef as any).current = swiper;
             }}
             modules={[Navigation]}
-            spaceBetween={24}
+            spaceBetween={23}
             slidesPerView={1}
             loop={true}
+            observer={true}
+            observeParents={true}
+            resizeObserver={true}
+            watchOverflow={true}
+            updateOnWindowResize={false}
             breakpoints={{
               480: {
                 slidesPerView: 1
@@ -81,6 +86,9 @@ export const InstructorCarousel = ({
                       alt={`Ảnh giảng viên: ${instructor?.name || "Instructor"}`}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={85}
                     />
                   </div>
                 </div>

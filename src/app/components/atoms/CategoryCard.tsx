@@ -13,13 +13,15 @@ export const CategoryCard = ({ title, image, href }: CategoryCardProps) => {
             fill
             className="object-cover rounded-lg"
             sizes="(max-width: 768px) 100vw, 33vw"
+            loading="lazy"
+            quality={85}
           />
         </div>
       </div>
       <div className="py-3">
-        <h3 className="text-center font-bold text-2xl text-[#E53935]">
+        <h2 className="text-center font-bold text-2xl text-[#E53935]">
           {title}
-        </h3>
+        </h2>
       </div>
     </Link>
   );

@@ -29,18 +29,25 @@ export const MobileMenu = ({
 
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-
-      if (menuRef.current) {
-        const rect = menuRef.current.getBoundingClientRect();
-        setMenuBottom(rect.bottom);
-      }
+      requestAnimationFrame(() => {
+        document.body.style.overflow = "hidden";
+        requestAnimationFrame(() => {
+          if (menuRef.current) {
+            const rect = menuRef.current.getBoundingClientRect();
+            setMenuBottom(rect.bottom);
+          }
+        });
+      });
     } else {
-      document.body.style.overflow = "auto";
+      requestAnimationFrame(() => {
+        document.body.style.overflow = "auto";
+      });
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      requestAnimationFrame(() => {
+        document.body.style.overflow = "auto";
+      });
     };
   }, [mobileMenuOpen]);
 
