@@ -77,7 +77,10 @@ export const LazyFormWrapper = ({
   }, [type, rootMargin]);
 
   return (
-    <div ref={containerRef} style={{ minHeight: shouldLoad ? "auto" : "200px" }}>
+    <div
+      ref={containerRef}
+      style={{ minHeight: shouldLoad ? "auto" : "200px" }}
+    >
       {shouldLoad && isVisible ? (
         <FormWrapper
           title={title}
@@ -101,4 +104,3 @@ export const LazyFormWrapper = ({
     </div>
   );
 };
-
