@@ -1,10 +1,15 @@
 import dynamic from "next/dynamic";
 import { createPortal } from "react-dom";
 
-const FormWrapper = dynamic(() =>
-  import("@/app/components/molecules/FormWrapper").then(
-    (mod) => mod.FormWrapper
-  )
+// Only load FormWrapper when popup is actually shown
+const FormWrapper = dynamic(
+  () =>
+    import("@/app/components/molecules/FormWrapper").then(
+      (mod) => mod.FormWrapper
+    ),
+  {
+    ssr: false
+  }
 );
 
 export const FormPopup = ({
@@ -14,6 +19,11 @@ export const FormPopup = ({
   showPopup: boolean;
   setShowPopup: (showPopup: boolean) => void;
 }) => {
+  // Don't render anything if popup is not shown
+  if (!showPopup) {
+    return null;
+  }
+
   return createPortal(
     <div
       className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-[99999] overflow-hidden"

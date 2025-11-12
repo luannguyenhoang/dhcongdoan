@@ -4,7 +4,7 @@ import { GET_SIDE_BAR } from "@/app/api/graphQL/getSideBar";
 import { getData } from "@/lib/getData";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FormWrapper } from "./FormWrapper";
+import { LazyFormWrapper } from "./LazyFormWrapper";
 
 type SidebarItem = {
   icon: string;
@@ -100,7 +100,7 @@ export const Register = () => {
         Để lại thông tin chúng tôi sẽ gọi ngay cho bạn
       </div>
       <div className="border-b-4 border-yellow-400 w-12 mb-4"></div>
-      <FormWrapper type="form-main" />
+      <LazyFormWrapper type="form-main" />
     </div>
   );
 };

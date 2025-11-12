@@ -2,7 +2,7 @@
 
 import { useCountdown } from "@/hooks/useCountdown";
 import Image from "next/image";
-import { FormWrapper } from "../molecules/FormWrapper";
+import { LazyFormWrapper } from "../molecules/LazyFormWrapper";
 
 const ScheduleCard = ({
   city,
@@ -86,7 +86,7 @@ const RegistrationForm = () => {
       </div>
       <div className="p-6">
         <div className="max-h-[380px] overflow-auto">
-          <FormWrapper type="form-main" />
+          <LazyFormWrapper type="form-main" />
         </div>
       </div>
     </div>

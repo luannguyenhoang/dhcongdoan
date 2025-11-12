@@ -43,41 +43,64 @@ const nextConfig = {
         ],
         splitChunks: {
           chunks: "all",
+          maxInitialRequests: 25,
+          minSize: 20000,
           cacheGroups: {
             default: false,
             vendors: false,
             vendor: {
               name: "vendor",
               chunks: "all",
-              test: /node_modules/,
+              test: /[\\/]node_modules[\\/]/,
               priority: 20,
-              reuseExistingChunk: true
+              reuseExistingChunk: true,
+              enforce: true,
+              minChunks: 1
             },
             react: {
               name: "react",
               chunks: "all",
-              test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
               priority: 30,
-              reuseExistingChunk: true
+              reuseExistingChunk: true,
+              enforce: true
             },
             apollo: {
               name: "apollo",
-              chunks: "all",
+              chunks: "async",
               test: /[\\/]node_modules[\\/]@apollo[\\/]/,
               priority: 25,
-              reuseExistingChunk: true
+              reuseExistingChunk: true,
+              enforce: true
             },
             nextjs: {
               name: "nextjs",
-              chunks: "all",
+              chunks: "async",
               test: /[\\/]node_modules[\\/]next[\\/]/,
               priority: 30,
-              reuseExistingChunk: true
+              reuseExistingChunk: true,
+              enforce: true
+            },
+            framerMotion: {
+              name: "framer-motion",
+              chunks: "async",
+              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+              priority: 25,
+              reuseExistingChunk: true,
+              enforce: true
+            },
+            swiper: {
+              name: "swiper",
+              chunks: "async",
+              test: /[\\/]node_modules[\\/]swiper[\\/]/,
+              priority: 25,
+              reuseExistingChunk: true,
+              enforce: true
             },
             common: {
               name: "common",
               minChunks: 2,
-              chunks: "all",
+              chunks: "async",
               priority: 10,
               reuseExistingChunk: true
             }
@@ -92,8 +115,17 @@ const nextConfig = {
       "react-icons",
       "@apollo/client",
       "framer-motion",
-      "swiper"
+      "swiper",
+      "lucide-react",
+      "@heroicons/react"
     ]
+  },
+  // Optimize production builds
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? {
+      exclude: ["error", "warn"]
+    } : false
   }
 };
 

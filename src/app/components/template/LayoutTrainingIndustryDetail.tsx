@@ -5,7 +5,7 @@ import styles from "@/styles/Post.module.css";
 import { IndustryGroup } from "@/types/types";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { FormWrapper } from "../molecules/FormWrapper";
+import { LazyFormWrapper } from "../molecules/LazyFormWrapper";
 const FormPopup = dynamic(() =>
   import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
 );
@@ -86,7 +86,7 @@ export default function TrainingIndustryDetailLayout({
               </main>
             </article>
           </>
-          <FormWrapper type="form-main" />
+          <LazyFormWrapper type="form-main" />
         </LayoutBottom>
         <RelatedCourses data={industryGroups} />
       </div>

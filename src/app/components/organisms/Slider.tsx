@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormWrapper } from "../molecules/FormWrapper";
+import { LazyFormWrapper } from "../molecules/LazyFormWrapper";
 
 export const Slider = ({
   data,
@@ -242,7 +242,7 @@ export const Slider = ({
                     <p className="text-xs">Số lượng học viên đạt giới hạn</p>
                   </div>
                   <div className="lg:max-h-[362px] w-full overflow-auto">
-                    <FormWrapper type="form-main" />
+                    <LazyFormWrapper type="form-main" />
                   </div>
                 </div>
               </div>

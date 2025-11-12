@@ -9,9 +9,9 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 const FormPopup = dynamic(() =>
   import("@/app/components/molecules/FormPopup").then((mod) => mod.FormPopup)
 );
-const FormWrapper = dynamic(() =>
-  import("@/app/components/molecules/FormWrapper").then(
-    (mod) => mod.FormWrapper
+const LazyFormWrapper = dynamic(() =>
+  import("@/app/components/molecules/LazyFormWrapper").then(
+    (mod) => mod.LazyFormWrapper
   )
 );
 const PageBanner = dynamic(() =>
@@ -104,7 +104,7 @@ export const Contac = () => {
             </h2>
             <div className="h-1 w-28 bg-yellow-400 mb-6 md:mb-8"></div>
 
-            <FormWrapper type={"form-main"} />
+            <LazyFormWrapper type={"form-main"} />
           </div>
         </div>
       </div>

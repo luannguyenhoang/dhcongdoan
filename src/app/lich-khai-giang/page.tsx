@@ -11,9 +11,9 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { FormPopup } from "../components/molecules/FormPopup";
 
-const FormWrapper = dynamic(() =>
-  import("@/app/components/molecules/FormWrapper").then(
-    (mod) => mod.FormWrapper
+const LazyFormWrapper = dynamic(() =>
+  import("@/app/components/molecules/LazyFormWrapper").then(
+    (mod) => mod.LazyFormWrapper
   )
 );
 
@@ -111,7 +111,7 @@ export default function LichKhaiGiang() {
                 <h1 className="text-blue-900 text-xl md:text-3xl font-medium mb-4 text-center">
                   Đăng ký để nhận tư vấn
                 </h1>
-                <FormWrapper type="form-main" />
+                <LazyFormWrapper type="form-main" />
               </div>
             </div>
           </div>
