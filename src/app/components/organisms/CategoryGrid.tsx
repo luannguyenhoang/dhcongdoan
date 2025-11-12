@@ -22,6 +22,8 @@ export const CategoryGrid = ({ data }: { data?: any }) => {
         fill
         className="object-cover"
         priority
+        sizes="100vw"
+        quality={85}
       />
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         <div className="relative mb-10">

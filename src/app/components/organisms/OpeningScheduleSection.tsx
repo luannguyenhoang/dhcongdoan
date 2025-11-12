@@ -107,7 +107,8 @@ export const OpeningScheduleSection = ({ data }: { data: any }) => {
   ];
 
   return (
-    <div className="relative w-full min-h-[700px] lg:h-[690px] overflow-hidden">
+    <section className="relative w-full min-h-[700px] lg:h-[690px] overflow-hidden">
+      <h2 className="sr-only">Lịch khai giảng</h2>
       <Image
         src="/bg-ss7.png"
         alt="Background"
@@ -156,6 +157,6 @@ export const OpeningScheduleSection = ({ data }: { data: any }) => {
           <RegistrationForm />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
