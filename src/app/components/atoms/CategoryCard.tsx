@@ -13,6 +13,8 @@ export const CategoryCard = ({ title, image, href }: CategoryCardProps) => {
             fill
             className="object-cover rounded-lg"
             sizes="(max-width: 768px) 100vw, 33vw"
+            loading="lazy"
+            quality={85}
           />
         </div>
       </div>

@@ -47,6 +47,9 @@ export const HeaderMenu = ({ headerData }: { headerData: any }) => {
                 alt="Logo Đại học Công Đoàn"
                 width={300}
                 height={300}
+                priority
+                fetchPriority="high"
+                className="w-[250px] lg:w-[300px]"
               />
             </Link>
             <div className="hidden md:block h-full">

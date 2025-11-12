@@ -26,45 +26,57 @@ export const useSidebarScroll = ({
       const activeItem = activeItemRefs.current[currentSlide];
 
       if (activeItem) {
-        const itemRect = activeItem.getBoundingClientRect();
-        const sidebarRect = sidebar.getBoundingClientRect();
-        const isMobile = window.innerWidth < 1024;
+        // Use requestAnimationFrame to batch DOM reads and avoid forced reflow
+        requestAnimationFrame(() => {
+          // Batch all DOM reads together
+          const itemRect = activeItem.getBoundingClientRect();
+          const sidebarRect = sidebar.getBoundingClientRect();
+          const isMobile = window.innerWidth < 1024;
 
-        if (isMobile) {
-          const isVisible =
-            itemRect.left >= sidebarRect.left &&
-            itemRect.right <= sidebarRect.right;
+          if (isMobile) {
+            const isVisible =
+              itemRect.left >= sidebarRect.left &&
+              itemRect.right <= sidebarRect.right;
 
-          if (!isVisible) {
-            const scrollLeft =
-              activeItem.offsetLeft -
-              sidebar.offsetLeft -
-              sidebar.clientWidth / 2 +
-              activeItem.clientWidth / 2;
+            if (!isVisible) {
+              // Batch all offset reads
+              const scrollLeft =
+                activeItem.offsetLeft -
+                sidebar.offsetLeft -
+                sidebar.clientWidth / 2 +
+                activeItem.clientWidth / 2;
 
-            sidebar.scrollTo({
-              left: scrollLeft,
-              behavior: "smooth"
-            });
+              // Use requestAnimationFrame for DOM writes
+              requestAnimationFrame(() => {
+                sidebar.scrollTo({
+                  left: scrollLeft,
+                  behavior: "smooth"
+                });
+              });
+            }
+          } else {
+            const isVisible =
+              itemRect.top >= sidebarRect.top &&
+              itemRect.bottom <= sidebarRect.bottom;
+
+            if (!isVisible) {
+              // Batch all offset reads
+              const scrollTop =
+                activeItem.offsetTop -
+                sidebar.offsetTop -
+                sidebar.clientHeight / 2 +
+                activeItem.clientHeight / 2;
+
+              // Use requestAnimationFrame for DOM writes
+              requestAnimationFrame(() => {
+                sidebar.scrollTo({
+                  top: scrollTop,
+                  behavior: "smooth"
+                });
+              });
+            }
           }
-        } else {
-          const isVisible =
-            itemRect.top >= sidebarRect.top &&
-            itemRect.bottom <= sidebarRect.bottom;
-
-          if (!isVisible) {
-            const scrollTop =
-              activeItem.offsetTop -
-              sidebar.offsetTop -
-              sidebar.clientHeight / 2 +
-              activeItem.clientHeight / 2;
-
-            sidebar.scrollTo({
-              top: scrollTop,
-              behavior: "smooth"
-            });
-          }
-        }
+        });
       }
     }
   }, [currentSlide]);
