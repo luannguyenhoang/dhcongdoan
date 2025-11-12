@@ -19,6 +19,7 @@ export const Slider = ({
           alt="slider"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover z-10"
         />
@@ -37,6 +38,7 @@ export const Slider = ({
                   height={300}
                   className="w-full h-auto z-10 relative"
                   priority
+                  fetchPriority="high"
                 />
                 <div className="absolute top-0 right-0 w-full max-w-[150px]">
                   <Image
