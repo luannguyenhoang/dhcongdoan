@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 const STORAGE_KEY = "popupEventClosed";
-const RESET_TIME = 10 * 60 * 1000;
-
+const RESET_TIME = 10 * 60 * 1000; // 10 phút (600000ms)
 export const PopupEvent = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [mounted, setMounted] = useState(false);
