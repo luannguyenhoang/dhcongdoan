@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export const useSizeWindow = () => {
   const hasWindow = typeof window !== "undefined";
@@ -8,22 +8,75 @@ export const useSizeWindow = () => {
     width: hasWindow ? window.innerWidth : 0,
     height: hasWindow ? window.scrollY : 0
   });
+  const rafIdRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const setHeigth = () => {
-      const newHeight = hasWindow ? window.scrollY : 0;
-      newHeight && setSize((prev) => ({ ...prev, height: newHeight }));
+    if (!hasWindow) return;
+
+    // Throttle function to limit updates
+    const throttle = (func: () => void, limit: number) => {
+      let inThrottle: boolean;
+      return () => {
+        if (!inThrottle) {
+          func();
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
     };
+
+    const setHeight = () => {
+      // Cancel previous RAF if exists
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+
+      // Use requestAnimationFrame to batch DOM reads
+      rafIdRef.current = requestAnimationFrame(() => {
+        const newHeight = window.scrollY;
+        setSize((prev) => {
+          // Only update if value changed to avoid unnecessary re-renders
+          if (prev.height !== newHeight) {
+            return { ...prev, height: newHeight };
+          }
+          return prev;
+        });
+      });
+    };
+
     const setWidth = () => {
-      const newWidth = hasWindow ? window.innerWidth : 0;
-      newWidth && setSize((prev) => ({ ...prev, width: newWidth }));
+      // Cancel previous RAF if exists
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+
+      // Use requestAnimationFrame to batch DOM reads
+      rafIdRef.current = requestAnimationFrame(() => {
+        const newWidth = window.innerWidth;
+        setSize((prev) => {
+          // Only update if value changed to avoid unnecessary re-renders
+          if (prev.width !== newWidth) {
+            return { ...prev, width: newWidth };
+          }
+          return prev;
+        });
+      });
     };
-    hasWindow && window.addEventListener("scroll", setHeigth);
-    hasWindow && window.addEventListener("resize", setWidth);
+
+    // Throttle scroll events (16ms = ~60fps)
+    const throttledSetHeight = throttle(setHeight, 16);
+    // Throttle resize events (100ms to avoid too many updates)
+    const throttledSetWidth = throttle(setWidth, 100);
+
+    window.addEventListener("scroll", throttledSetHeight, { passive: true });
+    window.addEventListener("resize", throttledSetWidth, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", setWidth);
-      window.removeEventListener("scroll", setHeigth);
+      window.removeEventListener("scroll", throttledSetHeight);
+      window.removeEventListener("resize", throttledSetWidth);
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
     };
   }, [hasWindow]);
 

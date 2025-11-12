@@ -88,7 +88,8 @@ export const PopupEvent = () => {
         <button
           className="absolute top-4 right-4 bg-white/80 hover:bg-white rounded-full p-1 border-none cursor-pointer z-10 shadow-lg"
           onClick={handleClose}
-          aria-label="Đóng popup"
+          aria-label="Đóng popup sự kiện"
+          type="button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -101,6 +102,8 @@ export const PopupEvent = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
             className="text-gray-700"
+            aria-hidden="true"
+            focusable="false"
           >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>

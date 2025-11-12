@@ -60,10 +60,10 @@ export const Footer = () => {
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-6 relative">
+              <h2 className="text-xl font-bold mb-6 relative">
                 Khám phá
                 <span className="absolute bottom-[-10px] left-0 w-12 h-1 bg-yellow-400"></span>
-              </h3>
+              </h2>
               <ul className="space-y-3 mt-4">
                 {menus.map((item) => (
                   <li key={item.title}>
@@ -78,10 +78,10 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-6 relative">
+              <h2 className="text-xl font-bold mb-6 relative">
                 Ngành đào tạo
                 <span className="absolute bottom-[-10px] left-0 w-12 h-1 bg-yellow-400"></span>
-              </h3>
+              </h2>
               <ul className="space-y-3 mt-4">
                 {nganhdaotao?.childs?.map((child) => (
                   <li key={child.title}>
@@ -96,10 +96,10 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-6 relative">
+              <h2 className="text-xl font-bold mb-6 relative">
                 Liên hệ
                 <span className="absolute bottom-[-10px] left-0 w-12 h-1 bg-yellow-400" />
-              </h3>
+              </h2>
               <ul className="space-y-5 mt-4">
                 <li className="flex items-start">
                   <div className="mr-3 text-[#fdc800] flex-shrink-0 flex items-center justify-center w-9 h-9">

@@ -30,6 +30,8 @@ export const FormPopup = ({
         <button
           className="absolute top-4 right-4 bg-transparent border-none text-xl cursor-pointer"
           onClick={() => setShowPopup(false)}
+          aria-label="Đóng form đăng ký"
+          type="button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,6 +44,8 @@ export const FormPopup = ({
             strokeLinecap="round"
             strokeLinejoin="round"
             className="text-gray-500 hover:text-gray-700"
+            aria-hidden="true"
+            focusable="false"
           >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>

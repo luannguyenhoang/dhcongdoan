@@ -81,6 +81,9 @@ export const NewPost = () => {
                           width={80}
                           height={64}
                           className="w-full h-full object-cover"
+                          loading="lazy"
+                          sizes="80px"
+                          quality={75}
                         />
                       ) : (
                         <div className="w-full h-full bg-gray-200 flex items-center justify-center">

@@ -12,15 +12,3 @@ export const getCategoryDisplayName = (slug?: string): string => {
   const displayName = categoryMap[slug] || "Y học";
   return displayName;
 };
-
-export const getCategoryColor = (slug: string): string => {
-  const colorMap: { [key: string]: string } = {
-    "y-hoc-co-truyen": "bg-blue-600",
-    "y-hoc-cong-dong": "bg-red-500",
-    "nhi-khoa": "bg-[#1DA1F2]",
-    "san-phu-khoa": "bg-[#0077B5]",
-    "y-hoc-the-thao": "bg-orange-600"
-  };
-
-  return colorMap[slug] || "bg-blue-500";
-};

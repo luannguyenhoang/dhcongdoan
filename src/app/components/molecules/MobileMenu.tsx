@@ -31,9 +31,14 @@ export const MobileMenu = ({
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
 
+      // Use requestAnimationFrame to avoid forced reflow
       if (menuRef.current) {
-        const rect = menuRef.current.getBoundingClientRect();
-        setMenuBottom(rect.bottom);
+        requestAnimationFrame(() => {
+          if (menuRef.current) {
+            const rect = menuRef.current.getBoundingClientRect();
+            setMenuBottom(rect.bottom);
+          }
+        });
       }
     } else {
       document.body.style.overflow = "auto";
