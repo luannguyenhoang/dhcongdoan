@@ -36,6 +36,7 @@ const createIframeForSam = (
 
   const iframe = document.createElement("iframe");
   iframe.setAttribute("src", fullUrl);
+  iframe.setAttribute("title", "Form đăng ký tư vấn");
   iframe.style.width = "100%";
   iframe.style.minHeight = "450px";
   iframe.classList.add(divClass);

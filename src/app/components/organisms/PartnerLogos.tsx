@@ -23,6 +23,11 @@ export const PartnerLogos = ({ data }: { data?: any }) => {
           slidesPerView={2}
           centeredSlides={false}
           loop={true}
+          observer={true}
+          observeParents={true}
+          resizeObserver={true}
+          watchOverflow={true}
+          updateOnWindowResize={false}
           breakpoints={{
             480: {
               slidesPerView: 2,
@@ -56,6 +61,9 @@ export const PartnerLogos = ({ data }: { data?: any }) => {
                   width={220}
                   height={220}
                   className="object-contain max-h-full max-w-full"
+                  loading="lazy"
+                  sizes="(max-width: 480px) 50vw, (max-width: 1024px) 25vw, 220px"
+                  quality={75}
                 />
               </div>
             </SwiperSlide>

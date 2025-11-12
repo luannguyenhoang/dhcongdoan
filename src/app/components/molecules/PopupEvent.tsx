@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 const STORAGE_KEY = "popupEventClosed";
-const RESET_TIME = 10 * 60 * 1000; // 10 phút (600000ms)
 
+const RESET_TIME = 10 * 60 * 1000; // 10 phút (600000ms)
 export const PopupEvent = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -17,7 +17,6 @@ export const PopupEvent = () => {
   useEffect(() => {
     setMounted(true);
 
-    // Fetch popup data
     const fetchPopupData = async () => {
       try {
         const data = await getData(GET_POPUP);
@@ -29,11 +28,12 @@ export const PopupEvent = () => {
       }
     };
 
-    // Kiểm tra localStorage trước khi quyết định hiển thị popup
+
     if (typeof window !== "undefined") {
       const closedTime = localStorage.getItem(STORAGE_KEY);
 
       if (!closedTime) {
+
         // Chưa đóng bao giờ, hiển thị popup
         setShowPopup(true);
       } else {
@@ -47,12 +47,12 @@ export const PopupEvent = () => {
         } else {
           const timeDiff = Date.now() - closedTimestamp;
 
+
           if (timeDiff >= RESET_TIME) {
             // Đã qua 10 phút, xóa localStorage và hiển thị popup lại
             localStorage.removeItem(STORAGE_KEY);
             setShowPopup(true);
           }
-          // Nếu chưa qua 10 phút thì không hiển thị popup (showPopup vẫn là false)
         }
       }
     }
@@ -60,10 +60,35 @@ export const PopupEvent = () => {
     fetchPopupData();
   }, []);
 
+  useEffect(() => {
+    if (showPopup && mounted) {
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+
+      requestAnimationFrame(() => {
+        document.body.style.overflow = "hidden";
+        if (scrollbarWidth > 0) {
+          document.body.style.paddingRight = `${scrollbarWidth}px`;
+        }
+      });
+    } else if (!showPopup && mounted) {
+      requestAnimationFrame(() => {
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+      });
+    }
+
+    return () => {
+      requestAnimationFrame(() => {
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+      });
+    };
+  }, [showPopup, mounted]);
+
   const handleClose = () => {
     setShowPopup(false);
     if (typeof window !== "undefined") {
-      // Lưu timestamp hiện tại vào localStorage
       localStorage.setItem(STORAGE_KEY, Date.now().toString());
     }
   };
@@ -76,8 +101,7 @@ export const PopupEvent = () => {
     <div
       className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[99999] overflow-hidden"
       style={{
-        isolation: "isolate",
-        paddingRight: "calc(100vw - 100%)"
+        isolation: "isolate"
       }}
       onClick={handleClose}
     >
@@ -88,7 +112,8 @@ export const PopupEvent = () => {
         <button
           className="absolute top-4 right-4 bg-white/80 hover:bg-white rounded-full p-1 border-none cursor-pointer z-10 shadow-lg"
           onClick={handleClose}
-          aria-label="Đóng popup"
+          aria-label="Đóng popup sự kiện"
+          type="button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -101,6 +126,8 @@ export const PopupEvent = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
             className="text-gray-700"
+            aria-hidden="true"
+            focusable="false"
           >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>

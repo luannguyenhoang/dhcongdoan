@@ -36,19 +36,23 @@ export const HeaderMenu = ({ headerData }: { headerData: any }) => {
       <div className="bg-white shadow-md sticky top-0 z-50 lg:px-0 px-2">
         <div className="mx-auto max-w-7xl h-full">
           <div className="flex justify-between items-center lg:gap-4 gap-1 h-24">
-            <MobileMenu
-              mobileMenuOpen={mobileMenuOpen}
-              setMobileMenuOpen={setMobileMenuOpen}
-            />
-
-            <Link href="/" className="flex items-center mx-auto md:mx-0">
-              <Image
-                src={headerData?.logo?.node?.mediaItemUrl || "/logo.png"}
-                alt="Logo Đại học Công Đoàn"
-                width={300}
-                height={300}
+            <div className="flex justify-center items-center gap-8">
+              <MobileMenu
+                mobileMenuOpen={mobileMenuOpen}
+                setMobileMenuOpen={setMobileMenuOpen}
               />
-            </Link>
+              <Link href="/" className="flex items-center mx-auto md:mx-0">
+                <Image
+                  src={headerData?.logo?.node?.mediaItemUrl || "/logo.png"}
+                  alt="Logo Đại học Công Đoàn"
+                  width={300}
+                  height={300}
+                  priority
+                  fetchPriority="high"
+                  className="w-[250px] lg:w-[300px]"
+                />
+              </Link>
+            </div>
             <div className="hidden md:block h-full">
               <DesktopMenu />
             </div>
