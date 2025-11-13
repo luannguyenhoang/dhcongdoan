@@ -7,7 +7,7 @@ import { getData } from "@/lib/getData";
 import { IndustryGroup } from "@/types/types";
 import { toSlug } from "@/utils/toSlug";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { FaTimes } from "react-icons/fa";
 
 const FormPopup = dynamic(() =>
@@ -58,7 +58,8 @@ export default function Page() {
   const bannerUrl = nganhHoc?.banner?.node?.mediaItemUrl || "/image11.webp";
   const industryGroups: IndustryGroup[] = nganhHoc?.industrygroups || [];
 
-  const normalizeText = (text: string = "") => {
+  // Memoize normalizeText để tránh tạo function mới mỗi lần render
+  const normalizeText = useCallback((text: string = "") => {
     return text
       .toLowerCase()
       .normalize("NFD")
@@ -66,20 +67,25 @@ export default function Page() {
       .replace(/[đĐ]/g, "d")
       .replace(/[^\w\s]/gi, "")
       .trim();
-  };
+  }, []);
 
-  const filteredIndustryGroups = industryGroups.filter((industry) => {
-    if (searchTerm === "") return true;
+  // Memoize filtered results để tránh re-compute mỗi lần render
+  // Chỉ re-compute khi searchTerm hoặc industryGroups thay đổi
+  const filteredIndustryGroups = useMemo(() => {
+    if (searchTerm === "") return industryGroups;
 
     const normalizedSearchTerm = normalizeText(searchTerm);
-    const normalizedName = normalizeText(industry.industryname || "");
-    const normalizedDesc = normalizeText(industry.description || "");
 
-    return (
-      normalizedName.includes(normalizedSearchTerm) ||
-      normalizedDesc.includes(normalizedSearchTerm)
-    );
-  });
+    return industryGroups.filter((industry) => {
+      const normalizedName = normalizeText(industry.industryname || "");
+      const normalizedDesc = normalizeText(industry.description || "");
+
+      return (
+        normalizedName.includes(normalizedSearchTerm) ||
+        normalizedDesc.includes(normalizedSearchTerm)
+      );
+    });
+  }, [industryGroups, searchTerm, normalizeText]);
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);

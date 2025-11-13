@@ -3,7 +3,7 @@
 import { GET_TRANG_CHU } from "@/app/api/graphQL/getTrangChu";
 import { getData } from "@/lib/getData";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
 // Popup component (rendered conditionally)
 const FormPopup = dynamic(() =>
@@ -21,12 +21,17 @@ const Slider = dynamic(
   { ssr: true } // Critical above-the-fold content
 );
 
+// Defer non-critical components - chỉ load khi cần thiết
+// Giảm Script Evaluation và Parsing time ngay từ đầu
 const CategoryGrid = dynamic(
   () =>
     import("@/app/components/organisms/CategoryGrid").then(
       (mod) => mod.CategoryGrid
     ),
-  { ssr: false } // Can be client-only
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[200px]" /> // Placeholder để tránh layout shift
+  }
 );
 
 const TabContent = dynamic(
@@ -34,7 +39,10 @@ const TabContent = dynamic(
     import("@/app/components/organisms/TabContent").then(
       (mod) => mod.TabContent
     ),
-  { ssr: false } // Interactive content
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[400px]" />
+  }
 );
 
 const CertificateSection = dynamic(
@@ -42,7 +50,10 @@ const CertificateSection = dynamic(
     import("@/app/components/organisms/CertificateSection").then(
       (mod) => mod.CertificateSection
     ),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[300px]" />
+  }
 );
 
 const LearningMethodSection = dynamic(
@@ -50,7 +61,10 @@ const LearningMethodSection = dynamic(
     import("@/app/components/organisms/LearningMethodSection").then(
       (mod) => mod.LearningMethodSection
     ),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[300px]" />
+  }
 );
 
 const RegistrationBanner = dynamic(
@@ -58,7 +72,10 @@ const RegistrationBanner = dynamic(
     import("@/app/components/organisms/RegistrationBanner").then(
       (mod) => mod.RegistrationBanner
     ),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[200px]" />
+  }
 );
 
 const OpeningScheduleSection = dynamic(
@@ -66,15 +83,22 @@ const OpeningScheduleSection = dynamic(
     import("@/app/components/organisms/OpeningScheduleSection").then(
       (mod) => mod.OpeningScheduleSection
     ),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[400px]" />
+  }
 );
 
+// Swiper là library nặng, defer hoàn toàn
 const InstructorCarousel = dynamic(
   () =>
     import("@/app/components/organisms/InstructorCarousel").then(
       (mod) => mod.InstructorCarousel
     ),
-  { ssr: false } // Swiper is heavy, load client-only
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[300px]" />
+  }
 );
 
 export default function HomePage() {
@@ -135,17 +159,43 @@ export default function HomePage() {
           setShowPopup={setShowTryNowPopup}
         />
       )}
+      {/* Critical above-the-fold content - load ngay */}
       <Slider data={SliderData} loading={isLoading} />
-      <CategoryGrid data={TrainingIndustryData} />
-      <TabContent data={TabContentData} />
-      <CertificateSection data={CertificateSectionData} />
-      <LearningMethodSection data={LearningMethodSectionData} />
-      <RegistrationBanner data={RegistrationBannerData} />
-      <OpeningScheduleSection data={OpeningScheduleSectionData} />
-      <InstructorCarousel
-        data={TeacherData}
-        title={homeData?.pageBy?.trangChu?.title}
-      />
+
+      {/* Defer non-critical components - chỉ load khi browser rảnh */}
+      {/* Sử dụng Suspense để tránh blocking render */}
+      <Suspense fallback={<div className="min-h-[200px]" />}>
+        <CategoryGrid data={TrainingIndustryData} />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <TabContent data={TabContentData} />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[300px]" />}>
+        <CertificateSection data={CertificateSectionData} />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[300px]" />}>
+        <LearningMethodSection data={LearningMethodSectionData} />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[200px]" />}>
+        <RegistrationBanner data={RegistrationBannerData} />
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <OpeningScheduleSection data={OpeningScheduleSectionData} />
+      </Suspense>
+
+      {/* Defer Swiper - library nặng nhất */}
+      <Suspense fallback={<div className="min-h-[300px]" />}>
+        <InstructorCarousel
+          data={TeacherData}
+          title={homeData?.pageBy?.trangChu?.title}
+        />
+      </Suspense>
+
       <TryNowButton onClick={() => setShowTryNowPopup(true)} />
     </>
   );

@@ -128,16 +128,26 @@ export const FormWrapper = ({
           throw new Error("Form HTML content not found");
         }
 
-        const parsedData = parseFormHtml(htmlContent);
+        // Defer HTML parsing để không block main thread
+        // Sử dụng requestIdleCallback nếu có, fallback về setTimeout
+        const parseInBackground = () => {
+          const parsedData = parseFormHtml(htmlContent);
+          setProcessedFormData(parsedData);
+          setError(null);
+          setLoading(false);
+        };
 
-        setProcessedFormData(parsedData);
-        setError(null);
+        if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+          requestIdleCallback(parseInBackground, { timeout: 1000 });
+        } else {
+          // Fallback: defer parsing sau khi browser có thời gian render
+          setTimeout(parseInBackground, 0);
+        }
       } catch (err) {
         console.error("Error processing form data:", err);
         setError(
           err instanceof Error ? err.message : "An unknown error occurred"
         );
-      } finally {
         setLoading(false);
       }
     };

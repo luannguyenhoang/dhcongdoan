@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 interface Tab {
   title: string;
@@ -17,6 +17,14 @@ export const TabContent = ({ data }: TabContentProps) => {
 
   const informationData = data?.information;
   const finalTabs = informationData?.items || [];
+
+  // Memoize processed items để tránh split/filter mỗi lần render
+  const processedItems = useMemo(() => {
+    const currentTab = finalTabs[activeTab];
+    if (!currentTab?.item) return [];
+
+    return currentTab.item.split("\r\n").filter((line: string) => line.trim());
+  }, [finalTabs, activeTab]);
 
   return (
     <div className="w-full relative">
@@ -75,15 +83,12 @@ export const TabContent = ({ data }: TabContentProps) => {
                     }}
                   />
                   <div className="space-y-1">
-                    {finalTabs[activeTab]?.item
-                      ?.split("\r\n")
-                      .filter((line: string) => line.trim())
-                      .map((item: string, index: number) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-gray-700">{item}</p>
-                        </div>
-                      ))}
+                    {processedItems.map((item: string, index: number) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-700">{item}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
